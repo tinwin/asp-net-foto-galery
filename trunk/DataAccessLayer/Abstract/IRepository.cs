@@ -8,5 +8,6 @@ namespace Photogallery.DataAccessLayer.Abstract
     public interface IRepository<T>
     {
         IEnumerable<T> Items { get; }
+        void Save(T item);
     }
 }

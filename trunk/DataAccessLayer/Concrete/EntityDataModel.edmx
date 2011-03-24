@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="photogalleryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+    <Schema Namespace="photogalleryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="photogalleryModelStoreContainer">
           <EntitySet Name="Albums" EntityType="photogalleryModel.Store.Albums" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Comments" EntityType="photogalleryModel.Store.Comments" store:Type="Tables" Schema="dbo" />
@@ -19,8 +19,9 @@
           <Key>
             <PropertyRef Name="AlbumId" />
           </Key>
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="AlbumId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PostId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Comments">
           <Key>
@@ -38,7 +39,7 @@
           </Key>
           <Property Name="PhotoId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Title" Type="nchar" Nullable="false" MaxLength="50" />
-          <Property Name="Dexcription" Type="ntext" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
           <Property Name="Album" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Tags">
@@ -60,17 +61,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="photogalleryModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
         <EntityContainer Name="EntityContainer">
-          <EntitySet Name="PhotoSet" EntityType="photogalleryModel.Photo" /></EntityContainer>
+          <EntitySet Name="PhotoSet" EntityType="photogalleryModel.Photo" />
+          <EntitySet Name="AlbumSet" EntityType="photogalleryModel.Album" />
+          <AssociationSet Name="FK_Photos_Albums" Association="photogalleryModel.FK_Photos_Albums">
+            <End Role="Album" EntitySet="AlbumSet" />
+            <End Role="Photo" EntitySet="PhotoSet" /></AssociationSet></EntityContainer>
         <EntityType Name="Photo">
           <Key>
             <PropertyRef Name="PhotoId" /></Key>
-          <Property Name="PhotoId" Type="Int32" Nullable="false" /></EntityType></Schema>
+          <Property Name="PhotoId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Album" Relationship="photogalleryModel.FK_Photos_Albums" FromRole="Photo" ToRole="Album" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          </EntityType>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="AlbumId" /></Key>
+          <Property Name="AlbumId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <NavigationProperty Name="Photos" Relationship="photogalleryModel.FK_Photos_Albums" FromRole="Album" ToRole="Photo" /></EntityType>
+        <Association Name="FK_Photos_Albums">
+          <End Type="photogalleryModel.Album" Role="Album" Multiplicity="0..1" />
+          <End Type="photogalleryModel.Photo" Role="Photo" Multiplicity="*" /></Association></Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -79,7 +97,21 @@
           <EntitySetMapping Name="PhotoSet">
             <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.Photo)">
               <MappingFragment StoreEntitySet="Photos">
-                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" /></MappingFragment></EntityTypeMapping></EntitySetMapping></EntityContainerMapping>
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AlbumSet">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.Album)">
+              <MappingFragment StoreEntitySet="Albums">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_Photos_Albums" TypeName="photogalleryModel.FK_Photos_Albums" StoreEntitySet="Photos">
+            <EndProperty Name="Photo">
+              <ScalarProperty Name="PhotoId" ColumnName="PhotoId" /></EndProperty>
+            <EndProperty Name="Album">
+              <ScalarProperty Name="AlbumId" ColumnName="Album" /></EndProperty>
+            <Condition ColumnName="Album" IsNull="false" /></AssociationSetMapping></EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -98,6 +130,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="EntityDataModel">
-        <EntityTypeShape EntityType="photogalleryModel.Photo" Width="1.5" PointX="3.125" PointY="1.375" Height="1.018779296875" /></Diagram></edmx:Diagrams>
+        <EntityTypeShape EntityType="photogalleryModel.Photo" Width="1.5" PointX="2.875" PointY="1.125" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="photogalleryModel.Album" Width="1.5" PointX="3" PointY="3.375" Height="1.7879850260416665" />
+        <AssociationConnector Association="photogalleryModel.FK_Photos_Albums" >
+          <ConnectorPoint PointX="3.6875" PointY="3.375" />
+          <ConnectorPoint PointX="3.6875" PointY="2.912985026041667" /></AssociationConnector></Diagram></edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

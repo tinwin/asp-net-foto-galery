@@ -14,5 +14,11 @@ namespace Photogallery.DataAccessLayer.Concrete
         {
             get { return from photo in _context.PhotoSet select photo; }
         }
+
+        public void Save(Photo item)
+        {
+            _context.AddToPhotoSet(item);
+            _context.SaveChanges();
+        }
     }
 }
