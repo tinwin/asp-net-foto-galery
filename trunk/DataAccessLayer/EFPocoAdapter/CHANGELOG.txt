@@ -1,0 +1,27 @@
+2008/09/25 - v1.03
+	* Added wrapper for ObjectContext.ApplyPropertyChanges() to IEntitySet<T>
+	* Added wrapper for ObjectContext.Detach() to IEntitySet<T>
+        * Fixed handling of detached/out-of-scope entities w.r.t lazy loading 
+	  and attaching to other contexts. Lazy loading outside of scope will do nothing
+	  if the context had DeferredLoadingEnabled=false, otherwise will throw.
+	* Added partial OnZZZCreated() methods on generated contexts, adapters and proxies.
+	* Fixed code generation from EDMX.
+	* EFPocoContext.EnableLazyLoading renamed to EFPocoContext.DeferredLoadingEnabled
+	  to better align with Linq to SQL and EF v2.
+	* Fixed adapter-POCO synchronization for complex types.
+
+2008/09/12 - v1.02
+	Fixed two bugs reported by Corey Gaudin:
+		1. EFPocoContext.GetAdapterObject(entity) didn't work when entity
+		was a proxy. Now making sure that every proxy is always associated with a cached adapter
+		so this situation is not possible.
+		2. Lazy loading was allowed for detached and Added entities. Now only enabling for Unmodified and
+		modified.
+	Fixed code generator to get rid of compilation warning because of unused field.
+
+2008/09/10 - v1.01
+	Fixed a bug where code generator didn't work for collections if you had not provided /ref: parameter.
+	Updated DetectChanges() for collections and references to be much faster.
+
+2008/09/09 - v1.0
+	Initial release

@@ -1,0 +1,1 @@
+.\EFPocoAdapter\EFPocoClassGen\bin\Debug\EFPocoClassGen /inedmx:%CD%\Concrete\EntityModel.edmx /ref:%CD%\bin\debug\DataAccessLayer.dll /outputfile:%CD%\Concrete\PocoAdapter.cs 
