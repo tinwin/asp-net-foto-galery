@@ -8,11 +8,18 @@ namespace Photogallery
 {
     public interface IGalleryUser
     {
+        Guid UserId { get; set; }
+
+        string Username { get; set; }
+
+        
         IAlbum RootAlbum { get; set; }
 
         IEnumerable<IComment> UserComments { get; set; }
 
         string Description { get; set; }
+
+        
 
 
         void AddComment(IComment comment);
