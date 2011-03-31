@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BuisnessLayer\BL.csproj", "{6B65C350-C148-44A4-94E8-C45F7ABDAF77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B65C350-C148-44A4-94E8-C45F7ABDAF77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B65C350-C148-44A4-94E8-C45F7ABDAF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B65C350-C148-44A4-94E8-C45F7ABDAF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B65C350-C148-44A4-94E8-C45F7ABDAF77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
