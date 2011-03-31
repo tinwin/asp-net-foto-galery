@@ -26,7 +26,7 @@ namespace Photogallery
 
         DateTime CreationDate { get; set; }
 
-        bool IsRootAlbum { get; set; }
+        bool IsRootAlbum { get;}
 
         IEnumerable<ITag> AlbumTags { get; set; }
 
