@@ -1,0 +1,71 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:abstract/f:IGalleryProvider.cs" caret="228" fromTop="10" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:IPhotoRepository.cs" caret="313" fromTop="14" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:ITagRepository.cs" caret="90" fromTop="4" />
+      <File id="6B65C350-C148-44A4-94E8-C45F7ABDAF77/f:Album.cs" caret="0" fromTop="0" />
+      <File id="6B65C350-C148-44A4-94E8-C45F7ABDAF77/f:Comment.cs" caret="0" fromTop="0" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:IAlbumRepository.cs" caret="308" fromTop="14" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:IGalleryUserRepository.cs" caret="345" fromTop="15" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:abstract/f:IGalleryProvider.cs" caret="332" fromTop="13" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:abstract/f:IGalleryProvider.cs" caret="326" fromTop="13" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:abstract/f:IGalleryProvider.cs" caret="255" fromTop="11" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:IGalleryUserRepository.cs" caret="361" fromTop="11" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:abstract/f:IGalleryProvider.cs" caret="976" fromTop="17" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:abstract/f:IGalleryProvider.cs" caret="166" fromTop="5" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:IAlbumRepository.cs" caret="308" fromTop="14" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:IGalleryUserRepository.cs" caret="128" fromTop="5" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:IGalleryUserRepository.cs" caret="345" fromTop="15" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:IPhotoRepository.cs" caret="314" fromTop="14" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:ITagRepository.cs" caret="330" fromTop="16" />
+      <File id="8E02F83B-1C26-4E60-A1CE-82DED777ED5C/d:AbstractEntities/f:ITagRepository.cs" caret="90" fromTop="4" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Guid" priority="2" />
+      <Item value="public" priority="9" />
+      <Item value="virtual" priority="2" />
+      <Item value="throw" priority="0" />
+      <Item value="NotImplementedException" priority="0" />
+      <Item value="string" priority="8" />
+      <Item value="Album" priority="3" />
+      <Item value="IEquatable" priority="1" />
+      <Item value="DateTime" priority="2" />
+      <Item value="bool" priority="0" />
+      <Item value="Photo" priority="1" />
+      <Item value="GalleryUser" priority="2" />
+      <Item value="using" priority="2" />
+      <Item value="System" priority="2" />
+      <Item value="Web" priority="1" />
+      <Item value="IEnumerable" priority="3" />
+      <Item value="Comment" priority="3" />
+      <Item value="Tag" priority="4" />
+      <Item value="Image" priority="1" />
+      <Item value="int" priority="3" />
+      <Item value="interface" priority="0" />
+      <Item value="abstract" priority="0" />
+      <Item value="void" priority="12" />
+      <Item value="comment" priority="1" />
+      <Item value="album" priority="1" />
+      <Item value="Photogallery" priority="0" />
+      <Item value="photo" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>
