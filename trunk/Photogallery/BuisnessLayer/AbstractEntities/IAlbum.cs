@@ -30,6 +30,8 @@ namespace Photogallery
 
         IEnumerable<ITag> AlbumTags { get; set; }
 
+        IEnumerable<Comment> AlbumComments { get; set; }
+
 
 
         void AddComment(IComment comment);
