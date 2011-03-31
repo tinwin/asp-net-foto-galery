@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace DAL.EFDataProvider.Adapters
 {
     class PhotoAdapter : Photogallery.IPhoto
     {
-        private Photo _photo;
+        private readonly Photo _photo;
 
         public PhotoAdapter()
         {
@@ -19,7 +20,7 @@ namespace DAL.EFDataProvider.Adapters
         public PhotoAdapter(Photo photo)
         {
             _photo = photo;
-            HostAlbum = new AlbumAdapter(photo.Album);
+            _hostAlbum = new AlbumAdapter(photo.Album);
         }
 
         public Guid PhotoId 
@@ -34,9 +35,15 @@ namespace DAL.EFDataProvider.Adapters
             set { _photo.Title = value; }
         }
 
-        public IAlbum HostAlbum { get; set; }
+        private Photogallery.IAlbum _hostAlbum;
 
-        private IEnumerable<IComment> _comments;
+        public Photogallery.IAlbum HostAlbum
+        {
+            get { return _hostAlbum; }
+            set { _hostAlbum = value; }
+        }
+
+        private List<IComment> _comments;
 
         public IEnumerable<IComment> PhotoComments
         {
@@ -45,13 +52,12 @@ namespace DAL.EFDataProvider.Adapters
                 if (_comments == null)
                 {
                     _photo.Comments.Load();
-                    var list = new List<IComment>();
                     foreach(var comment in _photo.Comments)
-                        list.Add(new CommentAdapter(comment));
+                        _comments.Add(new CommentAdapter(comment));
                 }
                 return _comments;
             }
-            set { _comments = value; }
+            set { _comments = value.ToList(); }
         }
 
         private IEnumerable<ITag> _tags;
@@ -89,25 +95,37 @@ namespace DAL.EFDataProvider.Adapters
         private Image _image;
         public Image PhotoThumbnail
         {
-            get { return _image; }
-            set
+            get
             {
                 if (_image == null)
                     _image = new Bitmap(new MemoryStream(_photo.ImageThumbnail));
-                _photo.PhotoId = value;
+                return _image;
             }
+            set { _image = value; }
         }
 
+        private Image _optimizedPhoto;
         public Image OptimizedPhoto
         {
-            get { return _photo.PhotoId; }
-            set { _photo.PhotoId = value; }
+            get
+            {
+                if (_optimizedPhoto == null)
+                    _optimizedPhoto = new Bitmap(new MemoryStream(_photo.OptimizedImage));
+                return _optimizedPhoto;
+            }
+            set { _optimizedPhoto = value; }
         }
 
+        private Image _originalPhoto;       
         public Image OriginalPhoto
         {
-            get { return _photo.PhotoId; }
-            set { _photo.PhotoId = value; }
+            get
+            {
+                if (_originalPhoto == null)
+                    _originalPhoto = new Bitmap(new MemoryStream(_photo.OriginalImage));
+                return _originalPhoto;
+            }
+            set { _originalPhoto = value; }
         }
 
         public string PhotoDescription
@@ -118,23 +136,34 @@ namespace DAL.EFDataProvider.Adapters
 
         public DateTime AdditionDate
         {
-            get { return _photo.PhotoId; }
-            set { _photo.PhotoId = value; }
+            get { return _photo.AdditionDate; }
+            set { _photo.AdditionDate = value; }
         }
+
+
+
 
         public void AddComment(IComment comment)
         {
-            throw new NotImplementedException();
+            _comments.Add(comment);
         }
 
         public void DeleteCommentById(int commentId)
         {
-            throw new NotImplementedException();
+            _comments.Remove(_comments.Where(c => c.CommentId == commentId).SingleOrDefault());
         }
 
         public void UpdateComment(IComment comment)
         {
+
+
             throw new NotImplementedException();
+
+        }
+
+        public static Photo Adapte(IPhoto photo)
+        {
+            
         }
     }
 }

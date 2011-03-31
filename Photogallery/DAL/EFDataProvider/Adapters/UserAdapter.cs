@@ -17,7 +17,10 @@ namespace DAL.EFDataProvider.Adapters
 
         public IAlbum RootAlbum
         {
-            get { throw new NotImplementedException(); }
+            get
+            {
+                throw new NotImplementedException();
+            }
             set { throw new NotImplementedException(); }
         }
 
