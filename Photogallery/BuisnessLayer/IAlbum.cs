@@ -11,7 +11,7 @@ namespace Photogallery
 
         int AlbumId { get; set; }
 
-        GalleryUser User { get; set; }
+        IGalleryUser User { get; set; }
 
         string Title { get; set; }
 
@@ -19,7 +19,7 @@ namespace Photogallery
 
         IEnumerable<IAlbum> ChildAlbums { get; set; }
 
-        IEnumerable<Photo> Photos { get; set; }
+        IEnumerable<IPhoto> Photos { get; set; }
 
         string Description { get; set; }
 
@@ -28,16 +28,16 @@ namespace Photogallery
 
         bool IsRootAlbum { get; set; }
 
-        IEnumerable<Tag> AlbumTags { get; set; }
+        IEnumerable<ITag> AlbumTags { get; set; }
 
 
 
-        void AddComment(Comment comment);
+        void AddComment(IComment comment);
 
         void DeleteCommentById(int commentId);
 
 
-        void UpdateComment(Comment comment);
+        void UpdateComment(IComment comment);
 
 
 

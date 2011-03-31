@@ -11,7 +11,7 @@ namespace Photogallery
 
         string Text { get; set; }
 
-        GalleryUser Author { get; set; }
+        IGalleryUser Author { get; set; }
 
 
         DateTime AdditionDate { get; set; }

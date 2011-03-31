@@ -35,6 +35,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -45,12 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Album.cs" />
-    <Compile Include="Comment.cs" />
-    <Compile Include="GalleryUser.cs" />
-    <Compile Include="Photo.cs" />
+    <Compile Include="IAlbum.cs" />
+    <Compile Include="IComment.cs" />
+    <Compile Include="IGalleryUser.cs" />
+    <Compile Include="IPhoto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tag.cs" />
+    <Compile Include="ITag.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
