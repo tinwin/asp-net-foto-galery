@@ -19,7 +19,7 @@ namespace DAL.EFDataProvider.Adapters
         public PhotoAdapter(Photo photo)
         {
             _photo = photo;
-            _hostAlbum = new AlbumAdapter(photo.Album);
+            HostAlbum = new AlbumAdapter(photo.Album);
         }
 
         public Guid PhotoId 
@@ -34,13 +34,7 @@ namespace DAL.EFDataProvider.Adapters
             set { _photo.Title = value; }
         }
 
-        private Photogallery.IAlbum _hostAlbum;
-
-        public Photogallery.IAlbum HostAlbum
-        {
-            get { return _hostAlbum; }
-            set { _hostAlbum = value; }
-        }
+        public IAlbum HostAlbum { get; set; }
 
         private IEnumerable<IComment> _comments;
 
@@ -104,50 +98,43 @@ namespace DAL.EFDataProvider.Adapters
             }
         }
 
-        public override Image OptimizedPhoto
+        public Image OptimizedPhoto
         {
             get { return _photo.PhotoId; }
             set { _photo.PhotoId = value; }
         }
 
-        public override Image OriginalPhoto
+        public Image OriginalPhoto
         {
             get { return _photo.PhotoId; }
             set { _photo.PhotoId = value; }
         }
 
-        public override string PhotoDescription
+        public string PhotoDescription
+        {
+            get { return _photo.Description; }
+            set { _photo.Description = value; }
+        }
+
+        public DateTime AdditionDate
         {
             get { return _photo.PhotoId; }
             set { _photo.PhotoId = value; }
         }
 
-        public override DateTime AdditionDate
-        {
-            get { return _photo.PhotoId; }
-            set { _photo.PhotoId = value; }
-        }
-
-
-
-
-        public override void AddComment(Comment comment)
+        public void AddComment(IComment comment)
         {
             throw new NotImplementedException();
         }
 
-        public override void DeleteCommentById(int commentId)
+        public void DeleteCommentById(int commentId)
         {
             throw new NotImplementedException();
         }
 
-
-        public override void UpdateComment(Comment comment)
+        public void UpdateComment(IComment comment)
         {
-
-
             throw new NotImplementedException();
-
         }
     }
 }

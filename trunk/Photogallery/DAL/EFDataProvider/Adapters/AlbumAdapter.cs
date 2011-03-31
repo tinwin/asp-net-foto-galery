@@ -19,80 +19,111 @@ namespace DAL.EFDataProvider.Adapters
             _album = album;
         }
 
-        public override int AlbumId
+        public int AlbumId
         {
             get { return _album.AlbumId; }
             set { _album.AlbumId = value; }
         }
 
-        public override IGalleryUser User
+
+        private IGalleryUser _user;
+
+        public IGalleryUser User
         {
-            get { return _album.User; }
-            set { _album.User = value; }
+            get
+            {
+                if (_user == null)
+                    _user = new UserAdapter(_album.aspnet_Membership);
+                return _user;
+            }
+            set { _user = value; }
         }
 
-        public override string Title
+        public string Title
         {
             get { return _album.Title; }
             set { _album.Title = value; }
         }
 
-        public override Album ParentAlbum
+        public IAlbum ParentAlbum
         {
             get { return _album.ParentAlbum; }
             set { _album.ParentAlbum = value; }
         }
 
-        public override IEnumerable<Album> ChildAlbums
+        IEnumerable<IAlbum> IAlbum.ChildAlbums
         {
             get { return _album.ChildAlbums; }
             set { _album.ChildAlbums = value; }
         }
 
-        public override IEnumerable<Photo> Photos
+        public bool IsRootAlbum
         {
-            get { throw new NotImplementedException(); }
+            get { return _album.IsRootAlbum; }
             set { throw new NotImplementedException(); }
         }
 
-        public override string Description
+
+        private IEnumerable<IPhoto> _photos;
+        public IEnumerable<IPhoto> Photos
+        {
+            get
+            {
+                if (_photos == null)
+                {
+                    _album.Photos.Load();
+                    var list = new List<IPhoto>();
+                    foreach (var photo in _album.Photos)
+                        list.Add(new PhotoAdapter(photo));
+                }
+                return _photos;
+            }
+            set { _photos = value; }
+        }
+
+        public string Description
         {
             get { return _album.Description; }
             set { _album.Description = value; }
         }
 
 
-        public override DateTime CreationDate
+        public DateTime CreationDate
         {
             get { return _album.CreationDate; }
             set { _album.CreationDate = value; }
         }
 
-        public override bool IsRootAlbum
+        private IEnumerable<ITag> _tags;
+        public IEnumerable<ITag> AlbumTags
         {
-            get { return _album.IsRootAlbum; }
-
+            get
+            {
+                if (_tags == null)
+                {
+                    _album.Tags.Load();
+                    var list = new List<ITag>();
+                    foreach (var tag in _album.Tags)
+                        list.Add(new TagAdapter(tag));
+                }
+                return _tags;
+            }
+            set { _tags = value; }
         }
 
-        public override IEnumerable<Tag> AlbumTags
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
 
-
-        public override void AddComment(Photogallery.IComment comment)
+        public void AddComment(IComment comment)
         {
             throw new NotImplementedException();
         }
 
-        public override void DeleteCommentById(int commentId)
+        public void DeleteCommentById(int commentId)
         {
             throw new NotImplementedException();
         }
 
 
-        public override void UpdateComment(Photogallery.IComment comment)
+        public void UpdateComment(Photogallery.IComment comment)
         {
             throw new NotImplementedException();
         }
