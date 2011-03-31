@@ -17,7 +17,7 @@ namespace Photogallery
 
         IEnumerable<IComment> PhotoComments { get; set; }
 
-        IEnumerable<Tag> PhotoTags { get; set; }
+        IEnumerable<ITag> PhotoTags { get; set; }
 
         IGalleryUser OwningUser { get; set; }
 
