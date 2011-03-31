@@ -33,21 +33,10 @@ namespace Photogallery
         }
 
 
-        public IEnumerable<ITag> PhotoTags 
-        { 
-            get
-            {
-                if (_photoTags == null)
-                    _photoTags = new List<ITag>();
-                return _photoTags;    
-            } 
-            set
-            {
-                _photoTags = new List<ITag>(value);
-            } 
-        }
+        public IEnumerable<ITag> PhotoTags { get; set; }
+       
 
-        private IList<ITag> _photoTags;
+      
 
         public IGalleryUser OwningUser { get; set; }
 
