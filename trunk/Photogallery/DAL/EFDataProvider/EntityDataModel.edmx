@@ -1,0 +1,1610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="photogalleryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="photogalleryModelStoreContainer">
+          <EntitySet Name="Album_to_Tag" EntityType="photogalleryModel.Store.Album_to_Tag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Albums" EntityType="photogalleryModel.Store.Albums" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Applications" EntityType="photogalleryModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Membership" EntityType="photogalleryModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Paths" EntityType="photogalleryModel.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="photogalleryModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="photogalleryModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Profile" EntityType="photogalleryModel.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Roles" EntityType="photogalleryModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="photogalleryModel.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Users" EntityType="photogalleryModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="photogalleryModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="photogalleryModel.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comments" EntityType="photogalleryModel.Store.Comments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comments_to_Albums" EntityType="photogalleryModel.Store.Comments_to_Albums" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comments_to_Comments" EntityType="photogalleryModel.Store.Comments_to_Comments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comments_to_Photos" EntityType="photogalleryModel.Store.Comments_to_Photos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comments_to_Users" EntityType="photogalleryModel.Store.Comments_to_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Photo_to_Tag" EntityType="photogalleryModel.Store.Photo_to_Tag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Photos" EntityType="photogalleryModel.Store.Photos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="photogalleryModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tags" EntityType="photogalleryModel.Store.Tags" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__aspnet_Me__Appli__30F848ED" Association="photogalleryModel.Store.FK__aspnet_Me__Appli__30F848ED">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__31EC6D26" Association="photogalleryModel.Store.FK__aspnet_Me__UserI__31EC6D26">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__628FA481" Association="photogalleryModel.Store.FK__aspnet_Pa__Appli__628FA481">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="photogalleryModel.Store.FK__aspnet_Pe__PathI__68487DD7">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6C190EBB" Association="photogalleryModel.Store.FK__aspnet_Pe__PathI__6C190EBB">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__UserI__6D0D32F4" Association="photogalleryModel.Store.FK__aspnet_Pe__UserI__6D0D32F4">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pr__UserI__45F365D3" Association="photogalleryModel.Store.FK__aspnet_Pr__UserI__45F365D3">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__4F7CD00D" Association="photogalleryModel.Store.FK__aspnet_Ro__Appli__4F7CD00D">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__20C1E124" Association="photogalleryModel.Store.FK__aspnet_Us__Appli__20C1E124">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__RoleI__5441852A" Association="photogalleryModel.Store.FK__aspnet_Us__RoleI__5441852A">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__UserI__534D60F1" Association="photogalleryModel.Store.FK__aspnet_Us__UserI__534D60F1">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Album_to_Tag_Albums" Association="photogalleryModel.Store.FK_Album_to_Tag_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Album_to_Tag" EntitySet="Album_to_Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Album_to_Tag_Tags" Association="photogalleryModel.Store.FK_Album_to_Tag_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="Album_to_Tag" EntitySet="Album_to_Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Albums_Albums" Association="photogalleryModel.Store.FK_Albums_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Albums1" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Albums_aspnet_Membership" Association="photogalleryModel.Store.FK_Albums_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_aspnet_Users" Association="photogalleryModel.Store.FK_Comments_aspnet_Users">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_to_Albums_Albums" Association="photogalleryModel.Store.FK_Comments_to_Albums_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Comments_to_Albums" EntitySet="Comments_to_Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_to_Albums_Comments" Association="photogalleryModel.Store.FK_Comments_to_Albums_Comments">
+            <End Role="Comments" EntitySet="Comments" />
+            <End Role="Comments_to_Albums" EntitySet="Comments_to_Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_to_Comments_Comments" Association="photogalleryModel.Store.FK_Comments_to_Comments_Comments">
+            <End Role="Comments" EntitySet="Comments" />
+            <End Role="Comments_to_Comments" EntitySet="Comments_to_Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_to_Comments_Comments1" Association="photogalleryModel.Store.FK_Comments_to_Comments_Comments1">
+            <End Role="Comments" EntitySet="Comments" />
+            <End Role="Comments_to_Comments" EntitySet="Comments_to_Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_to_Photos_Comments" Association="photogalleryModel.Store.FK_Comments_to_Photos_Comments">
+            <End Role="Comments" EntitySet="Comments" />
+            <End Role="Comments_to_Photos" EntitySet="Comments_to_Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_to_Photos_Photos" Association="photogalleryModel.Store.FK_Comments_to_Photos_Photos">
+            <End Role="Photos" EntitySet="Photos" />
+            <End Role="Comments_to_Photos" EntitySet="Comments_to_Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_to_Users_aspnet_Membership" Association="photogalleryModel.Store.FK_Comments_to_Users_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Comments_to_Users" EntitySet="Comments_to_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_to_Users_Comments" Association="photogalleryModel.Store.FK_Comments_to_Users_Comments">
+            <End Role="Comments" EntitySet="Comments" />
+            <End Role="Comments_to_Users" EntitySet="Comments_to_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_to_Tag_Photos" Association="photogalleryModel.Store.FK_Photo_to_Tag_Photos">
+            <End Role="Photos" EntitySet="Photos" />
+            <End Role="Photo_to_Tag" EntitySet="Photo_to_Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_to_Tag_Tags" Association="photogalleryModel.Store.FK_Photo_to_Tag_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="Photo_to_Tag" EntitySet="Photo_to_Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photos_Albums" Association="photogalleryModel.Store.FK_Photos_Albums">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photos_aspnet_Membership" Association="photogalleryModel.Store.FK_Photos_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Album_to_Tag">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+          <Property Name="TagId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+          <Property Name="ParentAlbumId" Type="int" />
+        </EntityType>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="CompatibleSchemaVersion" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+          <Property Name="RootAlbum" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
+          <Property Name="EventTime" Type="datetime" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="EventSequence" Type="decimal" Nullable="false" Precision="19" />
+          <Property Name="EventOccurrence" Type="decimal" Nullable="false" Precision="19" />
+          <Property Name="EventCode" Type="int" Nullable="false" />
+          <Property Name="EventDetailCode" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
+          <Property Name="Details" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="Text" Type="ntext" Nullable="false" />
+          <Property Name="Author" Type="uniqueidentifier" />
+          <Property Name="AdditionDate" Type="datetime" Nullable="false" />
+          <Property Name="CommentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comments_to_Albums">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comments_to_Comments">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="ParentCommentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comments_to_Photos">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="PhotoId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comments_to_Users">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photo_to_Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+            <PropertyRef Name="PhotoId" />
+          </Key>
+          <Property Name="TagId" Type="int" Nullable="false" />
+          <Property Name="PhotoId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="PhotoId" />
+          </Key>
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="AdditionDate" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+          <Property Name="PhotoId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ImageThumbnail" Type="varbinary(max)" />
+          <Property Name="OptimizedImage" Type="varbinary(max)" />
+          <Property Name="OriginalImage" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="Title" Type="ntext" Nullable="false" />
+          <Property Name="TagId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__Appli__30F848ED">
+          <End Role="aspnet_Applications" Type="photogalleryModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.Store.aspnet_Membership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Me__UserI__31EC6D26">
+          <End Role="aspnet_Users" Type="photogalleryModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.Store.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__628FA481">
+          <End Role="aspnet_Applications" Type="photogalleryModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="photogalleryModel.Store.aspnet_Paths" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Paths">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__68487DD7">
+          <End Role="aspnet_Paths" Type="photogalleryModel.Store.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="photogalleryModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6C190EBB">
+          <End Role="aspnet_Paths" Type="photogalleryModel.Store.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="photogalleryModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__UserI__6D0D32F4">
+          <End Role="aspnet_Users" Type="photogalleryModel.Store.aspnet_Users" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="photogalleryModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationPerUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pr__UserI__45F365D3">
+          <End Role="aspnet_Users" Type="photogalleryModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Profile" Type="photogalleryModel.Store.aspnet_Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__4F7CD00D">
+          <End Role="aspnet_Applications" Type="photogalleryModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="photogalleryModel.Store.aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__20C1E124">
+          <End Role="aspnet_Applications" Type="photogalleryModel.Store.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="photogalleryModel.Store.aspnet_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Users">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__RoleI__5441852A">
+          <End Role="aspnet_Roles" Type="photogalleryModel.Store.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="photogalleryModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__UserI__534D60F1">
+          <End Role="aspnet_Users" Type="photogalleryModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="photogalleryModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Album_to_Tag_Albums">
+          <End Role="Albums" Type="photogalleryModel.Store.Albums" Multiplicity="1" />
+          <End Role="Album_to_Tag" Type="photogalleryModel.Store.Album_to_Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="Album_to_Tag">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Album_to_Tag_Tags">
+          <End Role="Tags" Type="photogalleryModel.Store.Tags" Multiplicity="1" />
+          <End Role="Album_to_Tag" Type="photogalleryModel.Store.Album_to_Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagId" />
+            </Principal>
+            <Dependent Role="Album_to_Tag">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Albums_Albums">
+          <End Role="Albums" Type="photogalleryModel.Store.Albums" Multiplicity="0..1" />
+          <End Role="Albums1" Type="photogalleryModel.Store.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="Albums1">
+              <PropertyRef Name="ParentAlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Albums_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="photogalleryModel.Store.aspnet_Membership" Multiplicity="1" />
+          <End Role="Albums" Type="photogalleryModel.Store.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_aspnet_Users">
+          <End Role="aspnet_Membership" Type="photogalleryModel.Store.aspnet_Membership" Multiplicity="0..1" />
+          <End Role="Comments" Type="photogalleryModel.Store.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_to_Albums_Albums">
+          <End Role="Albums" Type="photogalleryModel.Store.Albums" Multiplicity="1" />
+          <End Role="Comments_to_Albums" Type="photogalleryModel.Store.Comments_to_Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="Comments_to_Albums">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_to_Albums_Comments">
+          <End Role="Comments" Type="photogalleryModel.Store.Comments" Multiplicity="1" />
+          <End Role="Comments_to_Albums" Type="photogalleryModel.Store.Comments_to_Albums" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Comments">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="Comments_to_Albums">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_to_Comments_Comments">
+          <End Role="Comments" Type="photogalleryModel.Store.Comments" Multiplicity="1" />
+          <End Role="Comments_to_Comments" Type="photogalleryModel.Store.Comments_to_Comments" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Comments">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="Comments_to_Comments">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_to_Comments_Comments1">
+          <End Role="Comments" Type="photogalleryModel.Store.Comments" Multiplicity="1" />
+          <End Role="Comments_to_Comments" Type="photogalleryModel.Store.Comments_to_Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comments">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="Comments_to_Comments">
+              <PropertyRef Name="ParentCommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_to_Photos_Comments">
+          <End Role="Comments" Type="photogalleryModel.Store.Comments" Multiplicity="1" />
+          <End Role="Comments_to_Photos" Type="photogalleryModel.Store.Comments_to_Photos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Comments">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="Comments_to_Photos">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_to_Photos_Photos">
+          <End Role="Photos" Type="photogalleryModel.Store.Photos" Multiplicity="1" />
+          <End Role="Comments_to_Photos" Type="photogalleryModel.Store.Comments_to_Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photos">
+              <PropertyRef Name="PhotoId" />
+            </Principal>
+            <Dependent Role="Comments_to_Photos">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_to_Users_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="photogalleryModel.Store.aspnet_Membership" Multiplicity="1" />
+          <End Role="Comments_to_Users" Type="photogalleryModel.Store.Comments_to_Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Comments_to_Users">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_to_Users_Comments">
+          <End Role="Comments" Type="photogalleryModel.Store.Comments" Multiplicity="1" />
+          <End Role="Comments_to_Users" Type="photogalleryModel.Store.Comments_to_Users" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Comments">
+              <PropertyRef Name="CommentId" />
+            </Principal>
+            <Dependent Role="Comments_to_Users">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_to_Tag_Photos">
+          <End Role="Photos" Type="photogalleryModel.Store.Photos" Multiplicity="1" />
+          <End Role="Photo_to_Tag" Type="photogalleryModel.Store.Photo_to_Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photos">
+              <PropertyRef Name="PhotoId" />
+            </Principal>
+            <Dependent Role="Photo_to_Tag">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_to_Tag_Tags">
+          <End Role="Tags" Type="photogalleryModel.Store.Tags" Multiplicity="1" />
+          <End Role="Photo_to_Tag" Type="photogalleryModel.Store.Photo_to_Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="TagId" />
+            </Principal>
+            <Dependent Role="Photo_to_Tag">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photos_Albums">
+          <End Role="Albums" Type="photogalleryModel.Store.Albums" Multiplicity="1" />
+          <End Role="Photos" Type="photogalleryModel.Store.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photos_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="photogalleryModel.Store.aspnet_Membership" Multiplicity="1" />
+          <End Role="Photos" Type="photogalleryModel.Store.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="photogalleryModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="photogalleryEntities">
+          <EntitySet Name="AlbumSet" EntityType="photogalleryModel.Album" />
+          <EntitySet Name="aspnet_Applications" EntityType="photogalleryModel.aspnet_Applications" />
+          <EntitySet Name="aspnet_Membership" EntityType="photogalleryModel.aspnet_Membership" />
+          <EntitySet Name="aspnet_Paths" EntityType="photogalleryModel.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="photogalleryModel.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="photogalleryModel.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="photogalleryModel.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="photogalleryModel.aspnet_Roles" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="photogalleryModel.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Users" EntityType="photogalleryModel.aspnet_Users" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="photogalleryModel.aspnet_WebEvent_Events" />
+          <EntitySet Name="CommentSet" EntityType="photogalleryModel.Comment" />
+          <EntitySet Name="PhotoSet" EntityType="photogalleryModel.Photo" />
+          <EntitySet Name="sysdiagrams" EntityType="photogalleryModel.sysdiagrams" />
+          <EntitySet Name="TagSet" EntityType="photogalleryModel.Tag" />
+          <AssociationSet Name="FK_Albums_Albums" Association="photogalleryModel.FK_Albums_Albums">
+            <End Role="Albums" EntitySet="AlbumSet" />
+            <End Role="Albums1" EntitySet="AlbumSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Albums_aspnet_Membership" Association="photogalleryModel.FK_Albums_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Albums" EntitySet="AlbumSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photos_Albums" Association="photogalleryModel.FK_Photos_Albums">
+            <End Role="Albums" EntitySet="AlbumSet" />
+            <End Role="Photos" EntitySet="PhotoSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__Appli__30F848ED" Association="photogalleryModel.FK__aspnet_Me__Appli__30F848ED">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pa__Appli__628FA481" Association="photogalleryModel.FK__aspnet_Pa__Appli__628FA481">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Ro__Appli__4F7CD00D" Association="photogalleryModel.FK__aspnet_Ro__Appli__4F7CD00D">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__Appli__20C1E124" Association="photogalleryModel.FK__aspnet_Us__Appli__20C1E124">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Me__UserI__31EC6D26" Association="photogalleryModel.FK__aspnet_Me__UserI__31EC6D26">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_aspnet_Users" Association="photogalleryModel.FK_Comments_aspnet_Users">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Comments" EntitySet="CommentSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photos_aspnet_Membership" Association="photogalleryModel.FK_Photos_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Photos" EntitySet="PhotoSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="photogalleryModel.FK__aspnet_Pe__PathI__68487DD7">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__PathI__6C190EBB" Association="photogalleryModel.FK__aspnet_Pe__PathI__6C190EBB">
+            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pe__UserI__6D0D32F4" Association="photogalleryModel.FK__aspnet_Pe__UserI__6D0D32F4">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Pr__UserI__45F365D3" Association="photogalleryModel.FK__aspnet_Pr__UserI__45F365D3">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+          </AssociationSet>
+          <AssociationSet Name="Album_to_Tag" Association="photogalleryModel.Album_to_Tag">
+            <End Role="Albums" EntitySet="AlbumSet" />
+            <End Role="Tags" EntitySet="TagSet" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersInRoles" Association="photogalleryModel.aspnet_UsersInRoles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="Comments_to_Albums" Association="photogalleryModel.Comments_to_Albums">
+            <End Role="Albums" EntitySet="AlbumSet" />
+            <End Role="Comments" EntitySet="CommentSet" />
+          </AssociationSet>
+          <AssociationSet Name="Comments_to_Comments" Association="photogalleryModel.Comments_to_Comments">
+            <End Role="Comments" EntitySet="CommentSet" />
+            <End Role="Comments1" EntitySet="CommentSet" />
+          </AssociationSet>
+          <AssociationSet Name="Comments_to_Photos" Association="photogalleryModel.Comments_to_Photos">
+            <End Role="Comments" EntitySet="CommentSet" />
+            <End Role="Photos" EntitySet="PhotoSet" />
+          </AssociationSet>
+          <AssociationSet Name="Comments_to_Users" Association="photogalleryModel.Comments_to_Users">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="Comments" EntitySet="CommentSet" />
+          </AssociationSet>
+          <AssociationSet Name="Photo_to_Tag" Association="photogalleryModel.Photo_to_Tag">
+            <End Role="Photos" EntitySet="PhotoSet" />
+            <End Role="Tags" EntitySet="TagSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Album">
+          <Key>
+            <PropertyRef Name="AlbumId" />
+          </Key>
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <Property Name="AlbumId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Albums1" Relationship="photogalleryModel.FK_Albums_Albums" FromRole="Albums" ToRole="Albums1" />
+          <NavigationProperty Name="Albums2" Relationship="photogalleryModel.FK_Albums_Albums" FromRole="Albums1" ToRole="Albums" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="photogalleryModel.FK_Albums_aspnet_Membership" FromRole="Albums" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="Photos" Relationship="photogalleryModel.FK_Photos_Albums" FromRole="Albums" ToRole="Photos" />
+          <NavigationProperty Name="Tags" Relationship="photogalleryModel.Album_to_Tag" FromRole="Albums" ToRole="Tags" />
+          <NavigationProperty Name="Comments" Relationship="photogalleryModel.Comments_to_Albums" FromRole="Albums" ToRole="Comments" />
+        </EntityType>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="photogalleryModel.FK__aspnet_Me__Appli__30F848ED" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="photogalleryModel.FK__aspnet_Pa__Appli__628FA481" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="photogalleryModel.FK__aspnet_Ro__Appli__4F7CD00D" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="aspnet_Users" Relationship="photogalleryModel.FK__aspnet_Us__Appli__20C1E124" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Albums" Relationship="photogalleryModel.FK_Albums_aspnet_Membership" FromRole="aspnet_Membership" ToRole="Albums" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="photogalleryModel.FK__aspnet_Me__Appli__30F848ED" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="photogalleryModel.FK__aspnet_Me__UserI__31EC6D26" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Comments" Relationship="photogalleryModel.FK_Comments_aspnet_Users" FromRole="aspnet_Membership" ToRole="Comments" />
+          <NavigationProperty Name="Photos" Relationship="photogalleryModel.FK_Photos_aspnet_Membership" FromRole="aspnet_Membership" ToRole="Photos" />
+          <NavigationProperty Name="Comments1" Relationship="photogalleryModel.Comments_to_Users" FromRole="aspnet_Membership" ToRole="Comments" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="photogalleryModel.FK__aspnet_Pa__Appli__628FA481" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="photogalleryModel.FK__aspnet_Pe__PathI__68487DD7" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="photogalleryModel.FK__aspnet_Pe__PathI__6C190EBB" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="photogalleryModel.FK__aspnet_Pe__PathI__68487DD7" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Paths" Relationship="photogalleryModel.FK__aspnet_Pe__PathI__6C190EBB" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+          <NavigationProperty Name="aspnet_Users" Relationship="photogalleryModel.FK__aspnet_Pe__UserI__6D0D32F4" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="photogalleryModel.FK__aspnet_Pr__UserI__45F365D3" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="photogalleryModel.FK__aspnet_Ro__Appli__4F7CD00D" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="photogalleryModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+          </Key>
+          <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
+          <Property Name="RootAlbum" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="photogalleryModel.FK__aspnet_Us__Appli__20C1E124" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="photogalleryModel.FK__aspnet_Me__UserI__31EC6D26" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="photogalleryModel.FK__aspnet_Pe__UserI__6D0D32F4" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+          <NavigationProperty Name="aspnet_Profile" Relationship="photogalleryModel.FK__aspnet_Pr__UserI__45F365D3" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="photogalleryModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
+          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" />
+          <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventCode" Type="Int32" Nullable="false" />
+          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="RequestUrl" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="ExceptionType" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AdditionDate" Type="DateTime" Nullable="false" />
+          <Property Name="CommentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="photogalleryModel.FK_Comments_aspnet_Users" FromRole="Comments" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="Albums" Relationship="photogalleryModel.Comments_to_Albums" FromRole="Comments" ToRole="Albums" />
+          <NavigationProperty Name="Comments1" Relationship="photogalleryModel.Comments_to_Comments" FromRole="Comments" ToRole="Comments1" />
+          <NavigationProperty Name="Comments2" Relationship="photogalleryModel.Comments_to_Comments" FromRole="Comments1" ToRole="Comments" />
+          <NavigationProperty Name="Photos" Relationship="photogalleryModel.Comments_to_Photos" FromRole="Comments" ToRole="Photos" />
+          <NavigationProperty Name="aspnet_Membership1" Relationship="photogalleryModel.Comments_to_Users" FromRole="Comments" ToRole="aspnet_Membership" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="PhotoId" />
+          </Key>
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="AdditionDate" Type="DateTime" Nullable="false" />
+          <Property Name="PhotoId" Type="Guid" Nullable="false" />
+          <Property Name="ImageThumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="OptimizedImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="OriginalImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Album" Relationship="photogalleryModel.FK_Photos_Albums" FromRole="Photos" ToRole="Albums" />
+          <NavigationProperty Name="Author" Relationship="photogalleryModel.FK_Photos_aspnet_Membership" FromRole="Photos" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="Comments" Relationship="photogalleryModel.Comments_to_Photos" FromRole="Photos" ToRole="Comments" />
+          <NavigationProperty Name="Tags" Relationship="photogalleryModel.Photo_to_Tag" FromRole="Photos" ToRole="Tags" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TagId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Albums" Relationship="photogalleryModel.Album_to_Tag" FromRole="Tags" ToRole="Albums" />
+          <NavigationProperty Name="Photos" Relationship="photogalleryModel.Photo_to_Tag" FromRole="Tags" ToRole="Photos" />
+        </EntityType>
+        <Association Name="FK_Albums_Albums">
+          <End Role="Albums" Type="photogalleryModel.Album" Multiplicity="0..1" />
+          <End Role="Albums1" Type="photogalleryModel.Album" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Albums_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="1" />
+          <End Role="Albums" Type="photogalleryModel.Album" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Photos_Albums">
+          <End Role="Albums" Type="photogalleryModel.Album" Multiplicity="1" />
+          <End Role="Photos" Type="photogalleryModel.Photo" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__aspnet_Me__Appli__30F848ED">
+          <End Role="aspnet_Applications" Type="photogalleryModel.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__aspnet_Pa__Appli__628FA481">
+          <End Role="aspnet_Applications" Type="photogalleryModel.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Paths" Type="photogalleryModel.aspnet_Paths" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__aspnet_Ro__Appli__4F7CD00D">
+          <End Role="aspnet_Applications" Type="photogalleryModel.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Roles" Type="photogalleryModel.aspnet_Roles" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__aspnet_Us__Appli__20C1E124">
+          <End Role="aspnet_Applications" Type="photogalleryModel.aspnet_Applications" Multiplicity="1" />
+          <End Role="aspnet_Users" Type="photogalleryModel.aspnet_Users" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__aspnet_Me__UserI__31EC6D26">
+          <End Role="aspnet_Users" Type="photogalleryModel.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_aspnet_Users">
+          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="0..1" />
+          <End Role="Comments" Type="photogalleryModel.Comment" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Photos_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="1" />
+          <End Role="Photos" Type="photogalleryModel.Photo" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__68487DD7">
+          <End Role="aspnet_Paths" Type="photogalleryModel.aspnet_Paths" Multiplicity="1" />
+          <End Role="aspnet_PersonalizationAllUsers" Type="photogalleryModel.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Paths">
+              <PropertyRef Name="PathId" />
+            </Principal>
+            <Dependent Role="aspnet_PersonalizationAllUsers">
+              <PropertyRef Name="PathId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Pe__PathI__6C190EBB">
+          <End Role="aspnet_Paths" Type="photogalleryModel.aspnet_Paths" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="photogalleryModel.aspnet_PersonalizationPerUser" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__aspnet_Pe__UserI__6D0D32F4">
+          <End Role="aspnet_Users" Type="photogalleryModel.aspnet_Users" Multiplicity="0..1" />
+          <End Role="aspnet_PersonalizationPerUser" Type="photogalleryModel.aspnet_PersonalizationPerUser" Multiplicity="*" />
+        </Association>
+        <Association Name="FK__aspnet_Pr__UserI__45F365D3">
+          <End Role="aspnet_Users" Type="photogalleryModel.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Profile" Type="photogalleryModel.aspnet_Profile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Profile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Album_to_Tag">
+          <End Role="Albums" Type="photogalleryModel.Album" Multiplicity="*" />
+          <End Role="Tags" Type="photogalleryModel.Tag" Multiplicity="*" />
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Role="aspnet_Roles" Type="photogalleryModel.aspnet_Roles" Multiplicity="*" />
+          <End Role="aspnet_Users" Type="photogalleryModel.aspnet_Users" Multiplicity="*" />
+        </Association>
+        <Association Name="Comments_to_Albums">
+          <End Role="Albums" Type="photogalleryModel.Album" Multiplicity="0..1" />
+          <End Role="Comments" Type="photogalleryModel.Comment" Multiplicity="*" />
+        </Association>
+        <Association Name="Comments_to_Comments">
+          <End Role="Comments" Type="photogalleryModel.Comment" Multiplicity="*" />
+          <End Role="Comments1" Type="photogalleryModel.Comment" Multiplicity="0..1" />
+        </Association>
+        <Association Name="Comments_to_Photos">
+          <End Role="Comments" Type="photogalleryModel.Comment" Multiplicity="*" />
+          <End Role="Photos" Type="photogalleryModel.Photo" Multiplicity="0..1" />
+        </Association>
+        <Association Name="Comments_to_Users">
+          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="0..1" />
+          <End Role="Comments" Type="photogalleryModel.Comment" Multiplicity="*" />
+        </Association>
+        <Association Name="Photo_to_Tag">
+          <End Role="Photos" Type="photogalleryModel.Photo" Multiplicity="*" />
+          <End Role="Tags" Type="photogalleryModel.Tag" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="photogalleryModelStoreContainer" CdmEntityContainer="photogalleryEntities">
+          <EntitySetMapping Name="AlbumSet">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.Album)">
+              <MappingFragment StoreEntitySet="Albums">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Applications">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_Applications)">
+              <MappingFragment StoreEntitySet="aspnet_Applications">
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_Membership)">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Paths">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_Paths)">
+              <MappingFragment StoreEntitySet="aspnet_Paths">
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_PersonalizationAllUsers)">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_PersonalizationPerUser)">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Profile">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_Profile)">
+              <MappingFragment StoreEntitySet="aspnet_Profile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_Roles)">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_SchemaVersions">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_SchemaVersions)">
+              <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+                <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_Users)">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="RootAlbum" ColumnName="RootAlbum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_WebEvent_Events">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_WebEvent_Events)">
+              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommentSet">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.Comment)">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="AdditionDate" ColumnName="AdditionDate" />
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoSet">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.Photo)">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AdditionDate" ColumnName="AdditionDate" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="ImageThumbnail" ColumnName="ImageThumbnail" />
+                <ScalarProperty Name="OptimizedImage" ColumnName="OptimizedImage" />
+                <ScalarProperty Name="OriginalImage" ColumnName="OriginalImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.sysdiagrams)">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagSet">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.Tag)">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Albums_Albums" TypeName="photogalleryModel.FK_Albums_Albums" StoreEntitySet="Albums">
+            <EndProperty Name="Albums">
+              <ScalarProperty Name="AlbumId" ColumnName="ParentAlbumId" />
+            </EndProperty>
+            <EndProperty Name="Albums1">
+              <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+            </EndProperty>
+            <Condition ColumnName="ParentAlbumId" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Albums_aspnet_Membership" TypeName="photogalleryModel.FK_Albums_aspnet_Membership" StoreEntitySet="Albums">
+            <EndProperty Name="aspnet_Membership">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="Albums">
+              <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Photos_Albums" TypeName="photogalleryModel.FK_Photos_Albums" StoreEntitySet="Photos">
+            <EndProperty Name="Albums">
+              <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+            </EndProperty>
+            <EndProperty Name="Photos">
+              <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Me__Appli__30F848ED" TypeName="photogalleryModel.FK__aspnet_Me__Appli__30F848ED" StoreEntitySet="aspnet_Membership">
+            <EndProperty Name="aspnet_Applications">
+              <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Membership">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Pa__Appli__628FA481" TypeName="photogalleryModel.FK__aspnet_Pa__Appli__628FA481" StoreEntitySet="aspnet_Paths">
+            <EndProperty Name="aspnet_Applications">
+              <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Paths">
+              <ScalarProperty Name="PathId" ColumnName="PathId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Ro__Appli__4F7CD00D" TypeName="photogalleryModel.FK__aspnet_Ro__Appli__4F7CD00D" StoreEntitySet="aspnet_Roles">
+            <EndProperty Name="aspnet_Applications">
+              <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Us__Appli__20C1E124" TypeName="photogalleryModel.FK__aspnet_Us__Appli__20C1E124" StoreEntitySet="aspnet_Users">
+            <EndProperty Name="aspnet_Applications">
+              <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Me__UserI__31EC6D26" TypeName="photogalleryModel.FK__aspnet_Me__UserI__31EC6D26" StoreEntitySet="aspnet_Membership">
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Membership">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Comments_aspnet_Users" TypeName="photogalleryModel.FK_Comments_aspnet_Users" StoreEntitySet="Comments">
+            <EndProperty Name="aspnet_Membership">
+              <ScalarProperty Name="UserId" ColumnName="Author" />
+            </EndProperty>
+            <EndProperty Name="Comments">
+              <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+            </EndProperty>
+            <Condition ColumnName="Author" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Photos_aspnet_Membership" TypeName="photogalleryModel.FK_Photos_aspnet_Membership" StoreEntitySet="Photos">
+            <EndProperty Name="aspnet_Membership">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="Photos">
+              <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Pe__PathI__68487DD7" TypeName="photogalleryModel.FK__aspnet_Pe__PathI__68487DD7" StoreEntitySet="aspnet_PersonalizationAllUsers">
+            <EndProperty Name="aspnet_Paths">
+              <ScalarProperty Name="PathId" ColumnName="PathId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_PersonalizationAllUsers">
+              <ScalarProperty Name="PathId" ColumnName="PathId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Pe__PathI__6C190EBB" TypeName="photogalleryModel.FK__aspnet_Pe__PathI__6C190EBB" StoreEntitySet="aspnet_PersonalizationPerUser">
+            <EndProperty Name="aspnet_Paths">
+              <ScalarProperty Name="PathId" ColumnName="PathId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_PersonalizationPerUser">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <Condition ColumnName="PathId" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Pe__UserI__6D0D32F4" TypeName="photogalleryModel.FK__aspnet_Pe__UserI__6D0D32F4" StoreEntitySet="aspnet_PersonalizationPerUser">
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_PersonalizationPerUser">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <Condition ColumnName="UserId" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK__aspnet_Pr__UserI__45F365D3" TypeName="photogalleryModel.FK__aspnet_Pr__UserI__45F365D3" StoreEntitySet="aspnet_Profile">
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Profile">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Album_to_Tag" TypeName="photogalleryModel.Album_to_Tag" StoreEntitySet="Album_to_Tag">
+            <EndProperty Name="Albums">
+              <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+            </EndProperty>
+            <EndProperty Name="Tags">
+              <ScalarProperty Name="TagId" ColumnName="TagId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="photogalleryModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Comments_to_Albums" TypeName="photogalleryModel.Comments_to_Albums" StoreEntitySet="Comments_to_Albums">
+            <EndProperty Name="Albums">
+              <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+            </EndProperty>
+            <EndProperty Name="Comments">
+              <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Comments_to_Comments" TypeName="photogalleryModel.Comments_to_Comments" StoreEntitySet="Comments_to_Comments">
+            <EndProperty Name="Comments">
+              <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+            </EndProperty>
+            <EndProperty Name="Comments1">
+              <ScalarProperty Name="CommentId" ColumnName="ParentCommentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Comments_to_Photos" TypeName="photogalleryModel.Comments_to_Photos" StoreEntitySet="Comments_to_Photos">
+            <EndProperty Name="Comments">
+              <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+            </EndProperty>
+            <EndProperty Name="Photos">
+              <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Comments_to_Users" TypeName="photogalleryModel.Comments_to_Users" StoreEntitySet="Comments_to_Users">
+            <EndProperty Name="aspnet_Membership">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="Comments">
+              <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Photo_to_Tag" TypeName="photogalleryModel.Photo_to_Tag" StoreEntitySet="Photo_to_Tag">
+            <EndProperty Name="Photos">
+              <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+            </EndProperty>
+            <EndProperty Name="Tags">
+              <ScalarProperty Name="TagId" ColumnName="TagId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="EntityDataModel" ZoomLevel="57">
+        <EntityTypeShape EntityType="photogalleryModel.Album" Width="1.5" PointX="9.75" PointY="9.625" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="8.375" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_Membership" Width="1.5" PointX="7.5" PointY="8.125" Height="6.0186165364583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_Paths" Width="1.5" PointX="3" PointY="7.125" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="7.25" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="4.125" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_Profile" Width="1.5" PointX="7.5" PointY="15.125" Height="2.1725878906250014" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_Roles" Width="1.5" PointX="3" PointY="10" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="10.625" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.aspnet_WebEvent_Events" Width="1.5" PointX="7.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.Comment" Width="1.5" PointX="12" PointY="9.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.Photo" Width="1.5" PointX="14.25" PointY="9.5" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.Tag" Width="1.5" PointX="16.5" PointY="10.25" Height="1.7879850260416674" IsExpanded="true" />
+        <AssociationConnector Association="photogalleryModel.FK_Albums_Albums" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.167692307692308" PointY="12.566793619791667" />
+          <ConnectorPoint PointX="10.167692307692308" PointY="12.816793619791667" />
+          <ConnectorPoint PointX="10.5" PointY="12.816793619791667" />
+          <ConnectorPoint PointX="10.5" PointY="12.566793619791667" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK_Albums_aspnet_Membership" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="11.095896809895834" />
+          <ConnectorPoint PointX="9.75" PointY="11.095896809895834" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK_Photos_Albums" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.25" PointY="9.65625" />
+          <ConnectorPoint PointX="12.448589743589743" PointY="9.65625" />
+          <ConnectorPoint PointX="12.615256410256411" PointY="9.65625" />
+          <ConnectorPoint PointX="12.895128205128204" PointY="9.65625" />
+          <ConnectorPoint PointX="13.061794871794872" PointY="9.65625" />
+          <ConnectorPoint PointX="14.25" PointY="9.65625" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Me__Appli__30F848ED" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.6487939453125" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="9.6487939453125" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="9.6487939453125" />
+          <ConnectorPoint PointX="7.5" PointY="9.6487939453125" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Pa__Appli__628FA481" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.8362939453125" />
+          <ConnectorPoint PointX="3" PointY="8.8362939453125" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Ro__Appli__4F7CD00D" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.466095377604166" />
+          <ConnectorPoint PointX="3" PointY="10.466095377604166" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Us__Appli__20C1E124" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="10.932190755208332" />
+          <ConnectorPoint PointX="1.5" PointY="13.0932421875" />
+          <ConnectorPoint PointX="5.25" PointY="13.0932421875" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Me__UserI__31EC6D26" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="12.2881982421875" />
+          <ConnectorPoint PointX="7.5" PointY="12.2881982421875" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK_Comments_aspnet_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="13.480205078125" />
+          <ConnectorPoint PointX="12.260414166666665" PointY="13.480205078125" />
+          <ConnectorPoint PointX="12.427080833333333" PointY="13.480205078125" />
+          <ConnectorPoint PointX="12.75" PointY="13.480205078125" />
+          <ConnectorPoint PointX="12.75" PointY="12.4994921875" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK_Photos_aspnet_Membership" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="9.515625" />
+          <ConnectorPoint PointX="12.448589743589743" PointY="9.515625" />
+          <ConnectorPoint PointX="12.615256410256411" PointY="9.515625" />
+          <ConnectorPoint PointX="12.895128205128204" PointY="9.515625" />
+          <ConnectorPoint PointX="13.061794871794872" PointY="9.515625" />
+          <ConnectorPoint PointX="14.25" PointY="9.515625" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Pe__PathI__68487DD7" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.1439925130208337" />
+          <ConnectorPoint PointX="5.25" PointY="8.1439925130208337" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Pe__PathI__6C190EBB" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="7.125" />
+          <ConnectorPoint PointX="3.75" PointY="5.1151432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="5.1151432291666667" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Pe__UserI__6D0D32F4" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="11.425347121093751" />
+          <ConnectorPoint PointX="7.125" PointY="11.425347121093751" />
+          <ConnectorPoint PointX="7.125" PointY="5.1151432291666667" />
+          <ConnectorPoint PointX="6.75" PointY="5.1151432291666667" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Pr__UserI__45F365D3" ManuallyRouted="false">
+          <ConnectorPoint PointX="6" PointY="13.951396484375" />
+          <ConnectorPoint PointX="6" PointY="16.2112939453125" />
+          <ConnectorPoint PointX="7.5" PointY="16.2112939453125" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.Album_to_Tag" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.5" PointY="12.566793619791667" />
+          <ConnectorPoint PointX="10.5" PointY="12.941793619791667" />
+          <ConnectorPoint PointX="12.260414166666665" PointY="12.941793619791667" />
+          <ConnectorPoint PointX="12.427080833333333" PointY="12.941793619791667" />
+          <ConnectorPoint PointX="12.666666666666666" PointY="12.941793619791667" />
+          <ConnectorPoint PointX="12.833333333333334" PointY="12.941793619791667" />
+          <ConnectorPoint PointX="17.25" PointY="12.941793619791667" />
+          <ConnectorPoint PointX="17.25" PointY="12.037985026041667" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.aspnet_UsersInRoles" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.3987939453125" />
+          <ConnectorPoint PointX="5.25" PointY="11.3987939453125" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.Comments_to_Albums" ManuallyRouted="false">
+          <ConnectorPoint PointX="11.25" PointY="11.12474609375" />
+          <ConnectorPoint PointX="12" PointY="11.12474609375" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.Comments_to_Comments" ManuallyRouted="false">
+          <ConnectorPoint PointX="12.531923076923077" PointY="9.75" />
+          <ConnectorPoint PointX="12.531923076923077" PointY="9.25" />
+          <ConnectorPoint PointX="12.978461538461538" PointY="9.25" />
+          <ConnectorPoint PointX="12.978461538461538" PointY="9.75" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.Comments_to_Photos" ManuallyRouted="false">
+          <ConnectorPoint PointX="13.5" PointY="11.12474609375" />
+          <ConnectorPoint PointX="14.25" PointY="11.12474609375" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.Comments_to_Users" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="13.843163307291666" />
+          <ConnectorPoint PointX="12.3437475" PointY="13.843163307291666" />
+          <ConnectorPoint PointX="12.3437475" PointY="12.4994921875" /></AssociationConnector>
+        <AssociationConnector Association="photogalleryModel.Photo_to_Tag" ManuallyRouted="false">
+          <ConnectorPoint PointX="15.75" PointY="11.143992513020834" />
+          <ConnectorPoint PointX="16.5" PointY="11.143992513020834" /></AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

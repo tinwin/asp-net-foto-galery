@@ -35,6 +35,14 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -51,6 +59,16 @@
     <Compile Include="AbstractEntities\IGalleryUserRepository.cs" />
     <Compile Include="AbstractEntities\IPhotoRepository.cs" />
     <Compile Include="AbstractEntities\ITagRepository.cs" />
+    <Compile Include="EFDataProvider\Adapters\AlbumAdapter.cs" />
+    <Compile Include="EFDataProvider\Adapters\CommentAdapter.cs" />
+    <Compile Include="EFDataProvider\Adapters\PhotoAdapter.cs" />
+    <Compile Include="EFDataProvider\Adapters\TagAdapter.cs" />
+    <Compile Include="EFDataProvider\Adapters\UserAdapter.cs" />
+    <Compile Include="EFDataProvider\EntityDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,7 +78,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EFDataProvider\Adapters\" />
+    <EntityDeploy Include="EFDataProvider\EntityDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="EFDataProvider\Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
