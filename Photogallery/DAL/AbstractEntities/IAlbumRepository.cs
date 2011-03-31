@@ -8,11 +8,11 @@ namespace DAL.AbstractEntities
 {
     public interface IAlbumRepository
     {
-        void AddAlbum(Album album);
+        void AddAlbum(IAlbum album);
 
         void DeleteAlbum(int id);
 
-        void UpdateAlbum(Album album);
+        void UpdateAlbum(IAlbum album);
 
 
 

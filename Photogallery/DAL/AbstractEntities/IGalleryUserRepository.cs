@@ -9,11 +9,11 @@ namespace DAL.AbstractEntities
 {
     public interface IGalleryUserRepository
     {
-        void AddUser(GalleryUser user);
+        void AddUser(IGalleryUser user);
 
         void DeleteUser(Guid UserId);
 
-        void UpdateUser(GalleryUser user);
+        void UpdateUser(IGalleryUser user);
 
 
     }
