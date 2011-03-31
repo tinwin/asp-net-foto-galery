@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Photogallery;
 
-namespace Photogallery
+namespace Photogallery 
 {
     public interface IComment
     {
