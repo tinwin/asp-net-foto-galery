@@ -8,7 +8,7 @@ namespace DAL.EFDataProvider.Adapters
 {
     class CommentAdapter : IComment
     {
-        private Comment _comment;
+        private readonly Comment _comment;
 
         public CommentAdapter(Comment comment)
         {
@@ -17,26 +17,33 @@ namespace DAL.EFDataProvider.Adapters
 
         public int CommentId
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return _comment.CommentId; }
+            set { _comment.CommentId = value; }
         }
 
         public string Text
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return _comment.Text; }
+            set { _comment.Text = value; }
         }
+
+        private IGalleryUser _author;
 
         public IGalleryUser Author
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get
+            {
+                if (_author == null)
+                    _author = new UserAdapter(_comment.Author);
+                return _author;
+            }
+            set { _author = value; }
         }
 
         public DateTime AdditionDate
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return _comment.AdditionDate; }
+            set { _comment.AdditionDate = value; }
         }
     }
 }

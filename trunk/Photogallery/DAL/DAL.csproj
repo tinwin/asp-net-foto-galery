@@ -69,6 +69,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EFDataProvider\Repositories\PhotoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EFDataProvider\Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

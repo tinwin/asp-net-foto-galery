@@ -6,7 +6,7 @@ using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
 {
-    class AlbumAdapter : Photogallery.IAlbum
+    class AlbumAdapter : IAlbum
     {
         internal Album _album;
 
@@ -25,15 +25,13 @@ namespace DAL.EFDataProvider.Adapters
             set { _album.AlbumId = value; }
         }
 
-
         private IGalleryUser _user;
-
         public IGalleryUser User
         {
             get
             {
                 if (_user == null)
-                    _user = new UserAdapter(_album.aspnet_Membership);
+                    _user = new UserAdapter(_album.Author);
                 return _user;
             }
             set { _user = value; }
@@ -45,40 +43,53 @@ namespace DAL.EFDataProvider.Adapters
             set { _album.Title = value; }
         }
 
+        private IAlbum _parentAlbum;
+
         public IAlbum ParentAlbum
         {
-            get { return _album.ParentAlbum; }
-            set { _album.ParentAlbum = value; }
+            get
+            {
+                if (_parentAlbum == null)
+                    _parentAlbum = new AlbumAdapter(_album.ParentAlbum);
+                return _parentAlbum;
+            }
+            set { _parentAlbum = value; }
         }
 
-        IEnumerable<IAlbum> IAlbum.ChildAlbums
+
+        private List<IAlbum> _childAlbums;
+        public IEnumerable<IAlbum> ChildAlbums
         {
-            get { return _album.ChildAlbums; }
-            set { _album.ChildAlbums = value; }
+            get
+            {
+                if (_childAlbums == null)
+                {
+                    _childAlbums=new List<IAlbum>();
+                    _album.ChildAlbums.Load();
+                    foreach (var album in _album.ChildAlbums)
+                        _childAlbums.Add(new AlbumAdapter(album));
+                }
+                return _childAlbums;
+            }
+            set { _childAlbums = value.ToList(); }
         }
 
-        public bool IsRootAlbum
-        {
-            get { return _album.IsRootAlbum; }
-            set { throw new NotImplementedException(); }
-        }
 
-
-        private IEnumerable<IPhoto> _photos;
+        private List<IPhoto> _photos;
         public IEnumerable<IPhoto> Photos
         {
             get
             {
                 if (_photos == null)
                 {
+                    _photos = new List<IPhoto>();
                     _album.Photos.Load();
-                    var list = new List<IPhoto>();
                     foreach (var photo in _album.Photos)
-                        list.Add(new PhotoAdapter(photo));
+                        _photos.Add(new PhotoAdapter(photo));
                 }
                 return _photos;
             }
-            set { _photos = value; }
+            set { _photos = value.ToList(); }
         }
 
         public string Description
@@ -94,26 +105,34 @@ namespace DAL.EFDataProvider.Adapters
             set { _album.CreationDate = value; }
         }
 
-        private IEnumerable<ITag> _tags;
+        public bool IsRootAlbum
+        {
+            get { return _album.Author.aspnet_Users.RootAlbum == _album; }
+        }
+
+        private List<ITag> _albumTags;
+
         public IEnumerable<ITag> AlbumTags
         {
             get
             {
-                if (_tags == null)
+                if (_albumTags == null)
                 {
+                    _albumTags = new List<ITag>();
                     _album.Tags.Load();
-                    var list = new List<ITag>();
                     foreach (var tag in _album.Tags)
-                        list.Add(new TagAdapter(tag));
+                        _albumTags.Add(new TagAdapter(tag));
                 }
-                return _tags;
+                return _albumTags;
             }
-            set { _tags = value; }
+            set { throw new NotImplementedException(); }
         }
 
 
         public void AddComment(IComment comment)
         {
+            
+            _album.Comments.Add();
             throw new NotImplementedException();
         }
 
@@ -126,6 +145,15 @@ namespace DAL.EFDataProvider.Adapters
         public void UpdateComment(Photogallery.IComment comment)
         {
             throw new NotImplementedException();
+        }
+
+        public static Album Adapte(IAlbum album)
+        {
+            return new Album
+                       {
+                           AlbumId = album.AlbumId,
+                           
+                       };
         }
     }
 }
