@@ -8,11 +8,12 @@ namespace DAL.AbstractEntities
 {
     public interface IPhotoRepository
     {
-        void AddPhoto(IPhoto photo);
+        IPhoto AddPhoto(IPhoto photo);
 
-        void DeletePhoto(Guid PhotoId);
+        void DeletePhoto(int PhotoId);
 
         void UpdatePhoto(IPhoto photo);
 
+		IPhoto GetPhotoById(int id);
     }
 }

@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BuisnessLayer\BL.csproj", "{6B65C350-C148-44A4-94E8-C45F7ABDAF77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALTests", "DALTests\DALTests.csproj", "{5628B7AE-82DC-414D-A1F4-F802D439EF22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{6205C562-9A8D-4BC8-9374-0F16D835AAA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{6B65C350-C148-44A4-94E8-C45F7ABDAF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B65C350-C148-44A4-94E8-C45F7ABDAF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B65C350-C148-44A4-94E8-C45F7ABDAF77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5628B7AE-82DC-414D-A1F4-F802D439EF22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5628B7AE-82DC-414D-A1F4-F802D439EF22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5628B7AE-82DC-414D-A1F4-F802D439EF22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5628B7AE-82DC-414D-A1F4-F802D439EF22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6205C562-9A8D-4BC8-9374-0F16D835AAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6205C562-9A8D-4BC8-9374-0F16D835AAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6205C562-9A8D-4BC8-9374-0F16D835AAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6205C562-9A8D-4BC8-9374-0F16D835AAA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

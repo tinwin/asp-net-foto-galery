@@ -15,7 +15,7 @@ namespace Photogallery
        
         public Guid UserId { get; set; }
 
-        public Role UserRole { get; set; }
+       // public Role UserRole { get; set; }
 
         public string UserPassword { get; set; }
         

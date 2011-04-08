@@ -9,7 +9,7 @@ namespace Photogallery
     public class Photo:IPhoto
     {
 
-        public Guid PhotoId { get; set; }
+        public int PhotoId { get; set; }
 
         public string PhotoTitle { get; set; }
 
