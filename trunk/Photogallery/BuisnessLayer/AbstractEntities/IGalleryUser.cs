@@ -17,7 +17,7 @@ namespace Photogallery
 
         string UserPassword { get; set; }
 
-        Role UserRole { get; set; }
+       // Role UserRole { get; set; }
 
         string UserMail { get; set; } 
         

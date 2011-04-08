@@ -23,7 +23,7 @@ namespace DAL.EFDataProvider.Adapters
             _hostAlbum = new AlbumAdapter(photo.Album);
         }
 
-        public Guid PhotoId 
+        public int PhotoId 
         {
             get { return _photo.PhotoId; }
             set { _photo.PhotoId = value; }
@@ -52,6 +52,7 @@ namespace DAL.EFDataProvider.Adapters
                 if (_comments == null)
                 {
                     _photo.Comments.Load();
+					_comments = new List<IComment>();
                     foreach(var comment in _photo.Comments)
                         _comments.Add(new CommentAdapter(comment));
                 }
@@ -159,11 +160,6 @@ namespace DAL.EFDataProvider.Adapters
 
             throw new NotImplementedException();
 
-        }
-
-        public static Photo Adapte(IPhoto photo)
-        {
-            
         }
     }
 }

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}</ProjectGuid>
+    <ProjectGuid>{5628B7AE-82DC-414D-A1F4-F802D439EF22}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAL</RootNamespace>
-    <AssemblyName>DAL</AssemblyName>
+    <RootNamespace>DALTests</RootNamespace>
+    <AssemblyName>DALTests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="nunit.mocks, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="Rhino.Mocks, Version=3.5.0.1337, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -38,11 +41,6 @@
     <Reference Include="System.Data.Entity">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -54,23 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractEntities\AbstractProvider.cs" />
-    <Compile Include="AbstractEntities\IAlbumRepository.cs" />
-    <Compile Include="AbstractEntities\IGalleryUserRepository.cs" />
-    <Compile Include="AbstractEntities\IPhotoRepository.cs" />
-    <Compile Include="AbstractEntities\ITagRepository.cs" />
-    <Compile Include="EFDataProvider\Adapters\AlbumAdapter.cs" />
-    <Compile Include="EFDataProvider\Adapters\CommentAdapter.cs" />
-    <Compile Include="EFDataProvider\Adapters\PhotoAdapter.cs" />
-    <Compile Include="EFDataProvider\Adapters\TagAdapter.cs" />
-    <Compile Include="EFDataProvider\Adapters\UserAdapter.cs" />
-    <Compile Include="EFDataProvider\EntityDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EFDataProvider\Repositories\GalleryUserRepository.cs" />
-    <Compile Include="EFDataProvider\Repositories\PhotoRepository.cs" />
+    <Compile Include="PhotoRepositoryTest.cs" />
+    <Compile Include="EntityContainerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,15 +61,10 @@
       <Project>{6B65C350-C148-44A4-94E8-C45F7ABDAF77}</Project>
       <Name>BL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="EFDataProvider\EntityDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -96,9 +74,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetDir)EFDataProvider\EntityDataModel.ssdl $(SolutionDir)DALTests\$(OutDir) /S /E /H /C /Y
-xcopy $(TargetDir)EFDataProvider\EntityDataModel.csdl $(SolutionDir)DALTests\$(OutDir) /S /E /H /C /Y
-xcopy $(TargetDir)EFDataProvider\EntityDataModel.msl $(SolutionDir)DALTests\$(OutDir) /S /E /H /C /Y</PostBuildEvent>
-  </PropertyGroup>
 </Project>

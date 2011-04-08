@@ -161,7 +161,7 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="200" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
-          <Property Name="AlbumId" Type="int" Nullable="false" />
+          <Property Name="AlbumId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ParentAlbumId" Type="int" />
         </EntityType>
         <EntityType Name="aspnet_Applications">
@@ -266,7 +266,7 @@
           <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
           <Property Name="IsAnonymous" Type="bit" Nullable="false" />
           <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
-          <Property Name="RootAlbum" Type="int" Nullable="false" />
+          <Property Name="RootAlbum" Type="int" />
         </EntityType>
         <EntityType Name="aspnet_UsersInRoles">
           <Key>
@@ -323,8 +323,8 @@
           <Key>
             <PropertyRef Name="CommentId" />
           </Key>
+          <Property Name="PhotoId" Type="int" />
           <Property Name="CommentId" Type="int" Nullable="false" />
-          <Property Name="PhotoId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="Comments_to_Users">
           <Key>
@@ -335,11 +335,11 @@
         </EntityType>
         <EntityType Name="Photo_to_Tag">
           <Key>
-            <PropertyRef Name="TagId" />
             <PropertyRef Name="PhotoId" />
+            <PropertyRef Name="TagId" />
           </Key>
+          <Property Name="PhotoId" Type="int" Nullable="false" />
           <Property Name="TagId" Type="int" Nullable="false" />
-          <Property Name="PhotoId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="Photos">
           <Key>
@@ -350,7 +350,7 @@
           <Property Name="AdditionDate" Type="datetime" Nullable="false" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AlbumId" Type="int" Nullable="false" />
-          <Property Name="PhotoId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PhotoId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ImageThumbnail" Type="varbinary(max)" />
           <Property Name="OptimizedImage" Type="varbinary(max)" />
           <Property Name="OriginalImage" Type="varbinary(max)" />
@@ -553,7 +553,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_aspnet_Users_Albums">
-          <End Role="Albums" Type="photogalleryModel.Store.Albums" Multiplicity="1" />
+          <End Role="Albums" Type="photogalleryModel.Store.Albums" Multiplicity="0..1" />
           <End Role="aspnet_Users" Type="photogalleryModel.Store.aspnet_Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Albums">
@@ -637,7 +637,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Comments_to_Photos_Photos">
-          <End Role="Photos" Type="photogalleryModel.Store.Photos" Multiplicity="1" />
+          <End Role="Photos" Type="photogalleryModel.Store.Photos" Multiplicity="0..1" />
           <End Role="Comments_to_Photos" Type="photogalleryModel.Store.Comments_to_Photos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Photos">
@@ -727,7 +727,7 @@
         <EntityContainer Name="PhotogalleryEntities">
           <EntitySet Name="AlbumSet" EntityType="photogalleryModel.Album" />
           <EntitySet Name="aspnet_Applications" EntityType="photogalleryModel.aspnet_Applications" />
-          <EntitySet Name="aspnet_Membership" EntityType="photogalleryModel.aspnet_Membership" />
+          <EntitySet Name="UserSet" EntityType="photogalleryModel.User" />
           <EntitySet Name="aspnet_Paths" EntityType="photogalleryModel.aspnet_Paths" />
           <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="photogalleryModel.aspnet_PersonalizationAllUsers" />
           <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="photogalleryModel.aspnet_PersonalizationPerUser" />
@@ -745,7 +745,7 @@
             <End Role="Albums1" EntitySet="AlbumSet" />
           </AssociationSet>
           <AssociationSet Name="FK_Albums_aspnet_Membership" Association="photogalleryModel.FK_Albums_aspnet_Membership">
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="aspnet_Membership" EntitySet="UserSet" />
             <End Role="Albums" EntitySet="AlbumSet" />
           </AssociationSet>
           <AssociationSet Name="FK_Photos_Albums" Association="photogalleryModel.FK_Photos_Albums">
@@ -754,7 +754,7 @@
           </AssociationSet>
           <AssociationSet Name="FK__aspnet_Me__Appli__30F848ED" Association="photogalleryModel.FK__aspnet_Me__Appli__30F848ED">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="aspnet_Membership" EntitySet="UserSet" />
           </AssociationSet>
           <AssociationSet Name="FK__aspnet_Pa__Appli__628FA481" Association="photogalleryModel.FK__aspnet_Pa__Appli__628FA481">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
@@ -770,14 +770,14 @@
           </AssociationSet>
           <AssociationSet Name="FK__aspnet_Me__UserI__31EC6D26" Association="photogalleryModel.FK__aspnet_Me__UserI__31EC6D26">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="aspnet_Membership" EntitySet="UserSet" />
           </AssociationSet>
           <AssociationSet Name="FK_Comments_aspnet_Users" Association="photogalleryModel.FK_Comments_aspnet_Users">
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="aspnet_Membership" EntitySet="UserSet" />
             <End Role="Comments" EntitySet="CommentSet" />
           </AssociationSet>
           <AssociationSet Name="FK_Photos_aspnet_Membership" Association="photogalleryModel.FK_Photos_aspnet_Membership">
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="aspnet_Membership" EntitySet="UserSet" />
             <End Role="Photos" EntitySet="PhotoSet" />
           </AssociationSet>
           <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="photogalleryModel.FK__aspnet_Pe__PathI__68487DD7">
@@ -813,7 +813,7 @@
             <End Role="Photos" EntitySet="PhotoSet" />
           </AssociationSet>
           <AssociationSet Name="Comments_to_Users" Association="photogalleryModel.Comments_to_Users">
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="aspnet_Membership" EntitySet="UserSet" />
             <End Role="Comments" EntitySet="CommentSet" />
           </AssociationSet>
           <AssociationSet Name="Photo_to_Tag" Association="photogalleryModel.Photo_to_Tag">
@@ -854,7 +854,7 @@
           <NavigationProperty Name="aspnet_Roles" Relationship="photogalleryModel.FK__aspnet_Ro__Appli__4F7CD00D" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
           <NavigationProperty Name="aspnet_Users" Relationship="photogalleryModel.FK__aspnet_Us__Appli__20C1E124" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
         </EntityType>
-        <EntityType Name="aspnet_Membership">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
@@ -1002,7 +1002,7 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
           <Property Name="AdditionDate" Type="DateTime" Nullable="false" />
-          <Property Name="PhotoId" Type="Guid" Nullable="false" />
+          <Property Name="PhotoId" Type="Int32" Nullable="false" />
           <Property Name="ImageThumbnail" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OptimizedImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="OriginalImage" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -1035,7 +1035,7 @@
           <End Role="Albums1" Type="photogalleryModel.Album" Multiplicity="*" />
         </Association>
         <Association Name="FK_Albums_aspnet_Membership">
-          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.User" Multiplicity="1" />
           <End Role="Albums" Type="photogalleryModel.Album" Multiplicity="*" />
         </Association>
         <Association Name="FK_Photos_Albums">
@@ -1044,7 +1044,7 @@
         </Association>
         <Association Name="FK__aspnet_Me__Appli__30F848ED">
           <End Role="aspnet_Applications" Type="photogalleryModel.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="*" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.User" Multiplicity="*" />
         </Association>
         <Association Name="FK__aspnet_Pa__Appli__628FA481">
           <End Role="aspnet_Applications" Type="photogalleryModel.aspnet_Applications" Multiplicity="1" />
@@ -1060,18 +1060,18 @@
         </Association>
         <Association Name="FK__aspnet_Me__UserI__31EC6D26">
           <End Role="aspnet_Users" Type="photogalleryModel.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="0..1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.User" Multiplicity="0..1" />
         <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" /></Principal>
             <Dependent Role="aspnet_Membership">
               <PropertyRef Name="UserId" /></Dependent></ReferentialConstraint></Association>
         <Association Name="FK_Comments_aspnet_Users">
-          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="0..1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.User" Multiplicity="0..1" />
           <End Role="Comments" Type="photogalleryModel.Comment" Multiplicity="*" />
         </Association>
         <Association Name="FK_Photos_aspnet_Membership">
-          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.User" Multiplicity="1" />
           <End Role="Photos" Type="photogalleryModel.Photo" Multiplicity="*" />
         </Association>
         <Association Name="FK__aspnet_Pe__PathI__68487DD7">
@@ -1119,7 +1119,7 @@
           <End Role="Photos" Type="photogalleryModel.Photo" Multiplicity="0..1" />
         </Association>
         <Association Name="Comments_to_Users">
-          <End Role="aspnet_Membership" Type="photogalleryModel.aspnet_Membership" Multiplicity="0..1" />
+          <End Role="aspnet_Membership" Type="photogalleryModel.User" Multiplicity="0..1" />
           <End Role="Comments" Type="photogalleryModel.Comment" Multiplicity="*" />
         </Association>
         <Association Name="Photo_to_Tag">
@@ -1131,7 +1131,7 @@
           <End Type="photogalleryModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" /></Association>
         <Association Name="FK_aspnet_Users_Albums">
           <End Type="photogalleryModel.Album" Role="Album" Multiplicity="1" />
-          <End Type="photogalleryModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" /></Association></Schema>
+          <End Type="photogalleryModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" /></Association></Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1157,8 +1157,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Membership">
-            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.aspnet_Membership)">
+          <EntitySetMapping Name="UserSet">
+            <EntityTypeMapping TypeName="IsTypeOf(photogalleryModel.User)">
               <MappingFragment StoreEntitySet="aspnet_Membership">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -1495,7 +1495,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
     <edmx:Connection>
       <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="CopyToOutputDirectory" />
       </DesignerInfoPropertySet>
     </edmx:Connection>
     <edmx:Options>
@@ -1508,7 +1508,7 @@
       <Diagram Name="EntityDataModel" ZoomLevel="75">
         <EntityTypeShape EntityType="photogalleryModel.Album" Width="1.5" PointX="9.75" PointY="9.625" Height="2.9417936197916674" IsExpanded="true" />
         <EntityTypeShape EntityType="photogalleryModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="8.375" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="photogalleryModel.aspnet_Membership" Width="1.5" PointX="7.5" PointY="8.125" Height="6.0186165364583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="photogalleryModel.User" Width="1.5" PointX="7.5" PointY="8.125" Height="6.0186165364583317" IsExpanded="true" />
         <EntityTypeShape EntityType="photogalleryModel.aspnet_Paths" Width="1.5" PointX="3" PointY="7.125" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="photogalleryModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="7.25" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="photogalleryModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="4.125" Height="1.9802864583333335" IsExpanded="true" />
@@ -1579,9 +1579,11 @@
           <ConnectorPoint PointX="3.75" PointY="7.125" />
           <ConnectorPoint PointX="3.75" PointY="5.1151432291666667" />
           <ConnectorPoint PointX="5.25" PointY="5.1151432291666667" /></AssociationConnector>
-        <AssociationConnector Association="photogalleryModel.FK__aspnet_Pr__UserI__45F365D3" ManuallyRouted="false">
+        <AssociationConnector Association="photogalleryModel.FK__aspnet_Pr__UserI__45F365D3" ManuallyRouted="true">
           <ConnectorPoint PointX="6" PointY="13.951396484375" />
-          <ConnectorPoint PointX="6" PointY="16.2112939453125" />
+          <ConnectorPoint PointX="6" PointY="14.155495979817712" />
+          <ConnectorPoint PointX="5.3472222222222223" PointY="14.155495979817712" />
+          <ConnectorPoint PointX="5.3472222222222223" PointY="16.2112939453125" />
           <ConnectorPoint PointX="7.5" PointY="16.2112939453125" /></AssociationConnector>
         <AssociationConnector Association="photogalleryModel.Album_to_Tag" ManuallyRouted="false">
           <ConnectorPoint PointX="11.25" PointY="12.727845052083332" />

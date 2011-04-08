@@ -9,7 +9,7 @@ namespace Photogallery
 {
     public interface IPhoto
     {
-        Guid PhotoId { get; set; }
+        int PhotoId { get; set; }
 
         string PhotoTitle { get; set; }
 

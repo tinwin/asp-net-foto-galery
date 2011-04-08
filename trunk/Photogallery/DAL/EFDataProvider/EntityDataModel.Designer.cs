@@ -10,15 +10,15 @@
 
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_Albums_Albums", "Albums", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.Album), "Albums1", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Album))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_Albums_aspnet_Membership", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Membership), "Albums", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Album))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_Albums_aspnet_Membership", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.User), "Albums", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Album))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_Photos_Albums", "Albums", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.Album), "Photos", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Photo))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Me__Appli__30F848ED", "aspnet_Applications", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Applications), "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_Membership))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Me__Appli__30F848ED", "aspnet_Applications", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Applications), "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.User))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Pa__Appli__628FA481", "aspnet_Applications", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Applications), "aspnet_Paths", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_Paths))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Ro__Appli__4F7CD00D", "aspnet_Applications", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Applications), "aspnet_Roles", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_Roles))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Us__Appli__20C1E124", "aspnet_Applications", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Applications), "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_Users))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Me__UserI__31EC6D26", "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Users), "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_Membership))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_Comments_aspnet_Users", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_Membership), "Comments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Comment))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_Photos_aspnet_Membership", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Membership), "Photos", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Photo))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Me__UserI__31EC6D26", "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Users), "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.User))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_Comments_aspnet_Users", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.User), "Comments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Comment))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_Photos_aspnet_Membership", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.User), "Photos", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Photo))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Paths), "aspnet_PersonalizationAllUsers", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_PersonalizationAllUsers))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Pe__PathI__6C190EBB", "aspnet_Paths", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_Paths), "aspnet_PersonalizationPerUser", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_PersonalizationPerUser))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Pr__UserI__45F365D3", "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Users), "aspnet_Profile", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_Profile))]
@@ -27,13 +27,13 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "Comments_to_Albums", "Albums", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.Album), "Comments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Comment))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "Comments_to_Comments", "Comments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Comment), "Comments1", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.Comment))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "Comments_to_Photos", "Comments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Comment), "Photos", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.Photo))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "Comments_to_Users", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_Membership), "Comments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Comment))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "Comments_to_Users", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.User), "Comments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Comment))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "Photo_to_Tag", "Photos", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Photo), "Tags", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Tag))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Pe__UserI__6D0D32F4", "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_Users), "aspnet_PersonalizationPerUser", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_PersonalizationPerUser))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_aspnet_Users_Albums", "Album", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.Album), "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_Users))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_aspnet_Users_Albums", "Album", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.Album), "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Users))]
 
 // Original file name:
-// Generation date: 01.04.2011 1:09:36
+// Generation date: 08.04.2011 13:50:30
 namespace DAL.EFDataProvider
 {
     
@@ -98,20 +98,20 @@ namespace DAL.EFDataProvider
         }
         private global::System.Data.Objects.ObjectQuery<aspnet_Applications> _aspnet_Applications;
         /// <summary>
-        /// There are no comments for aspnet_Membership in the schema.
+        /// There are no comments for UserSet in the schema.
         /// </summary>
-        public global::System.Data.Objects.ObjectQuery<aspnet_Membership> aspnet_Membership
+        public global::System.Data.Objects.ObjectQuery<User> UserSet
         {
             get
             {
-                if ((this._aspnet_Membership == null))
+                if ((this._UserSet == null))
                 {
-                    this._aspnet_Membership = base.CreateQuery<aspnet_Membership>("[aspnet_Membership]");
+                    this._UserSet = base.CreateQuery<User>("[UserSet]");
                 }
-                return this._aspnet_Membership;
+                return this._UserSet;
             }
         }
-        private global::System.Data.Objects.ObjectQuery<aspnet_Membership> _aspnet_Membership;
+        private global::System.Data.Objects.ObjectQuery<User> _UserSet;
         /// <summary>
         /// There are no comments for aspnet_Paths in the schema.
         /// </summary>
@@ -307,11 +307,11 @@ namespace DAL.EFDataProvider
             base.AddObject("aspnet_Applications", aspnet_Applications);
         }
         /// <summary>
-        /// There are no comments for aspnet_Membership in the schema.
+        /// There are no comments for UserSet in the schema.
         /// </summary>
-        public void AddToaspnet_Membership(aspnet_Membership aspnet_Membership)
+        public void AddToUserSet(User user)
         {
-            base.AddObject("aspnet_Membership", aspnet_Membership);
+            base.AddObject("UserSet", user);
         }
         /// <summary>
         /// There are no comments for aspnet_Paths in the schema.
@@ -578,15 +578,15 @@ namespace DAL.EFDataProvider
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public aspnet_Membership Author
+        public User Author
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Albums_aspnet_Membership", "aspnet_Membership").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Albums_aspnet_Membership", "aspnet_Membership").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Albums_aspnet_Membership", "aspnet_Membership").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Albums_aspnet_Membership", "aspnet_Membership").Value = value;
             }
         }
         /// <summary>
@@ -594,17 +594,17 @@ namespace DAL.EFDataProvider
         /// </summary>
         [global::System.ComponentModel.BrowsableAttribute(false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<aspnet_Membership> AuthorReference
+        public global::System.Data.Objects.DataClasses.EntityReference<User> AuthorReference
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Albums_aspnet_Membership", "aspnet_Membership");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Albums_aspnet_Membership", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("photogalleryModel.FK_Albums_aspnet_Membership", "aspnet_Membership", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<User>("photogalleryModel.FK_Albums_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }
@@ -678,17 +678,33 @@ namespace DAL.EFDataProvider
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<aspnet_Users> aspnet_Users
+        public aspnet_Users aspnet_Users
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<aspnet_Users>("photogalleryModel.FK_aspnet_Users_Albums", "aspnet_Users");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Users>("photogalleryModel.FK_aspnet_Users_Albums", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Users>("photogalleryModel.FK_aspnet_Users_Albums", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// There are no comments for aspnet_Users in the schema.
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<aspnet_Users> aspnet_UsersReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Users>("photogalleryModel.FK_aspnet_Users_Albums", "aspnet_Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("photogalleryModel.FK_aspnet_Users_Albums", "aspnet_Users", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<aspnet_Users>("photogalleryModel.FK_aspnet_Users_Albums", "aspnet_Users", value);
                 }
             }
         }
@@ -817,17 +833,17 @@ namespace DAL.EFDataProvider
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<aspnet_Membership> aspnet_Membership
+        public global::System.Data.Objects.DataClasses.EntityCollection<User> aspnet_Membership
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<aspnet_Membership>("photogalleryModel.FK__aspnet_Me__Appli__30F848ED", "aspnet_Membership");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<User>("photogalleryModel.FK__aspnet_Me__Appli__30F848ED", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<aspnet_Membership>("photogalleryModel.FK__aspnet_Me__Appli__30F848ED", "aspnet_Membership", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<User>("photogalleryModel.FK__aspnet_Me__Appli__30F848ED", "aspnet_Membership", value);
                 }
             }
         }
@@ -896,18 +912,18 @@ namespace DAL.EFDataProvider
         }
     }
     /// <summary>
-    /// There are no comments for photogalleryModel.aspnet_Membership in the schema.
+    /// There are no comments for photogalleryModel.User in the schema.
     /// </summary>
     /// <KeyProperties>
     /// UserId
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="photogalleryModel", Name="aspnet_Membership")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="photogalleryModel", Name="User")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
-    public partial class aspnet_Membership : global::System.Data.Objects.DataClasses.EntityObject
+    public partial class User : global::System.Data.Objects.DataClasses.EntityObject
     {
         /// <summary>
-        /// Create a new aspnet_Membership object.
+        /// Create a new User object.
         /// </summary>
         /// <param name="userId">Initial value of UserId.</param>
         /// <param name="password">Initial value of Password.</param>
@@ -923,24 +939,24 @@ namespace DAL.EFDataProvider
         /// <param name="failedPasswordAttemptWindowStart">Initial value of FailedPasswordAttemptWindowStart.</param>
         /// <param name="failedPasswordAnswerAttemptCount">Initial value of FailedPasswordAnswerAttemptCount.</param>
         /// <param name="failedPasswordAnswerAttemptWindowStart">Initial value of FailedPasswordAnswerAttemptWindowStart.</param>
-        public static aspnet_Membership Createaspnet_Membership(global::System.Guid userId, string password, int passwordFormat, string passwordSalt, bool isApproved, bool isLockedOut, global::System.DateTime createDate, global::System.DateTime lastLoginDate, global::System.DateTime lastPasswordChangedDate, global::System.DateTime lastLockoutDate, int failedPasswordAttemptCount, global::System.DateTime failedPasswordAttemptWindowStart, int failedPasswordAnswerAttemptCount, global::System.DateTime failedPasswordAnswerAttemptWindowStart)
+        public static User CreateUser(global::System.Guid userId, string password, int passwordFormat, string passwordSalt, bool isApproved, bool isLockedOut, global::System.DateTime createDate, global::System.DateTime lastLoginDate, global::System.DateTime lastPasswordChangedDate, global::System.DateTime lastLockoutDate, int failedPasswordAttemptCount, global::System.DateTime failedPasswordAttemptWindowStart, int failedPasswordAnswerAttemptCount, global::System.DateTime failedPasswordAnswerAttemptWindowStart)
         {
-            aspnet_Membership aspnet_Membership = new aspnet_Membership();
-            aspnet_Membership.UserId = userId;
-            aspnet_Membership.Password = password;
-            aspnet_Membership.PasswordFormat = passwordFormat;
-            aspnet_Membership.PasswordSalt = passwordSalt;
-            aspnet_Membership.IsApproved = isApproved;
-            aspnet_Membership.IsLockedOut = isLockedOut;
-            aspnet_Membership.CreateDate = createDate;
-            aspnet_Membership.LastLoginDate = lastLoginDate;
-            aspnet_Membership.LastPasswordChangedDate = lastPasswordChangedDate;
-            aspnet_Membership.LastLockoutDate = lastLockoutDate;
-            aspnet_Membership.FailedPasswordAttemptCount = failedPasswordAttemptCount;
-            aspnet_Membership.FailedPasswordAttemptWindowStart = failedPasswordAttemptWindowStart;
-            aspnet_Membership.FailedPasswordAnswerAttemptCount = failedPasswordAnswerAttemptCount;
-            aspnet_Membership.FailedPasswordAnswerAttemptWindowStart = failedPasswordAnswerAttemptWindowStart;
-            return aspnet_Membership;
+            User user = new User();
+            user.UserId = userId;
+            user.Password = password;
+            user.PasswordFormat = passwordFormat;
+            user.PasswordSalt = passwordSalt;
+            user.IsApproved = isApproved;
+            user.IsLockedOut = isLockedOut;
+            user.CreateDate = createDate;
+            user.LastLoginDate = lastLoginDate;
+            user.LastPasswordChangedDate = lastPasswordChangedDate;
+            user.LastLockoutDate = lastLockoutDate;
+            user.FailedPasswordAttemptCount = failedPasswordAttemptCount;
+            user.FailedPasswordAttemptWindowStart = failedPasswordAttemptWindowStart;
+            user.FailedPasswordAnswerAttemptCount = failedPasswordAnswerAttemptCount;
+            user.FailedPasswordAnswerAttemptWindowStart = failedPasswordAnswerAttemptWindowStart;
+            return user;
         }
         /// <summary>
         /// There are no comments for Property UserId in the schema.
@@ -2717,15 +2733,15 @@ namespace DAL.EFDataProvider
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public aspnet_Membership aspnet_Membership
+        public User aspnet_Membership
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK__aspnet_Me__UserI__31EC6D26", "aspnet_Membership").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK__aspnet_Me__UserI__31EC6D26", "aspnet_Membership").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK__aspnet_Me__UserI__31EC6D26", "aspnet_Membership").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK__aspnet_Me__UserI__31EC6D26", "aspnet_Membership").Value = value;
             }
         }
         /// <summary>
@@ -2733,17 +2749,17 @@ namespace DAL.EFDataProvider
         /// </summary>
         [global::System.ComponentModel.BrowsableAttribute(false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<aspnet_Membership> aspnet_MembershipReference
+        public global::System.Data.Objects.DataClasses.EntityReference<User> aspnet_MembershipReference
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK__aspnet_Me__UserI__31EC6D26", "aspnet_Membership");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK__aspnet_Me__UserI__31EC6D26", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("photogalleryModel.FK__aspnet_Me__UserI__31EC6D26", "aspnet_Membership", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<User>("photogalleryModel.FK__aspnet_Me__UserI__31EC6D26", "aspnet_Membership", value);
                 }
             }
         }
@@ -3348,15 +3364,15 @@ namespace DAL.EFDataProvider
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public aspnet_Membership Author
+        public User Author
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Comments_aspnet_Users", "aspnet_Membership").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Comments_aspnet_Users", "aspnet_Membership").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Comments_aspnet_Users", "aspnet_Membership").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Comments_aspnet_Users", "aspnet_Membership").Value = value;
             }
         }
         /// <summary>
@@ -3364,17 +3380,17 @@ namespace DAL.EFDataProvider
         /// </summary>
         [global::System.ComponentModel.BrowsableAttribute(false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<aspnet_Membership> AuthorReference
+        public global::System.Data.Objects.DataClasses.EntityReference<User> AuthorReference
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Comments_aspnet_Users", "aspnet_Membership");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Comments_aspnet_Users", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("photogalleryModel.FK_Comments_aspnet_Users", "aspnet_Membership", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<User>("photogalleryModel.FK_Comments_aspnet_Users", "aspnet_Membership", value);
                 }
             }
         }
@@ -3517,15 +3533,15 @@ namespace DAL.EFDataProvider
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public aspnet_Membership aspnet_Membership1
+        public User aspnet_Membership1
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.Comments_to_Users", "aspnet_Membership").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.Comments_to_Users", "aspnet_Membership").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.Comments_to_Users", "aspnet_Membership").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.Comments_to_Users", "aspnet_Membership").Value = value;
             }
         }
         /// <summary>
@@ -3533,17 +3549,17 @@ namespace DAL.EFDataProvider
         /// </summary>
         [global::System.ComponentModel.BrowsableAttribute(false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<aspnet_Membership> aspnet_Membership1Reference
+        public global::System.Data.Objects.DataClasses.EntityReference<User> aspnet_Membership1Reference
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.Comments_to_Users", "aspnet_Membership");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.Comments_to_Users", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("photogalleryModel.Comments_to_Users", "aspnet_Membership", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<User>("photogalleryModel.Comments_to_Users", "aspnet_Membership", value);
                 }
             }
         }
@@ -3565,7 +3581,7 @@ namespace DAL.EFDataProvider
         /// <param name="title">Initial value of Title.</param>
         /// <param name="additionDate">Initial value of AdditionDate.</param>
         /// <param name="photoId">Initial value of PhotoId.</param>
-        public static Photo CreatePhoto(string title, global::System.DateTime additionDate, global::System.Guid photoId)
+        public static Photo CreatePhoto(string title, global::System.DateTime additionDate, int photoId)
         {
             Photo photo = new Photo();
             photo.Title = title;
@@ -3647,7 +3663,7 @@ namespace DAL.EFDataProvider
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Guid PhotoId
+        public int PhotoId
         {
             get
             {
@@ -3662,8 +3678,8 @@ namespace DAL.EFDataProvider
                 this.OnPhotoIdChanged();
             }
         }
-        private global::System.Guid _PhotoId;
-        partial void OnPhotoIdChanging(global::System.Guid value);
+        private int _PhotoId;
+        partial void OnPhotoIdChanging(int value);
         partial void OnPhotoIdChanged();
         /// <summary>
         /// There are no comments for Property ImageThumbnail in the schema.
@@ -3778,15 +3794,15 @@ namespace DAL.EFDataProvider
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public aspnet_Membership Author
+        public User Author
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Photos_aspnet_Membership", "aspnet_Membership").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Photos_aspnet_Membership", "aspnet_Membership").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Photos_aspnet_Membership", "aspnet_Membership").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Photos_aspnet_Membership", "aspnet_Membership").Value = value;
             }
         }
         /// <summary>
@@ -3794,17 +3810,17 @@ namespace DAL.EFDataProvider
         /// </summary>
         [global::System.ComponentModel.BrowsableAttribute(false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<aspnet_Membership> AuthorReference
+        public global::System.Data.Objects.DataClasses.EntityReference<User> AuthorReference
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<aspnet_Membership>("photogalleryModel.FK_Photos_aspnet_Membership", "aspnet_Membership");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<User>("photogalleryModel.FK_Photos_aspnet_Membership", "aspnet_Membership");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("photogalleryModel.FK_Photos_aspnet_Membership", "aspnet_Membership", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<User>("photogalleryModel.FK_Photos_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }
