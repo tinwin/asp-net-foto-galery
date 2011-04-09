@@ -9,7 +9,7 @@ namespace DAL.AbstractEntities
 {
     public interface ITagRepository
     {
-        void AddTag(ITag tag);
+        ITag AddTag(ITag tag);
 
         void DeleteTag(int TagId);
 

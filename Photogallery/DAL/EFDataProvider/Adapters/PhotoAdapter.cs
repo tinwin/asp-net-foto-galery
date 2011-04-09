@@ -9,9 +9,9 @@ using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
 {
-    class PhotoAdapter : Photogallery.IPhoto
+	class PhotoAdapter : IPhoto, IAdapter<Photo, IPhoto>
     {
-        private readonly Photo _photo;
+        internal readonly Photo _photo;
 
         public PhotoAdapter()
         {
@@ -43,40 +43,42 @@ namespace DAL.EFDataProvider.Adapters
             set { _hostAlbum = value; }
         }
 
-        private List<IComment> _comments;
+		internal List<IComment> LocalComments = new List<IComment>();
+		private bool _isCommentsConverted;
 
         public IEnumerable<IComment> PhotoComments
         {
             get
             {
-                if (_comments == null)
+                if (!_isCommentsConverted)
                 {
                     _photo.Comments.Load();
-					_comments = new List<IComment>();
                     foreach(var comment in _photo.Comments)
-                        _comments.Add(new CommentAdapter(comment));
+                        LocalComments.Add(new CommentAdapter(comment));
+					_isCommentsConverted = true;
                 }
-                return _comments;
+                return LocalComments;
             }
-            set { _comments = value.ToList(); }
+            set { LocalComments = value.ToList(); }
         }
 
-        private IEnumerable<ITag> _tags;
+        internal List<ITag> _tags = new List<ITag>();
+		private bool _isTagsLoaded;
 
         public IEnumerable<ITag> PhotoTags
         {
             get
-            {
-                if (_tags == null)
+			{
+                if (!_isTagsLoaded)
                 {
                     _photo.Tags.Load();
-                    var list = new List<ITag>();
                     foreach (var tag in _photo.Tags)
-                        list.Add(new TagAdapter(tag));
+                        _tags.Add(new TagAdapter(tag));
+					_isTagsLoaded = true;
                 }
                 return _tags;
             }
-            set { _tags = value; }
+            set { throw new InvalidOperationException("Can't directly set");}
         }
 
         private IGalleryUser _owningUser;
@@ -141,17 +143,19 @@ namespace DAL.EFDataProvider.Adapters
             set { _photo.AdditionDate = value; }
         }
 
-
-
-
         public void AddComment(IComment comment)
         {
-            _comments.Add(comment);
+            LocalComments.Add(comment);
         }
+
+		public void AddTag(ITag tag)
+		{
+			_tags.Add(tag);
+		}
 
         public void DeleteCommentById(int commentId)
         {
-            _comments.Remove(_comments.Where(c => c.CommentId == commentId).SingleOrDefault());
+            LocalComments.Remove(LocalComments.Where(c => c.CommentId == commentId).SingleOrDefault());
         }
 
         public void UpdateComment(IComment comment)
@@ -161,5 +165,10 @@ namespace DAL.EFDataProvider.Adapters
             throw new NotImplementedException();
 
         }
+
+		public IPhoto CreateAdapter(Photo source)
+		{
+			return new PhotoAdapter(source);
+		}
     }
 }

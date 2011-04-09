@@ -26,21 +26,42 @@ namespace DAL.EFDataProvider.Repositories
 
 		public void DeletePhoto(int photoId)
 		{
-			_context.DeleteObject(_context.PhotoSet.Where(p=>p.PhotoId==photoId).First());
+			_context.DeleteObject(_context.PhotoSet.Where(p => p.PhotoId == photoId).First());
+			_context.SaveChanges();
 		}
 
 		public void UpdatePhoto(IPhoto photo)
 		{
-			_context.SaveChanges();    
+			var commentRepository = new CommentRepository(_context);
+			var tagRepository = new TagRepository(_context);
+
+			var adapter = photo as PhotoAdapter;
+			if (adapter!=null)
+			{
+				foreach (var comment in adapter.LocalComments)
+					if (!(comment is CommentAdapter))
+					{
+						var savedCommentEntity = (commentRepository.Add(comment) as CommentAdapter)._comment;
+						adapter._photo.Comments.Add(savedCommentEntity);
+					}
+
+				foreach (var tag in adapter._tags)
+					if (!(tag is TagAdapter))
+					{
+						var savedTagEntity = (tagRepository.AddTag(tag) as TagAdapter)._tag;
+						adapter._photo.Tags.Add(savedTagEntity);
+					}
+			}
+
+			_context.SaveChanges();
 		}
 
 		public IPhoto GetPhotoById(int id)
 		{
-			return new PhotoAdapter((
-				from photo in _context.PhotoSet
-				where photo.PhotoId == id 
-				select photo).
-				First());
+			var selected = (from photo in _context.PhotoSet
+							where photo.PhotoId == id
+							select photo).FirstOrDefault();
+			return (selected == null) ? null : new PhotoAdapter(selected);
 		}
 
 		private Photo Adapte(IPhoto photo)
@@ -55,7 +76,10 @@ namespace DAL.EFDataProvider.Repositories
 					Where(m => m.UserId == photo.OwningUser.UserId).
 					FirstOrDefault(),
 				Description = photo.PhotoDescription,
-				Title = photo.PhotoTitle
+				Title = photo.PhotoTitle,
+                OriginalImage = photo.OriginalPhoto.ToByteArray(),
+                OptimizedImage = photo.OptimizedPhoto.ToByteArray(),
+				ImageThumbnail = photo.PhotoThumbnail.ToByteArray()                
 			};
 			return entity;
 		}

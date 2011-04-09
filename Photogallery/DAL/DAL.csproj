@@ -56,11 +56,13 @@
   <ItemGroup>
     <Compile Include="AbstractEntities\AbstractProvider.cs" />
     <Compile Include="AbstractEntities\IAlbumRepository.cs" />
+    <Compile Include="AbstractEntities\ICommentRepository.cs" />
     <Compile Include="AbstractEntities\IGalleryUserRepository.cs" />
     <Compile Include="AbstractEntities\IPhotoRepository.cs" />
     <Compile Include="AbstractEntities\ITagRepository.cs" />
     <Compile Include="EFDataProvider\Adapters\AlbumAdapter.cs" />
     <Compile Include="EFDataProvider\Adapters\CommentAdapter.cs" />
+    <Compile Include="EFDataProvider\Adapters\IAdapter.cs" />
     <Compile Include="EFDataProvider\Adapters\PhotoAdapter.cs" />
     <Compile Include="EFDataProvider\Adapters\TagAdapter.cs" />
     <Compile Include="EFDataProvider\Adapters\UserAdapter.cs" />
@@ -69,8 +71,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EFDataProvider\ImageExtensions.cs" />
+    <Compile Include="EFDataProvider\LazyLoader.cs" />
+    <Compile Include="EFDataProvider\PhotogalleryEntitiesExtensions.cs" />
+    <Compile Include="EFDataProvider\Repositories\AlbumRepository.cs" />
+    <Compile Include="EFDataProvider\Repositories\CommentRepository.cs" />
     <Compile Include="EFDataProvider\Repositories\GalleryUserRepository.cs" />
     <Compile Include="EFDataProvider\Repositories\PhotoRepository.cs" />
+    <Compile Include="EFDataProvider\Repositories\TagRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,8 +105,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetDir)EFDataProvider\EntityDataModel.ssdl $(SolutionDir)DALTests\$(OutDir) /S /E /H /C /Y
-xcopy $(TargetDir)EFDataProvider\EntityDataModel.csdl $(SolutionDir)DALTests\$(OutDir) /S /E /H /C /Y
-xcopy $(TargetDir)EFDataProvider\EntityDataModel.msl $(SolutionDir)DALTests\$(OutDir) /S /E /H /C /Y</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

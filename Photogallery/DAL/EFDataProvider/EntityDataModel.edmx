@@ -303,7 +303,7 @@
           <Property Name="Text" Type="ntext" Nullable="false" />
           <Property Name="Author" Type="uniqueidentifier" />
           <Property Name="AdditionDate" Type="datetime" Nullable="false" />
-          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="CommentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Comments_to_Albums">
           <Key>
@@ -370,7 +370,7 @@
             <PropertyRef Name="TagId" />
           </Key>
           <Property Name="Title" Type="ntext" Nullable="false" />
-          <Property Name="TagId" Type="int" Nullable="false" />
+          <Property Name="TagId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="FK__aspnet_Me__Appli__30F848ED">
           <End Role="aspnet_Applications" Type="photogalleryModel.Store.aspnet_Applications" Multiplicity="1" />
@@ -1131,7 +1131,7 @@
           <End Type="photogalleryModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" /></Association>
         <Association Name="FK_aspnet_Users_Albums">
           <End Type="photogalleryModel.Album" Role="Album" Multiplicity="1" />
-          <End Type="photogalleryModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" /></Association></Schema>
+          <End Type="photogalleryModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" /></Association></Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1487,7 +1487,8 @@
             <EndProperty Name="aspnet_Users">
               <ScalarProperty Name="UserId" ColumnName="UserId" /></EndProperty>
             <EndProperty Name="Album">
-              <ScalarProperty Name="AlbumId" ColumnName="RootAlbum" /></EndProperty></AssociationSetMapping></EntityContainerMapping>
+              <ScalarProperty Name="AlbumId" ColumnName="RootAlbum" /></EndProperty>
+            <Condition ColumnName="RootAlbum" IsNull="false" /></AssociationSetMapping></EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -1495,7 +1496,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
     <edmx:Connection>
       <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="CopyToOutputDirectory" />
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
       </DesignerInfoPropertySet>
     </edmx:Connection>
     <edmx:Options>

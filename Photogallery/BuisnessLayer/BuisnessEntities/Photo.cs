@@ -56,7 +56,12 @@ namespace Photogallery
             _photoComments.Add(comment);
         }
 
-        public void DeleteCommentById(int commentId)
+    	public void AddTag(ITag tag)
+    	{
+    		throw new NotImplementedException();
+    	}
+
+    	public void DeleteCommentById(int commentId)
         {
 
             IComment comment = _photoComments.Where(p => p.CommentId == commentId).First();

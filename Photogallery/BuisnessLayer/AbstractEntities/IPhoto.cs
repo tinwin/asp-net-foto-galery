@@ -33,6 +33,7 @@ namespace Photogallery
         DateTime AdditionDate { get; set; }
 
         void AddComment(IComment comment);
+		void AddTag(ITag tag);
         void DeleteCommentById(int commentId);
 
         void UpdateComment(IComment comment);
