@@ -8,7 +8,7 @@ namespace DAL.EFDataProvider.Adapters
 {
     class CommentAdapter : IComment
     {
-        private readonly Comment _comment;
+        internal readonly Comment _comment;
 
         public CommentAdapter(Comment comment)
         {

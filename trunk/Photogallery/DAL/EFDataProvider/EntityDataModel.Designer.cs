@@ -30,10 +30,10 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "Comments_to_Users", "aspnet_Membership", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.User), "Comments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Comment))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "Photo_to_Tag", "Photos", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Photo), "Tags", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.Tag))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK__aspnet_Pe__UserI__6D0D32F4", "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_Users), "aspnet_PersonalizationPerUser", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_PersonalizationPerUser))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_aspnet_Users_Albums", "Album", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.Album), "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.aspnet_Users))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_aspnet_Users_Albums", "Album", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DAL.EFDataProvider.Album), "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.aspnet_Users))]
 
 // Original file name:
-// Generation date: 08.04.2011 13:50:30
+// Generation date: 09.04.2011 22:49:41
 namespace DAL.EFDataProvider
 {
     

@@ -7,7 +7,7 @@ namespace DAL.EFDataProvider.Adapters
 {
     class TagAdapter : Photogallery.ITag
     {
-        private Tag _tag;
+        internal readonly Tag _tag;
 
         public TagAdapter(Tag tag)
         {
