@@ -51,11 +51,8 @@ namespace Photogallery
             {
                 if(ParentAlbum ==null)
                     return true;
-                else
-                    return false;
-                
-            }  
-        
+                return false;
+            }
         }
 
         public IEnumerable<ITag> AlbumTags { get; set; }
