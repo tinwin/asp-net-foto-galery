@@ -70,18 +70,18 @@ namespace DAL.EFDataProvider.Adapters
 
         public string Description
         {
-			get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return _user.Email; }
+            set {}
         }
 
         public void AddComment(IComment comment)
         {
-            throw new NotImplementedException();
+            _userComments.Add(comment);
         }
 
         public void DeleteCommentById(int commentId)
         {
-            throw new NotImplementedException();
+            _userComments.Remove(_userComments.Where(cmnts => cmnts.CommentId == commentId).SingleOrDefault());
         }
 
         public void UpdateComment(IComment comment)

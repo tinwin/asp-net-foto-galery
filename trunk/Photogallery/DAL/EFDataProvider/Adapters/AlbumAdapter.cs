@@ -152,14 +152,13 @@ namespace DAL.EFDataProvider.Adapters
 
 		public void AddComment(IComment comment)
 		{
+            _albumComments.Add(comment);           
 
-			
-			throw new NotImplementedException();
 		}
 
 		public void DeleteCommentById(int commentId)
 		{
-			throw new NotImplementedException();
+		    _albumComments.Remove(_albumComments.Where(cmnts => cmnts.CommentId == commentId).SingleOrDefault());
 		}
 
 

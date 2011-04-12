@@ -21,7 +21,7 @@ namespace DALTests
 		public void Init()
 		{
 			_context = new PhotogalleryEntities(new EntityConnection(
-			@"metadata=res://*/EFDataProvider.EntityDataModel.csdl|res://*/EFDataProvider.EntityDataModel.ssdl|res://*/EFDataProvider.EntityDataModel.msl;provider=System.Data.SqlClient;provider connection string=""Data Source=PRIZRAK\SQLEXPRESS;Initial Catalog=photogallery;Integrated Security=True;MultipleActiveResultSets=True"""
+            @"metadata=res://*/EFDataProvider.EntityDataModel.csdl|res://*/EFDataProvider.EntityDataModel.ssdl|res://*/EFDataProvider.EntityDataModel.msl;provider=System.Data.SqlClient;provider connection string=""Data Source=FEDOR-ПК\SQLEXPRESSWTF;Initial Catalog=photogallery;Integrated Security=True;MultipleActiveResultSets=True"""
 				));
 
 

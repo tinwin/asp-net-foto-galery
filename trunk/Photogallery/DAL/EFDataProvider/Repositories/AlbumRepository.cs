@@ -27,12 +27,34 @@ namespace DAL.EFDataProvider.Repositories
 
 		public void DeleteAlbum(int id)
 		{
-			throw new NotImplementedException();
+            _context.DeleteObject(_context.AlbumSet.Where(albm => albm.AlbumId == id).First());
+            _context.SaveChanges();
 		}
 
 		public void UpdateAlbum(IAlbum album)
 		{
-			throw new NotImplementedException();
+            var commentRepository = new CommentRepository(_context);
+            var tagRepository = new TagRepository(_context);
+
+            var adapter = album as AlbumAdapter;
+            if (adapter != null)
+            {
+                foreach (var comment in adapter.AlbumComments)
+                    if (!(comment is CommentAdapter))
+                    {
+                        var savedCommentEntity = (commentRepository.Add(comment) as CommentAdapter)._comment;
+                        adapter._album.Comments.Add(savedCommentEntity);
+                    }
+
+                foreach (var tag in adapter.AlbumTags)
+                    if (!(tag is TagAdapter))
+                    {
+                        var savedTagEntity = (tagRepository.AddTag(tag) as TagAdapter)._tag;
+                        adapter._album.Tags.Add(savedTagEntity);
+                    }
+            }
+
+            _context.SaveChanges();
 		}
 
 		public IAlbum GetAlbumById(int id)
