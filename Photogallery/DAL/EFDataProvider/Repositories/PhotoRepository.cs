@@ -21,6 +21,7 @@ namespace DAL.EFDataProvider.Repositories
 		{
 			var saved = Adapte(photo);
 			_context.AddToPhotoSet(saved);
+			_context.SaveChanges();
 			return new PhotoAdapter(saved);
 		}
 
@@ -62,6 +63,19 @@ namespace DAL.EFDataProvider.Repositories
 							where photo.PhotoId == id
 							select photo).FirstOrDefault();
 			return (selected == null) ? null : new PhotoAdapter(selected);
+		}
+
+		public IEnumerable<IPhoto> SelectPhotos(int startIndex, int count)
+		{
+			var entities = (from photo in _context.PhotoSet
+							orderby photo.AdditionDate descending 
+							select photo).
+							Skip(startIndex).
+							Take(count);
+			List<IPhoto> photos = new List<IPhoto>();
+			foreach (var entity in entities)
+				photos.Add(new PhotoAdapter(entity));
+			return photos;
 		}
 
 		private Photo Adapte(IPhoto photo)

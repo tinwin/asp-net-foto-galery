@@ -145,6 +145,18 @@ namespace DALTests
 			Assert.AreEqual(1, updatedPhoto.PhotoTags.Count());
 		}
 
+		[Test]
+		public void SelectPageTest()
+		{
+			for (int i = 0; i < 5; i++)
+				_photoRepository.AddPhoto(CreatePhoto());
+
+			var photos = _photoRepository.SelectPhotos(2, 5);
+			foreach(var photo in photos)
+				Assert.AreEqual("1", photo.PhotoTitle);
+
+		}
+
 		private Photogallery.Photo CreatePhoto()
 		{
 			//Predefined existing user
