@@ -31,6 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebUI\CastleWindsor\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebUI\CastleWindsor\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -47,17 +55,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractControllers\IAlbumController.cs" />
+    <Compile Include="AbstractControllers\IPhotoController.cs" />
+    <Compile Include="AbstractControllers\IUserController.cs" />
     <Compile Include="BuisnessEntities\Album.cs" />
     <Compile Include="BuisnessEntities\Comment.cs" />
     <Compile Include="BuisnessEntities\GalleryUser.cs" />
     <Compile Include="BuisnessEntities\Photo.cs" />
     <Compile Include="BuisnessEntities\Tag.cs" />
-    <Compile Include="AbstractEntities\IAlbum.cs" />
-    <Compile Include="AbstractEntities\IComment.cs" />
-    <Compile Include="AbstractEntities\IGalleryUser.cs" />
-    <Compile Include="AbstractEntities\IPhoto.cs" />
+    <Compile Include="ConcreteControllers\AlbumController.cs" />
+    <Compile Include="ConcreteControllers\PhotoController.cs" />
+    <Compile Include="ConcreteControllers\UserController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AbstractEntities\ITag.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{91B1B7CC-29A9-491A-B4DD-FDAE6B25AB4E}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

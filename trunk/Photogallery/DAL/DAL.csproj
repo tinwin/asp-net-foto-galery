@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractEntities\AbstractProvider.cs" />
+    <Compile Include="AbstractEntities\IAbstractGalleryProvider.cs" />
     <Compile Include="AbstractEntities\IAlbumRepository.cs" />
     <Compile Include="AbstractEntities\ICommentRepository.cs" />
     <Compile Include="AbstractEntities\IGalleryUserRepository.cs" />
@@ -72,8 +72,7 @@
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="EFDataProvider\ImageExtensions.cs" />
-    <Compile Include="EFDataProvider\LazyLoader.cs" />
-    <Compile Include="EFDataProvider\PhotogalleryEntitiesExtensions.cs" />
+    <Compile Include="EFDataProvider\Provider.cs" />
     <Compile Include="EFDataProvider\Repositories\AlbumRepository.cs" />
     <Compile Include="EFDataProvider\Repositories\CommentRepository.cs" />
     <Compile Include="EFDataProvider\Repositories\GalleryUserRepository.cs" />
@@ -82,9 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BuisnessLayer\BL.csproj">
-      <Project>{6B65C350-C148-44A4-94E8-C45F7ABDAF77}</Project>
-      <Name>BL</Name>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{91B1B7CC-29A9-491A-B4DD-FDAE6B25AB4E}</Project>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

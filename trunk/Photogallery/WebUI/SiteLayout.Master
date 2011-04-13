@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteLayout.master.cs" Inherits="WebUI.SiteLayout" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<!-- #BeginTemplate "master.dwt" -->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- #BeginEditable "doctitle" -->
+<title>Home</title>
+<!-- #EndEditable -->
+<link href="styles/style2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<!-- Begin Container -->
+
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<h1>ASPTEMPLATE.NET&nbsp;</h1>
+		<h3>Organization Description</h3>
+	</div>
+	<!-- End Masthead -->
+	<!-- Begin Navigation -->
+
+	<div id="navigation">
+		<ul>
+			<li><a href="/default.aspx">Home</a></li>
+			<li><a href="/photos.aspx">Photos</a></li>
+			<li><a href="/authors.aspx">Authors</a></li>
+		</ul>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+
+		<p>&nbsp;</p>
+	</div>
+	<!-- End Navigation -->
+	<!-- Begin Content -->
+	<div id="content">
+	    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+	<!-- End Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+		<p><a href="default.htm">Home</a> | <a href="about/about.htm">About</a> |
+		<a href="news/news.htm">News</a> | <a href="calendar/calendar.htm">Calendar</a> 
+		| <a href="photo_gallery/photo_gallery.htm">Photo Gallery</a> |
+		<a href="information_links/information_links.htm">Links</a> |
+		<a href="faq/faq.htm">FAQ</a> | <a href="contact/contact.htm">Contact</a></p>
+
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

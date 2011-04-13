@@ -15,6 +15,6 @@ namespace DAL.AbstractEntities
 
         void UpdateUser(IGalleryUser user);
 
-
+		IGalleryUser SelectUserByGuid(Guid guid);
     }
 }

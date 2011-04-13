@@ -41,5 +41,12 @@ namespace DAL.EFDataProvider.Repositories
 		{
 			throw new NotImplementedException();
 		}
+
+		public IGalleryUser SelectUserByGuid(Guid guid)
+		{
+			return new UserAdapter((from u in _context.UserSet
+									where u.UserId == guid
+									select u).First());
+		}
 	}
 }
