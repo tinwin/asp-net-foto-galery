@@ -9,7 +9,7 @@ using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
 {
-	class PhotoAdapter : IPhoto, IAdapter<Photo, IPhoto>
+	class PhotoAdapter : IPhoto
     {
         internal readonly Photo _photo;
 

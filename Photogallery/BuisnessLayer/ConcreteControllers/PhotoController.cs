@@ -19,9 +19,14 @@ namespace BuisnessLayer.ConcreteControllers
 			_dataProvider = Windsor.Instance.Resolve<IAbstractGalleryProvider>();
 		}
 
-		public IEnumerable<IPhoto> SelectPhotosPage(int pageNumber, int pageSize)
+		public IEnumerable<IPhoto> SelectPhotosPage(int skip, int take)
 		{
-			return _dataProvider.PhotoRepository.SelectPhotos(pageNumber * pageSize, pageSize);
+			return _dataProvider.PhotoRepository.SelectPhotos(skip, take);
+		}
+
+		public int GetPhotosCount()
+		{
+			return _dataProvider.PhotoRepository.GetPhotosCount();
 		}
 
 		public IPhoto GetPhotoById(int id)

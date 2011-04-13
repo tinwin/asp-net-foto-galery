@@ -62,7 +62,6 @@
     <Compile Include="AbstractEntities\ITagRepository.cs" />
     <Compile Include="EFDataProvider\Adapters\AlbumAdapter.cs" />
     <Compile Include="EFDataProvider\Adapters\CommentAdapter.cs" />
-    <Compile Include="EFDataProvider\Adapters\IAdapter.cs" />
     <Compile Include="EFDataProvider\Adapters\PhotoAdapter.cs" />
     <Compile Include="EFDataProvider\Adapters\TagAdapter.cs" />
     <Compile Include="EFDataProvider\Adapters\UserAdapter.cs" />

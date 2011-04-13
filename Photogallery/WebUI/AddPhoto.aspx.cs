@@ -26,14 +26,14 @@ namespace WebUI
 			var albumController = Windsor.Instance.Resolve<IAlbumController>();
 			var userController = Windsor.Instance.Resolve<IUserController>();
 
-			IPhoto photo = new Photo
+			IPhoto photo = new Photogallery.Photo
            	{
            		OriginalPhoto = new Bitmap(PhotoFile.FileContent),
 				AdditionDate = DateTime.Now,
                 HostAlbum = albumController.GetAlbumById(1),
 				OwningUser = userController.GetUserByGuid(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c")),
-				PhotoTitle = "",
-                PhotoDescription = "",
+				PhotoTitle = PhotoTitle.Text,
+                PhotoDescription = PhotoDescription.Text,
 				OptimizedPhoto = new Bitmap(PhotoFile.FileContent),
 				PhotoThumbnail = new Bitmap(PhotoFile.FileContent)
            	};

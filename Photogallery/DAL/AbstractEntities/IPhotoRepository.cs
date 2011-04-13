@@ -17,5 +17,7 @@ namespace DAL.AbstractEntities
 		IPhoto GetPhotoById(int id);
 
 		IEnumerable<IPhoto> SelectPhotos(int startIndex, int count);
+
+		int GetPhotosCount();
     }
 }

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ASPnetPagerV2_8, Version=2.8.4120.27947, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Pager\ASPnetPagerV2_8.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>CastleWindsor\Castle.Core.dll</HintPath>
@@ -71,8 +75,16 @@
     <Compile Include="AddPhoto.aspx.designer.cs">
       <DependentUpon>AddPhoto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomPager.cs" />
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Photo.aspx.cs">
+      <DependentUpon>Photo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Photo.aspx.designer.cs">
+      <DependentUpon>Photo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Photos.aspx.cs">
       <DependentUpon>Photos.aspx</DependentUpon>
@@ -110,6 +122,7 @@
   <ItemGroup>
     <Content Include="AddPhoto.aspx" />
     <Content Include="GetImage.ashx" />
+    <Content Include="Photo.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
