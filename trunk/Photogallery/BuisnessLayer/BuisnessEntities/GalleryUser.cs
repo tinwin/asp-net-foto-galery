@@ -10,20 +10,21 @@ using System.Web.Security;
 
 namespace Photogallery 
 {
-    public class GalleryUser:MembershipUser,IGalleryUser
+    public class GalleryUser:IGalleryUser
     {
        
         public Guid UserId { get; set; }
 
        // public Role UserRole { get; set; }
 
-        public string UserPassword { get; set; }
-        
+       
         public string UserMail { get; set; } 
 
         public string Username { get; set; }
         
         public IAlbum RootAlbum { get; set; }
+
+        public string UserRole { get; set; }
 
         public IEnumerable<IComment> UserComments
 
