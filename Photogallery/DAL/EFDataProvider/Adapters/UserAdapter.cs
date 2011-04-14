@@ -2,86 +2,139 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.Security;
 using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
 {
-    public class UserAdapter : IGalleryUser
+    internal class UserAdapter : IGalleryUser
     {
         private User _user;
+
+
+
+
 
         public UserAdapter(User user)
         {
             _user = user;
+
         }
 
-    	public Guid UserId
-    	{
-			get { return _user.UserId; }
-			set { throw new NotImplementedException(); }
-    	}
-
-    	public string Username
-    	{
-			get { return _user.aspnet_Users.UserName; }
-    		set { throw new NotImplementedException(); }
-    	}
-
-    	public string UserPassword
-    	{
-    		get { return _user.Password;}
-    		set { throw new NotImplementedException(); }
-    	}
-
-    	public string UserMail
-    	{
-			get { return _user.Email; }
-    		set { throw new NotImplementedException(); }
-    	}
-
-		private AlbumAdapter _rootAlbum;
-
-    	public IAlbum RootAlbum
+        private Guid _userId;
+        public Guid UserId
         {
             get
             {
-				return _rootAlbum ?? (_rootAlbum = new AlbumAdapter(_user.aspnet_Users.RootAlbum));
+                if (_userId == Guid.Empty)
+                    _userId = _user.UserId;
+                return _userId;
             }
-            set { throw new NotImplementedException(); }
+            set { _userId = value; }
         }
 
-		List<IComment> _userComments;
+
+        public string Username
+        {
+            get
+            {
+                if (!_user.aspnet_UsersReference.IsLoaded)
+                    _user.aspnet_UsersReference.Load();
+                return _user.aspnet_Users.UserName;
+            }
+            set
+            {
+                if (!_user.aspnet_UsersReference.IsLoaded)
+                    _user.aspnet_UsersReference.Load();
+                _user.aspnet_Users.UserName = value;
+            }
+        }
+
+
+
+
+        public string UserMail
+        {
+            get { return _user.Email; }
+            set { _user.Email = value; }
+        }
+
+        private AlbumAdapter _rootAlbum;
+
+        public IAlbum RootAlbum
+        {
+            get
+            {
+                return _rootAlbum ?? (_rootAlbum = new AlbumAdapter(_user.aspnet_Users.RootAlbum));
+            }
+            set { _rootAlbum = value as AlbumAdapter; }
+        }
+
+        List<IComment> _userComments;
 
         public IEnumerable<IComment> UserComments
         {
             get
             {
-				if (_userComments == null)
-				{
-					_user.Comments.Load();
-					_userComments = new List<IComment>();
-					foreach (var comment in _user.Comments)
-						_userComments.Add(new CommentAdapter(comment));
-				}
-				return _userComments;
+
+
+                _user.AboutUserComments.Load();
+                List<IComment> comments = new List<IComment>();
+                foreach (Comment com in _user.AboutUserComments.ToArray())
+                    comments.Add(new CommentAdapter(com));
+                return comments;
             }
-            set { throw new NotImplementedException(); }
+
         }
 
         public string Description
         {
-            get { return _user.Email; }
-            set {}
+            get
+            {
+                if (!_user.aspnet_UsersReference.IsLoaded)
+                    _user.aspnet_UsersReference.Load();
+                return _user.aspnet_Users.Description;
+
+            }
+            set
+            {
+                if (!_user.aspnet_UsersReference.IsLoaded)
+                    _user.aspnet_UsersReference.Load();
+                _user.aspnet_Users.Description = value;
+            }
         }
+
+        private string _role;
+        public string UserRole
+        {
+            get
+            {
+                if (_role == string.Empty)
+                {
+                    _user.aspnet_UsersReference.Load();
+                    _user.aspnet_Users.aspnet_Roles.Load();
+
+                }
+                return _role = _user.aspnet_Users.aspnet_Roles.Single().RoleName;
+            }
+            set
+            {
+                _role = value;
+            }
+        }
+
+
+
+
 
         public void AddComment(IComment comment)
         {
-            _userComments.Add(comment);
+            throw new NotImplementedException();
         }
 
         public void DeleteCommentById(int commentId)
         {
-            _userComments.Remove(_userComments.Where(cmnts => cmnts.CommentId == commentId).SingleOrDefault());
+            throw new NotImplementedException();
         }
 
         public void UpdateComment(IComment comment)
