@@ -7,7 +7,7 @@ using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
 {
-    internal class UserAdapter : IGalleryUser
+    public class UserAdapter : IGalleryUser
     {
         private User _user;
 
