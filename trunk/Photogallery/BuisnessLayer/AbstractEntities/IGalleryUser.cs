@@ -15,15 +15,15 @@ namespace Photogallery
 
         string Username { get; set; }
 
-        string UserPassword { get; set; }
+      
 
-       // Role UserRole { get; set; }
+       string UserRole { get; set; }
 
         string UserMail { get; set; } 
         
         IAlbum RootAlbum { get; set; }
 
-        IEnumerable<IComment> UserComments { get; set; }
+        IEnumerable<IComment> UserComments { get; }
 
         string Description { get; set; }
  
