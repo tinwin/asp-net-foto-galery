@@ -37,7 +37,7 @@ namespace DAL.EFDataProvider.Repositories
         {
             _context = context;
             _membershipProvider = membershipProvider;
-            if (_membershipProvider.PasswordFormat != MembershipPasswordFormat.Clear)
+            if (_membershipProvider.PasswordFormat != MembershipPasswordFormat.Hashed)
                 throw new Exception("Membership provider must implement Encrypted passwords");
 
 
@@ -63,57 +63,42 @@ namespace DAL.EFDataProvider.Repositories
             MembershipUser membershipUser = _membershipProvider.CreateUser(user.Username,
                                            userPassword,
                                            user.UserMail,
-                                            "111",
-                                           "111",
+                                            string.Empty ,
+                                           string.Empty ,
                                            true,
                                            null,
                                            out userStatus);
 
-            if (userStatus == MembershipCreateStatus.Success)
-            {
-                if (user.UserComments == null || user.UserComments.Count() != 0)
-                {
-                    throw new Exception(" newly created user cannot contain comments ");
-                }
-                if (GalleryRoles.Contains(user.UserRole))
-                {
-                    Guid userId = (Guid)membershipUser.ProviderUserKey;
-                    User contextObject =
-                        _context.UserSet.Where(p => p.UserId == userId).First();
-                    contextObject.aspnet_UsersReference.Load();
-                    contextObject.aspnet_Users.aspnet_Roles.Load();
-                    contextObject.aspnet_Users.Description = user.Description;
-                    contextObject.aspnet_Users.aspnet_Roles.Add(
-                        _context.aspnet_Roles.Where(p => p.RoleName == user.UserRole).First());
-
-
-                    userAdapter =
-                        new UserAdapter(contextObject);
-
-                    AlbumRepository albumRepository = new AlbumRepository(_context);
-                    /*int rootAlbumId = albumRepository.AddAlbum(new  Photogallery.   Album()
-                    {
-                        CreationDate = DateTime.Now,
-                        Title = "RootAlbum",
-                        User = userAdapter
-                    }).AlbumId;
-                    contextObject.aspnet_Users.RootAlbum =
-                        _context.AlbumSet.Where(p => p.AlbumId == rootAlbumId).First();
-                    */
-                     _context.SaveChanges();
-
-                    return userAdapter;
-
-                }
-                else
-                {
-                    throw new Exception(string.Format("Role {0} is not enabled on this server", user.UserRole));
-                }
-            }
-            else
-            {
+            if (userStatus != MembershipCreateStatus.Success)
                 throw new MembershipCreateUserException(userStatus);
-            }
+            if (user.UserComments == null || user.UserComments.Count() != 0)
+                throw new Exception(" newly created user cannot contain comments ");
+            if (!GalleryRoles.Contains(user.UserRole))
+                throw new Exception(string.Format("Role {0} is not enabled on this server", user.UserRole));            
+            Guid userId = (Guid) membershipUser.ProviderUserKey;
+            User contextObject =
+                _context.UserSet.Where(p => p.UserId == userId).First();
+            contextObject.aspnet_UsersReference.Load();
+            contextObject.aspnet_Users.aspnet_Roles.Load();
+            contextObject.aspnet_Users.Description = user.Description;
+            contextObject.aspnet_Users.aspnet_Roles.Add(
+                _context.aspnet_Roles.Where(p => p.RoleName == user.UserRole).First());
+            userAdapter =
+                new UserAdapter(contextObject);        
+            Album newAlbum = new Album()
+                                 {
+                                     CreationDate = DateTime.Now,
+                                     Title = "RootAlbum"
+                                 };
+            newAlbum.Author = contextObject;
+            _context.SaveChanges();
+            contextObject.aspnet_Users.RootAlbum = newAlbum;
+            _context.SaveChanges();
+        
+            return userAdapter;
+
+
+
         }
 
         public void DeleteUser(Guid UserId)
@@ -138,6 +123,11 @@ namespace DAL.EFDataProvider.Repositories
                 if (updatedEntity != null)
                 {
                     updatedEntity.aspnet_UsersReference.Load();
+                    if (user.Username != updatedEntity.aspnet_Users.UserName &&
+                        _context.aspnet_Users.Where(p => p.UserName == user.Username).FirstOrDefault() != null)
+                    {
+                        throw new Exception("duplicate names are not enabled");
+                    }
                     updatedEntity.aspnet_Users.UserName = user.Username;
                     updatedEntity.aspnet_Users.LoweredUserName = user.Username.ToLower();
                     updatedEntity.Email = user.UserMail;
@@ -159,21 +149,18 @@ namespace DAL.EFDataProvider.Repositories
                     {
                         Album newAlbum =
                             _context.AlbumSet.Where(p => p.AlbumId == user.RootAlbum.AlbumId).FirstOrDefault();
-
+                        int? newAlbumId = newAlbum!=null ?(int?) newAlbum.AlbumId : null;  
                         updatedEntity.aspnet_Users.RootAlbumReference.Load();
                         int? oldAlbumId = updatedEntity.aspnet_Users.RootAlbum != null
-                                              ? (int?)updatedEntity.aspnet_Users.RootAlbum.AlbumId
+                                              ? (int?) updatedEntity.aspnet_Users.RootAlbum.AlbumId
                                               : null;
-
-
-                        if (newAlbum != null)
+                        if (newAlbumId.HasValue && newAlbumId !=oldAlbumId   )
                         {
                             updatedEntity.aspnet_Users.RootAlbum = newAlbum;
                             _context.SaveChanges();
-
-                            if (oldAlbumId != null)
+                            if (oldAlbumId.HasValue )
                                 albumRepository.DeleteAlbum((int)oldAlbumId);
-
+                            
                         }
                         else
                         {
@@ -195,6 +182,8 @@ namespace DAL.EFDataProvider.Repositories
             }
         }
 
+       
+
 
         public IGalleryUser GetUserByName(string name)
         {
@@ -202,10 +191,10 @@ namespace DAL.EFDataProvider.Repositories
         }
 
 
-        public void ChangeUserPassword(Guid userId, string password)
+        public string ResetUserPassword(Guid userId)
         {
             MembershipUser user = _membershipProvider.GetUser(userId, false);
-            user.ChangePassword(user.GetPassword(), password);
+            return user.ResetPassword();
         }
     }
 }
