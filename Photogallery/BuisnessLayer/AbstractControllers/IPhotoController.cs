@@ -11,5 +11,7 @@ namespace BuisnessLayer.AbstractControllers
 		IEnumerable<IPhoto> SelectPhotosPage(int pageNumber, int pageSize);
 		int GetPhotosCount();
 		IPhoto GetPhotoById(int id);
+		void AddNew(IPhoto photo);
+		void Save(IPhoto photo);
 	}
 }

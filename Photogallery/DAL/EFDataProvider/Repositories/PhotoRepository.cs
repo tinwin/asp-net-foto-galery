@@ -37,7 +37,7 @@ namespace DAL.EFDataProvider.Repositories
 			var tagRepository = new TagRepository(_context);
 
 			var adapter = photo as PhotoAdapter;
-			if (adapter!=null)
+			if (adapter != null)
 			{
 				foreach (var comment in adapter.LocalComments)
 					if (!(comment is CommentAdapter))
@@ -52,9 +52,11 @@ namespace DAL.EFDataProvider.Repositories
 						var savedTagEntity = (tagRepository.AddTag(tag) as TagAdapter)._tag;
 						adapter._photo.Tags.Add(savedTagEntity);
 					}
+				adapter.SaveChanges(_context);
+				_context.SaveChanges();
 			}
-
-			_context.SaveChanges();
+			else
+				AddPhoto(photo);
 		}
 
 		public IPhoto GetPhotoById(int id)
@@ -95,10 +97,7 @@ namespace DAL.EFDataProvider.Repositories
 					Where(m => m.UserId == photo.OwningUser.UserId).
 					FirstOrDefault(),
 				Description = photo.PhotoDescription,
-				Title = photo.PhotoTitle,
-                OriginalImage = photo.OriginalPhoto.ToByteArray(),
-                OptimizedImage = photo.OptimizedPhoto.ToByteArray(),
-				ImageThumbnail = photo.PhotoThumbnail.ToByteArray()                
+				Title = photo.PhotoTitle
 			};
 			return entity;
 		}

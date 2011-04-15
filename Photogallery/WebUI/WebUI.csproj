@@ -68,14 +68,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddPhoto.aspx.cs">
-      <DependentUpon>AddPhoto.aspx</DependentUpon>
+    <Compile Include="EditPhoto.aspx.cs">
+      <DependentUpon>EditPhoto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddPhoto.aspx.designer.cs">
-      <DependentUpon>AddPhoto.aspx</DependentUpon>
+    <Compile Include="EditPhoto.aspx.designer.cs">
+      <DependentUpon>EditPhoto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomPager.cs" />
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
     </Compile>
@@ -118,11 +117,17 @@
       <Project>{91B1B7CC-29A9-491A-B4DD-FDAE6B25AB4E}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{8E02F83B-1C26-4E60-A1CE-82DED777ED5C}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddPhoto.aspx" />
+    <Content Include="EditPhoto.aspx" />
     <Content Include="GetImage.ashx" />
     <Content Include="Photo.aspx" />
+    <Content Include="styles\style.css" />
+    <Content Include="styles\style2.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

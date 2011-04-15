@@ -170,5 +170,16 @@ namespace DAL.EFDataProvider.Adapters
 		{
 			return new PhotoAdapter(source);
 		}
+
+		/// <summary>
+		/// Flush changes from adapter cache to adapted EF entity
+		/// </summary>
+		/// <param name="context">EF context</param>
+		internal void SaveChanges(PhotogalleryEntities context)
+		{
+			_photo.OriginalImage = _originalPhoto.ToByteArray();
+			_photo.OptimizedImage = _optimizedPhoto.ToByteArray();
+			_photo.ImageThumbnail = _image.ToByteArray();
+		}
     }
 }

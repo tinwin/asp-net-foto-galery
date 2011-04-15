@@ -31,14 +31,15 @@ namespace DAL.EFDataProvider.Repositories
         }
 
 
-        public GalleryUserRepository(PhotogalleryEntities context,
+        public GalleryUserRepository(PhotogalleryEntities context//,
 
-                                      MembershipProvider membershipProvider)
+                                      //MembershipProvider membershipProvider)
+			)
         {
             _context = context;
-            _membershipProvider = membershipProvider;
-            if (_membershipProvider.PasswordFormat != MembershipPasswordFormat.Hashed)
-                throw new Exception("Membership provider must implement Encrypted passwords");
+			//_membershipProvider = membershipProvider;
+			//if (_membershipProvider.PasswordFormat != MembershipPasswordFormat.Hashed)
+			//    throw new Exception("Membership provider must implement Encrypted passwords");
 
 
 

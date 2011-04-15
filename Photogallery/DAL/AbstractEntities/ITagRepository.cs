@@ -16,8 +16,7 @@ namespace DAL.AbstractEntities
         void UpdateTag(ITag tag);
 
         ITag GetTagById(int id);
- 
-        
 
+		IEnumerable<ITag> GetAllTags();
     }
 }
