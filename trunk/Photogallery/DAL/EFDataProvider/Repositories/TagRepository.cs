@@ -40,6 +40,14 @@ namespace DAL.EFDataProvider.Repositories
 			throw new NotImplementedException();
 		}
 
+		public IEnumerable<ITag> GetAllTags()
+		{
+			var tags = new List<ITag>();
+			foreach (var tag in _context.TagSet)
+				tags.Add(new TagAdapter(tag));
+			return tags;
+		}
+
 		public Tag Adapte(ITag tag)
 		{
 			return new Tag

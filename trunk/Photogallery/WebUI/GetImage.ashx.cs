@@ -19,10 +19,25 @@ namespace WebUI
 		public void ProcessRequest(HttpContext context)
 		{
 			var controller = new PhotoController();
-			int id = int.Parse(context.Request.Params["id"]);
+			int id = int.Parse(context.Request.Params["id"]);          
+
 			var image = controller.GetPhotoById(id);
 			context.Response.ContentType = "image/jpeg";
-			image.PhotoThumbnail.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+
+			switch (context.Request.Params["size"] ?? "optimized")
+			{
+				case "thumbnail":
+					image.PhotoThumbnail.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+					break;
+				case "optimized":
+					image.OptimizedPhoto.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+					break;
+				case "original":
+					image.OriginalPhoto.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+					break;
+				default:
+					throw new ArgumentException("Unsupported image size specificator: \"" + context.Request.Params["size"] + "\"");
+			}
 		}
 
 		public bool IsReusable

@@ -2,7 +2,6 @@
 <%@ Register Namespace="ASPnetControls" Assembly="ASPnetPagerV2_8" TagPrefix="cc" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
-    <form id="form1" runat="server">
     
     <cc:PagerV2_8 ID="pager1"
                   runat="server"  
@@ -15,7 +14,7 @@
         <a href="/Photo.aspx?id=<%# DataBinder.Eval(Container.DataItem, "PhotoId")%>">
             <img title="<%# DataBinder.Eval(Container.DataItem, "PhotoTitle")%>"
                  alt="<%# DataBinder.Eval(Container.DataItem, "PhotoTitle")%>"
-                 src='<%#"GetImage.ashx?id=" + DataBinder.Eval(Container.DataItem, "PhotoId")%>' 
+                 src='<%#"GetImage.ashx?size=thumbnail&amp;id=" + DataBinder.Eval(Container.DataItem, "PhotoId")%>' 
                  width="60px"
                  height="60px"/>
             <h4><%# DataBinder.Eval(Container.DataItem, "PhotoTitle")%></h4>
@@ -25,6 +24,4 @@
     </ItemTemplate>
 </asp:Repeater>
 <br />
-
-</form>
 </asp:Content>
