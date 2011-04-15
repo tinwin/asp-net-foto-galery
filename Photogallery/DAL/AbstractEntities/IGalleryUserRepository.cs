@@ -15,7 +15,7 @@ namespace DAL.AbstractEntities
 
         void DeleteUser(Guid UserId);
 
-        void ChangeUserPassword(Guid userId, string userPassword);
+        string ResetUserPassword(Guid userId);
 
         IGalleryUser GetUserById(Guid Id);
 
