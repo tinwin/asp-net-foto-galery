@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Common.AbstractEntities;
 using Photogallery;
 
 namespace DAL.AbstractEntities
