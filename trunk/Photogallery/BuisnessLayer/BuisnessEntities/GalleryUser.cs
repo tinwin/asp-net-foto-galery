@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web ;
 using System.Web.Security;
-
+using Common.AbstractEntities;
 
 
 namespace Photogallery 
@@ -17,7 +17,13 @@ namespace Photogallery
 
        // public Role UserRole { get; set; }
 
-       
+
+        public string UserPassword
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
         public string UserMail { get; set; } 
 
         public string Username { get; set; }
