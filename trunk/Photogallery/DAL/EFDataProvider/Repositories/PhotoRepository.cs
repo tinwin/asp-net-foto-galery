@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Common.AbstractEntities;
 using DAL.AbstractEntities;
 using DAL.EFDataProvider.Adapters;
-using Photogallery;
 
 namespace DAL.EFDataProvider.Repositories
 {
