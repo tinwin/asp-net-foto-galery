@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Common.AbstractEntities;
 using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
@@ -35,9 +36,9 @@ namespace DAL.EFDataProvider.Adapters
             set { _photo.Title = value; }
         }
 
-        private Photogallery.IAlbum _hostAlbum;
+        private IAlbum _hostAlbum;
 
-        public Photogallery.IAlbum HostAlbum
+        public IAlbum HostAlbum
         {
             get { return _hostAlbum; }
             set { _hostAlbum = value; }
