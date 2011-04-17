@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Common.AbstractEntities;
 using DAL.AbstractEntities;
 using DAL.EFDataProvider.Adapters;
+using Photogallery;
 
 namespace DAL.EFDataProvider.Repositories
 {

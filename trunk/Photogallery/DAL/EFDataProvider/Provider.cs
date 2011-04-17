@@ -14,6 +14,7 @@ namespace DAL.EFDataProvider
 		private IPhotoRepository _photoRepository;
 		private IAlbumRepository _albumRepository;
 		private IGalleryUserRepository _userRepository;
+		private ITagRepository _tagRepository;
 
 		public Provider(string sqlConnectionString)
 		{
@@ -39,7 +40,7 @@ namespace DAL.EFDataProvider
 
 		public ITagRepository TagRepository
 		{
-			get { throw new NotImplementedException(); }
+			get { return _tagRepository ?? (_tagRepository = new TagRepository(_context)); }
 		}
 	}
 }

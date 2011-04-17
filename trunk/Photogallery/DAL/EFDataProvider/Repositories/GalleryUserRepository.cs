@@ -54,7 +54,7 @@ namespace DAL.EFDataProvider.Repositories
                 from u in _context.UserSet
                 where u.UserId == userId
                 select u).
-                Single());
+                First());
         }
 
         public IGalleryUser AddUser(IGalleryUser user, string userPassword)

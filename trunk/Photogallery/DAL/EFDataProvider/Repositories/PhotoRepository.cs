@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Common.AbstractEntities;
 using DAL.AbstractEntities;
 using DAL.EFDataProvider.Adapters;
+using Photogallery;
 
 namespace DAL.EFDataProvider.Repositories
 {
@@ -50,6 +50,7 @@ namespace DAL.EFDataProvider.Repositories
 						var savedTagEntity = (tagRepository.AddTag(tag) as TagAdapter)._tag;
 						adapter._photo.Tags.Add(savedTagEntity);
 					}
+
 				adapter.SaveChanges(_context);
 				_context.SaveChanges();
 			}

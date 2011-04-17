@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
-using Common.AbstractEntities;
 
 namespace Photogallery 
 {
@@ -58,6 +57,11 @@ namespace Photogallery
         }
 
     	public void AddTag(ITag tag)
+    	{
+    		throw new NotImplementedException();
+    	}
+
+    	public void RemoveTag(ITag tag)
     	{
     		throw new NotImplementedException();
     	}

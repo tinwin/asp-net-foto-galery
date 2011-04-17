@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Security;
-using Common.AbstractEntities;
 using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
@@ -12,6 +11,10 @@ namespace DAL.EFDataProvider.Adapters
     {
         private User _user;
 
+		public UserAdapter()
+		{
+			
+		}
 
         public string UserPassword
         {
@@ -24,7 +27,6 @@ namespace DAL.EFDataProvider.Adapters
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
-
 
 
         public UserAdapter(User user)
@@ -76,9 +78,12 @@ namespace DAL.EFDataProvider.Adapters
             set { _rootAlbum = value as AlbumAdapter; }
         }
 
-        IEnumerable<IComment> IGalleryUser.UserComments { get; set; }
+        IEnumerable<IComment> IGalleryUser.UserComments
+        {
+        	get { throw new NotImplementedException(); }
+        }
 
-        List<IComment> _userComments;
+    	List<IComment> _userComments;
 
         public IEnumerable<IComment> UserComments
         {

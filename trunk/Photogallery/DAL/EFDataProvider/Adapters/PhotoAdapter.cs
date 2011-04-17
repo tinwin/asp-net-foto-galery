@@ -5,7 +5,6 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Common.AbstractEntities;
 using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
@@ -154,7 +153,14 @@ namespace DAL.EFDataProvider.Adapters
 			_tags.Add(tag);
 		}
 
-        public void DeleteCommentById(int commentId)
+		internal List<ITag> _tagsToRemove = new List<ITag>();
+
+		public void RemoveTag(ITag tag)
+		{
+			_tagsToRemove.Add(tag);
+		}
+
+		public void DeleteCommentById(int commentId)
         {
             LocalComments.Remove(LocalComments.Where(c => c.CommentId == commentId).SingleOrDefault());
         }
@@ -178,9 +184,15 @@ namespace DAL.EFDataProvider.Adapters
 		/// <param name="context">EF context</param>
 		internal void SaveChanges(PhotogalleryEntities context)
 		{
-			_photo.OriginalImage = _originalPhoto.ToByteArray();
-			_photo.OptimizedImage = _optimizedPhoto.ToByteArray();
-			_photo.ImageThumbnail = _image.ToByteArray();
+			if (_originalPhoto != null)
+				_photo.OriginalImage = _originalPhoto.ToByteArray();
+			if (_optimizedPhoto != null)
+				_photo.OptimizedImage = _optimizedPhoto.ToByteArray();
+			if (_image != null)
+				_photo.ImageThumbnail = _image.ToByteArray();
+
+			foreach (var tag in _tagsToRemove)
+				_photo.Tags.Remove((tag as TagAdapter)._tag);
 		}
     }
 }
