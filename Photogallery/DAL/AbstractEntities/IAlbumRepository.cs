@@ -1,4 +1,4 @@
-﻿using Common.AbstractEntities;
+﻿using Photogallery;
 
 namespace DAL.AbstractEntities
 {

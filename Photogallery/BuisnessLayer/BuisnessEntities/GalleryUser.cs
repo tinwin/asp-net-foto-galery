@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Web ;
 using System.Web.Security;
-using Common.AbstractEntities;
 
 
 namespace Photogallery 
