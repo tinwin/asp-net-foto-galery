@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Common.AbstractEntities;
 
 namespace Photogallery 
 {
     public class Album:IAlbum 
     {
         public int AlbumId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime CreationDate { get; set; }
 
         public IGalleryUser User { get; set; }
-
-        public string Title { get; set; }
-
         public IAlbum ParentAlbum { get; set; }
-  
-
         public IEnumerable<IAlbum> ChildAlbums { get; set; }
-
+        public IEnumerable<IPhoto> Photos { get; set; }
+        public IEnumerable<ITag> AlbumTags { get; set; }
         private IList<IComment> _albumComments;
+
 
         public IEnumerable<IComment> AlbumComments
         {
@@ -35,16 +35,6 @@ namespace Photogallery
             }
         }
 
-
-
-        public IEnumerable<IPhoto> Photos { get; set; }
-        
-
-        public string Description { get; set; }
-
-
-        public DateTime CreationDate { get; set; }
-
         public bool IsRootAlbum 
         { 
             get
@@ -54,10 +44,6 @@ namespace Photogallery
                 return false;
             }
         }
-
-        public IEnumerable<ITag> AlbumTags { get; set; }
-
-
 
         public void AddComment(IComment comment)
         {
@@ -70,7 +56,6 @@ namespace Photogallery
             IComment comment = _albumComments.Where(p => p.CommentId == commentId).First();
             _albumComments.Remove(comment);
         }
-
 
         public void UpdateComment(IComment Comment)
         {
