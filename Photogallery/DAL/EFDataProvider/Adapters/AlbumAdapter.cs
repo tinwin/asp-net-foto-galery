@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Common.AbstractEntities;
 using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
@@ -9,6 +10,12 @@ namespace DAL.EFDataProvider.Adapters
 	public class AlbumAdapter : IAlbum
 	{
 		internal Album _album;
+        private IGalleryUser _user;
+        private IAlbum _parentAlbum;
+        private List<IAlbum> _childAlbums;
+        private List<IPhoto> _photos;
+        private List<ITag> _albumTags;
+        private List<IComment> _albumComments;
 
 		public AlbumAdapter()
 		{
@@ -24,8 +31,7 @@ namespace DAL.EFDataProvider.Adapters
 			get { return _album.AlbumId; }
 			set { _album.AlbumId = value; }
 		}
-
-		private IGalleryUser _user;
+		
 		public IGalleryUser User
 		{
 			get
@@ -43,8 +49,6 @@ namespace DAL.EFDataProvider.Adapters
 			set { _album.Title = value; }
 		}
 
-		private IAlbum _parentAlbum;
-
 		public IAlbum ParentAlbum
 		{
 			get
@@ -56,8 +60,6 @@ namespace DAL.EFDataProvider.Adapters
 			set { _parentAlbum = value; }
 		}
 
-
-		private List<IAlbum> _childAlbums;
 		public IEnumerable<IAlbum> ChildAlbums
 		{
 			get
@@ -74,8 +76,6 @@ namespace DAL.EFDataProvider.Adapters
 			set { _childAlbums = value.ToList(); }
 		}
 
-
-		private List<IPhoto> _photos;
 		public IEnumerable<IPhoto> Photos
 		{
 			get
@@ -98,7 +98,6 @@ namespace DAL.EFDataProvider.Adapters
 			set { _album.Description = value; }
 		}
 
-
 		public DateTime CreationDate
 		{
 			get { return _album.CreationDate; }
@@ -109,8 +108,6 @@ namespace DAL.EFDataProvider.Adapters
 		{
 			get { return _album.Author.aspnet_Users.RootAlbum == _album; }
 		}
-
-		private List<ITag> _albumTags;
 
 		public IEnumerable<ITag> AlbumTags
 		{
@@ -127,8 +124,6 @@ namespace DAL.EFDataProvider.Adapters
 			}
 			set { throw new NotImplementedException(); }
 		}
-
-		private List<IComment> _albumComments;
 
 		public IEnumerable<IComment> AlbumComments
 		{
@@ -149,7 +144,6 @@ namespace DAL.EFDataProvider.Adapters
 			}
 		}
 
-
 		public void AddComment(IComment comment)
 		{
             _albumComments.Add(comment);           
@@ -161,8 +155,7 @@ namespace DAL.EFDataProvider.Adapters
 		    _albumComments.Remove(_albumComments.Where(cmnts => cmnts.CommentId == commentId).SingleOrDefault());
 		}
 
-
-		public void UpdateComment(Photogallery.IComment comment)
+		public void UpdateComment(IComment comment)
 		{
 			throw new NotImplementedException();
 		}
