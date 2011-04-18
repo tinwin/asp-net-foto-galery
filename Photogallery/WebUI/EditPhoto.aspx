@@ -24,7 +24,7 @@
 					<asp:FileUpload ID="PhotoFile" CssClass="fileSelector" runat="server" />
 			</fieldset>
 		</div>
-		<div>Album</div>
+		<div>Album: <asp:DropDownList ID="AlbumsList" DataValueField="AlbumId" DataTextField="Title" runat="server" /> </div>
 		<div>
 		<label><h5>Preview</h5></label>
 			

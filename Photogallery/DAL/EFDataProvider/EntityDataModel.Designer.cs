@@ -33,7 +33,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("photogalleryModel", "FK_aspnet_Users_Albums", "Album", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DAL.EFDataProvider.Album), "aspnet_Users", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DAL.EFDataProvider.aspnet_Users))]
 
 // Original file name:
-// Generation date: 15.04.2011 21:04:22
+// Generation date: 18.04.2011 23:32:17
 namespace DAL.EFDataProvider
 {
     

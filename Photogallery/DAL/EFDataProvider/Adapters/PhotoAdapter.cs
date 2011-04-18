@@ -20,7 +20,6 @@ namespace DAL.EFDataProvider.Adapters
         public PhotoAdapter(Photo photo)
         {
             _photo = photo;
-            _hostAlbum = new AlbumAdapter(photo.Album);
         }
 
         public int PhotoId 
@@ -36,11 +35,29 @@ namespace DAL.EFDataProvider.Adapters
         }
 
         private IAlbum _hostAlbum;
+		private bool _isHostAlbumInit;
 
         public IAlbum HostAlbum
         {
-            get { return _hostAlbum; }
-            set { _hostAlbum = value; }
+            get
+            {
+				if (!_photo.AlbumReference.IsLoaded)
+					_photo.AlbumReference.Load();
+				if (!_isHostAlbumInit)
+				{
+					_hostAlbum = new AlbumAdapter(_photo.Album);
+					_isHostAlbumInit = true;
+				}
+            	return _hostAlbum;
+            }
+            set
+            {
+				var adapter = value as AlbumAdapter;
+				if (adapter != null)
+					_photo.Album = adapter._album;
+				else
+            		_hostAlbum = value;
+            }
         }
 
 		internal List<IComment> LocalComments = new List<IComment>();
@@ -193,6 +210,8 @@ namespace DAL.EFDataProvider.Adapters
 
 			foreach (var tag in _tagsToRemove)
 				_photo.Tags.Remove((tag as TagAdapter)._tag);
+			if (_photo.Album.AlbumId != HostAlbum.AlbumId)
+				_photo.Album = context.AlbumSet.Where(a => a.AlbumId == _hostAlbum.AlbumId).First();
 		}
     }
 }
