@@ -36,12 +36,15 @@ namespace DAL.EFDataProvider.Repositories
             }
 		}
 
+        public int GetAlbumsCount()
+        {
+            return _context.AlbumSet.Count();
+        }
+
 		public void UpdateAlbum(IAlbum album)
 		{
-            var commentRepository = new CommentRepository(_context);
+            /*var commentRepository = new CommentRepository(_context);
             var tagRepository = new TagRepository(_context);
-            var photoRepository = new PhotoRepository(_context);
-            var albumRepository = new AlbumRepository(_context);
 
             var adapter = album as AlbumAdapter;
             if (adapter != null)
@@ -59,21 +62,7 @@ namespace DAL.EFDataProvider.Repositories
                         var savedTagEntity = (tagRepository.AddTag(tag) as TagAdapter)._tag;
                         adapter._album.Tags.Add(savedTagEntity);
                     }
-
-                foreach (var photo in adapter.Photos)
-                    if (!(photo is PhotoAdapter))
-                    {
-                        var savedPhotoEntity = (photoRepository.AddPhoto(photo) as PhotoAdapter)._photo;
-                        adapter._album.Photos.Add(savedPhotoEntity);
-                    }
-
-                foreach (var childAlbum in adapter.ChildAlbums)
-                    if (!(childAlbum is AlbumAdapter))
-                    {
-                        var savedChildAlbumEntity = (albumRepository.AddAlbum(childAlbum) as AlbumAdapter)._album;
-                        adapter._album.ChildAlbums.Add(savedChildAlbumEntity);
-                    }
-            }
+            }*/
 
             _context.SaveChanges();
 		}
@@ -118,12 +107,25 @@ namespace DAL.EFDataProvider.Repositories
 	       	};
 		}
 
-        public IEnumerable<IAlbum> getAlbumListByUserID(Guid id)
+        public IEnumerable<IAlbum> GetAlbumListByUserId(Guid id)
         {
             var entities = ( from album in _context.AlbumSet 
                              where album.Author.UserId == id 
                              select album);
             
+            var albums = new List<IAlbum>();
+            foreach (var entity in entities)
+                albums.Add(new AlbumAdapter(entity));
+            return albums;
+        }
+
+        public IEnumerable<IAlbum> SelectAlbums(int skip, int take)
+        {
+            var entities = (from album in _context.AlbumSet
+                            orderby album.CreationDate descending
+                            select album).
+                            Skip(skip).
+                            Take(take);
             var albums = new List<IAlbum>();
             foreach (var entity in entities)
                 albums.Add(new AlbumAdapter(entity));
