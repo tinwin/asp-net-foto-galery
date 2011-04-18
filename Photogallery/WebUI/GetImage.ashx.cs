@@ -18,25 +18,38 @@ namespace WebUI
 
 		public void ProcessRequest(HttpContext context)
 		{
-			var controller = new PhotoController();
-			int id = int.Parse(context.Request.Params["id"]);          
-
-			var image = controller.GetPhotoById(id);
-			context.Response.ContentType = "image/jpeg";
-
-			switch (context.Request.Params["size"] ?? "optimized")
+			try
 			{
-				case "thumbnail":
-					image.PhotoThumbnail.Save(context.Response.OutputStream, ImageFormat.Jpeg);
-					break;
-				case "optimized":
-					image.OptimizedPhoto.Save(context.Response.OutputStream, ImageFormat.Jpeg);
-					break;
-				case "original":
-					image.OriginalPhoto.Save(context.Response.OutputStream, ImageFormat.Jpeg);
-					break;
-				default:
-					throw new ArgumentException("Unsupported image size specificator: \"" + context.Request.Params["size"] + "\"");
+				var controller = new PhotoController();
+				int id;
+				if (!int.TryParse(context.Request.Params["id"], out id))
+					return;
+
+				var image = controller.GetPhotoById(id);
+				//No image - no response
+				if (image == null)
+					return;
+
+				context.Response.ContentType = "image/jpeg";
+
+				switch (context.Request.Params["size"] ?? "optimized")
+				{
+					case "thumbnail":
+						image.PhotoThumbnail.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+						break;
+					case "optimized":
+						image.OptimizedPhoto.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+						break;
+					case "original":
+						image.OriginalPhoto.Save(context.Response.OutputStream, ImageFormat.Jpeg);
+						break;
+					default:
+						throw new ArgumentException("Unsupported image size specificator: \"" + context.Request.Params["size"] + "\"");
+				}
+			}
+			catch (Exception)
+			{
+				
 			}
 		}
 

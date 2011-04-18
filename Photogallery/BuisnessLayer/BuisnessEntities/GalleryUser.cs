@@ -23,9 +23,15 @@ namespace Photogallery
             set { throw new NotImplementedException(); }
         }
 
-        public string UserMail { get; set; } 
+        public string UserMail { get; set; }
 
-        public string Username { get; set; }
+    	public IEnumerable<IAlbum> Albums
+    	{
+    		get { throw new NotImplementedException(); }
+    		set { throw new NotImplementedException(); }
+    	}
+
+    	public string Username { get; set; }
         
         public IAlbum RootAlbum { get; set; }
 

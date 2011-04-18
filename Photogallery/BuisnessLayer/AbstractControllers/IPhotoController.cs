@@ -13,5 +13,7 @@ namespace BuisnessLayer.AbstractControllers
 		IPhoto GetPhotoById(int id);
 		void AddNew(IPhoto photo);
 		void Save(IPhoto photo);
+
+		IPhoto AddOrUpdate(IPhoto photo);
 	}
 }

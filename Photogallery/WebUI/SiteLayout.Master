@@ -12,6 +12,9 @@
 <link href="styles/style.css" rel="stylesheet" type="text/css" />
 <!-- #EndEditable -->
 <link href="styles/style2.css" rel="stylesheet" type="text/css" />
+
+<asp:ContentPlaceHolder ID="Head" runat="server" />
+
 </head>
 
 <body>
@@ -43,7 +46,7 @@
 	<!-- Begin Content -->
 	<div id="content">
 	    <form id="Form1" method="post" runat="server" enctype="multipart/form-data">
-	    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+			<asp:ContentPlaceHolder ID="MainContent" runat="server" />
 	    </form>
     </div>
 	<!-- End Content -->

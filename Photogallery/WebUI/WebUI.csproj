@@ -78,6 +78,9 @@
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Photo.aspx.cs">
       <DependentUpon>Photo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,12 +128,14 @@
   <ItemGroup>
     <Content Include="EditPhoto.aspx" />
     <Content Include="GetImage.ashx" />
+    <Content Include="Global.asax" />
     <Content Include="Photo.aspx" />
     <Content Include="styles\style.css" />
     <Content Include="styles\style2.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -28,8 +28,14 @@ namespace DAL.EFDataProvider.Adapters
             set { throw new NotImplementedException(); }
         }
 
+    	public IEnumerable<IAlbum> Albums
+    	{
+    		get { throw new NotImplementedException(); }
+    		set { throw new NotImplementedException(); }
+    	}
 
-        public UserAdapter(User user)
+
+    	public UserAdapter(User user)
         {
             _user = user;
 

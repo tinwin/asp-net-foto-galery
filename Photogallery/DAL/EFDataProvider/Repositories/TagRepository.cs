@@ -37,7 +37,10 @@ namespace DAL.EFDataProvider.Repositories
 
 		public ITag GetTagById(int id)
 		{
-			throw new NotImplementedException();
+			var tag = (from t in _context.TagSet
+					  where t.TagId == id
+					  select t).FirstOrDefault();
+			return (tag == null) ? null : new TagAdapter(tag);
 		}
 
 		public IEnumerable<ITag> GetAllTags()

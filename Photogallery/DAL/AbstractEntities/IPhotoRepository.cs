@@ -6,17 +6,19 @@ using Photogallery;
 
 namespace DAL.AbstractEntities
 {
-    public interface IPhotoRepository
+    public interface IPhotoRepository : IDisposable
     {
         IPhoto AddPhoto(IPhoto photo);
 
         void DeletePhoto(int PhotoId);
 
-        void UpdatePhoto(IPhoto photo);
+        IPhoto UpdatePhoto(IPhoto photo);
 
 		IPhoto GetPhotoById(int id);
 
 		IEnumerable<IPhoto> SelectPhotos(int startIndex, int count);
+
+		void Commit();
 
 		int GetPhotosCount();
     }
