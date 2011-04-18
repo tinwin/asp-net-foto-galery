@@ -4,25 +4,32 @@ using System.Linq;
 using System.Text;
 using Photogallery;
 using System.Web;
+using System.Web.Security;
 
 namespace DAL.AbstractEntities
 {
     public interface IGalleryUserRepository
     {
-        IGalleryUser AddUser(IGalleryUser user, string userPassword);
-
+        
+        MembershipProvider MembershipUserProvider { get; set; } 
+        
         string[] GalleryRoles { get; }
 
         void DeleteUser(Guid UserId);
-
-        string ResetUserPassword(Guid userId);
 
         IGalleryUser GetUserById(Guid Id);
 
         IGalleryUser GetUserByName(string name); 
 
         void UpdateUser(IGalleryUser user);
+        void UpdateUser(Guid userId, string name, string mail, string role, string desription);
 
+        bool UserExists(string name);
+
+        void DeleteUserByName(string name);
+        
+        IEnumerable<IGalleryUser> GetAllUsers();
+        
 
     }
 }
