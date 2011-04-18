@@ -43,5 +43,12 @@ namespace BuisnessLayer.ConcreteControllers
 		{
 			_dataProvider.PhotoRepository.UpdatePhoto(photo);
 		}
+
+		public IPhoto AddOrUpdate(IPhoto photo)
+		{
+			var saved = _dataProvider.PhotoRepository.UpdatePhoto(photo);
+			_dataProvider.PhotoRepository.Commit();
+			return saved;
+		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DAL.AbstractEntities;
 using DAL.EFDataProvider.Adapters;
@@ -8,7 +9,7 @@ namespace DAL.EFDataProvider.Repositories
 {
 	public class PhotoRepository : IPhotoRepository
 	{
-		private PhotogalleryEntities _context;
+		private readonly PhotogalleryEntities _context;
 
 		public PhotoRepository(PhotogalleryEntities context)
 		{
@@ -19,7 +20,6 @@ namespace DAL.EFDataProvider.Repositories
 		{
 			var saved = Adapte(photo);
 			_context.AddToPhotoSet(saved);
-			_context.SaveChanges();
 			return new PhotoAdapter(saved);
 		}
 
@@ -29,11 +29,10 @@ namespace DAL.EFDataProvider.Repositories
 			_context.SaveChanges();
 		}
 
-		public void UpdatePhoto(IPhoto photo)
+		public IPhoto UpdatePhoto(IPhoto photo)
 		{
 			var commentRepository = new CommentRepository(_context);
 			var tagRepository = new TagRepository(_context);
-
 			var adapter = photo as PhotoAdapter;
 			if (adapter != null)
 			{
@@ -45,17 +44,21 @@ namespace DAL.EFDataProvider.Repositories
 					}
 
 				foreach (var tag in adapter._tags)
-					if (!(tag is TagAdapter))
+				{
+					var tagAdapter = tag as TagAdapter;
+					if (tagAdapter == null)
 					{
 						var savedTagEntity = (tagRepository.AddTag(tag) as TagAdapter)._tag;
 						adapter._photo.Tags.Add(savedTagEntity);
 					}
-
+					else
+						adapter._photo.Tags.Add(tagAdapter._tag);
+				}
 				adapter.SaveChanges(_context);
-				_context.SaveChanges();
+				return adapter;
 			}
 			else
-				AddPhoto(photo);
+				return AddPhoto(photo);
 		}
 
 		public IPhoto GetPhotoById(int id)
@@ -84,6 +87,11 @@ namespace DAL.EFDataProvider.Repositories
 			return _context.PhotoSet.Count();
 		}
 
+		public void Commit()
+		{
+			_context.SaveChanges();
+		}
+
 		private Photo Adapte(IPhoto photo)
 		{
 			Photo entity = new Photo
@@ -96,9 +104,18 @@ namespace DAL.EFDataProvider.Repositories
 					Where(m => m.UserId == photo.OwningUser.UserId).
 					FirstOrDefault(),
 				Description = photo.PhotoDescription,
-				Title = photo.PhotoTitle
+				Title = photo.PhotoTitle,
+                OriginalImage = photo.OriginalPhoto.ToByteArray(),
+                OptimizedImage = photo.OptimizedPhoto.ToByteArray(),
+                ImageThumbnail = photo.PhotoThumbnail.ToByteArray()
+
 			};
 			return entity;
+		}
+
+		public void Dispose()
+		{
+			Commit();
 		}
 	}
 }
