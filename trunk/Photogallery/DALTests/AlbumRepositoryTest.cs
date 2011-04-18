@@ -57,7 +57,7 @@ namespace DALTests
     public void SelectPageTest()
     {
 
-        var albums = _albumRepository.getAlbumListByUserID(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
+        var albums = _albumRepository.GetAlbumListByUserId(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
         foreach (var album in albums)
             //Assert.AreEqual("1", photo.PhotoTitle);
             Console.WriteLine(album.Title);
@@ -76,7 +76,6 @@ namespace DALTests
             album.Title = "albumTitle%%";
             album.User = new UserAdapter(user);
             album.CreationDate = DateTime.Now;
-            //album.ParentAlbum = _albumRepository.GetAlbumById(1);
 
             #endregion
 
