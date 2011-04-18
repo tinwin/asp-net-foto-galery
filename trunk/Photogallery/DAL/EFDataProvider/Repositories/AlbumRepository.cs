@@ -74,7 +74,7 @@ namespace DAL.EFDataProvider.Repositories
                 var x = (from a in _context.AlbumSet
                          where a.AlbumId == id
                          select a).First();
-                return new AlbumAdapter();
+                return new AlbumAdapter(x);
             }catch(InvalidOperationException)
             {
                 return null;
