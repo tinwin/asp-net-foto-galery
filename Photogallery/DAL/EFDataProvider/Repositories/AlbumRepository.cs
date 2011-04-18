@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DAL.AbstractEntities;
 using DAL.EFDataProvider.Adapters;
@@ -25,8 +26,14 @@ namespace DAL.EFDataProvider.Repositories
 
 		public void DeleteAlbum(int id)
 		{
-            _context.DeleteObject(_context.AlbumSet.Where(albm => albm.AlbumId == id).First());
-            _context.SaveChanges();
+            try
+            {
+                _context.DeleteObject(_context.AlbumSet.Where(albm => albm.AlbumId == id).First());
+                _context.SaveChanges();
+            }catch(Exception e)
+            {
+                
+            }
 		}
 
 		public void UpdateAlbum(IAlbum album)
@@ -75,9 +82,10 @@ namespace DAL.EFDataProvider.Repositories
 		{
             try
             {
-                return new AlbumAdapter((from a in _context.AlbumSet
-                                         where a.AlbumId == id
-                                         select a).First());
+                var x = (from a in _context.AlbumSet
+                         where a.AlbumId == id
+                         select a).First();
+                return new AlbumAdapter();
             }catch(InvalidOperationException)
             {
                 return null;
@@ -109,5 +117,17 @@ namespace DAL.EFDataProvider.Repositories
                 ParentAlbum = parentAlbum,
 	       	};
 		}
+
+        public IEnumerable<IAlbum> getAlbumListByUserID(Guid id)
+        {
+            var entities = ( from album in _context.AlbumSet 
+                             where album.Author.UserId == id 
+                             select album);
+            
+            var albums = new List<IAlbum>();
+            foreach (var entity in entities)
+                albums.Add(new AlbumAdapter(entity));
+            return albums;
+        }
 	}
 }
