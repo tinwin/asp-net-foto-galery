@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using BuisnessLayer.AbstractControllers;
 using DAL.AbstractEntities;
 using Common;
@@ -18,7 +16,12 @@ namespace BuisnessLayer.ConcreteControllers
 			return _provider.AlbumRepository.GetAlbumById(id);
 		}
 
-        public IEnumerable<IAlbum> SelectAllAlbumsPage(int skip, int take)
+	    public void DeleteAlbumById(int id)
+	    {
+            _provider.AlbumRepository.DeleteAlbum(id);
+	    }
+
+	    public IEnumerable<IAlbum> SelectAllAlbumsPage(int skip, int take)
         {
             return _provider.AlbumRepository.SelectAlbums(skip, take);
         }
