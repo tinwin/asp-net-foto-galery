@@ -47,3 +47,33 @@ div.float-right
 {
 	float:right;
 }
+
+div.AlbumListItem
+{
+	font-family:Calibri; 
+	float: left; 
+	width:400%; 
+	font-size:medium; 
+}
+
+div.AlbumListItemDescription
+{
+	font-family:Arial; 
+	font-style:oblique; 
+	font-size:8pt; 
+	color:RGB(153, 156, 181);
+	padding-bottom:3px;
+}
+div.AlbumListItemCreationDate
+{
+	font-family:Arial; 
+	font-style:oblique; 
+	font-size:8pt; 
+	color:RGB(80, 39, 97);
+	padding-bottom:3px;
+}
+div.AlbumListItemContainer
+{
+	padding-bottom:10px;
+	
+	
