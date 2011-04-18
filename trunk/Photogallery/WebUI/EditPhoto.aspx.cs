@@ -27,6 +27,12 @@ namespace WebUI
 			{
 				int photoId;
 				var allTags = _tagController.GetAllTags();
+				var user = _userController.GetUserByGuid(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
+				var allAlbums = _albumController.SelectAlbumsByUserId(user.UserId);
+
+				AlbumsList.DataSource = allAlbums;
+				AlbumsList.DataBind();
+
 				//If user has tried to edit existing photo
 				//TODO: Check user rights on photo
 				if (int.TryParse(Request.QueryString["id"], out photoId) && photoId > 0)
@@ -37,6 +43,16 @@ namespace WebUI
 					PhotoTitle.Text = photo.PhotoTitle;
 					PhotoDescription.Text = photo.PhotoDescription;
 					PhotoImage.Src += photo.PhotoId;
+
+					int i = 0;
+					foreach (var item in AlbumsList.DataSource as IEnumerable<IAlbum>)
+						if (item.AlbumId == photo.HostAlbum.AlbumId)
+						{
+							AlbumsList.SelectedIndex = i;
+							break;
+						}
+						else
+							++i;                   
 
 					foreach (var tag in allTags)
 						TagsList.Items.Add(new ListItem
@@ -77,7 +93,7 @@ namespace WebUI
 				//Common properties
 				//TODO: implement owner and album initialization
 				photo.OwningUser = _userController.GetUserByGuid(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
-				photo.HostAlbum = _albumController.GetAlbumById(1);
+				photo.HostAlbum = _albumController.GetAlbumById(int.Parse(AlbumsList.SelectedValue));
 				photo.PhotoTitle = PhotoTitle.Text;
 				photo.PhotoDescription = PhotoDescription.Text;
 

@@ -55,6 +55,7 @@ namespace DAL.EFDataProvider.Repositories
 						adapter._photo.Tags.Add(tagAdapter._tag);
 				}
 				adapter.SaveChanges(_context);
+				_context.SaveChanges();
 				return adapter;
 			}
 			else
