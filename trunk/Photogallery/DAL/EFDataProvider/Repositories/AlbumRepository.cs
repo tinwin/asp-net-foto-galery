@@ -109,9 +109,9 @@ namespace DAL.EFDataProvider.Repositories
 
         public IEnumerable<IAlbum> GetAlbumListByUserId(Guid id)
         {
-            var entities = ( from album in _context.AlbumSet 
-                             where album.Author.UserId == id 
-                             select album);
+            var entities = (from album in _context.AlbumSet
+                            where album.Author.UserId == id
+                            select album);
             
             var albums = new List<IAlbum>();
             foreach (var entity in entities)
