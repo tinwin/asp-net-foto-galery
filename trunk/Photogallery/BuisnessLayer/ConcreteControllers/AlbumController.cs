@@ -23,7 +23,12 @@ namespace BuisnessLayer.ConcreteControllers
             return _provider.AlbumRepository.SelectAlbums(skip, take);
         }
 
-        public int GetAlbumsCount()
+	    public IEnumerable<IAlbum> SelectAlbumsByUserId(Guid userId)
+	    {
+            return _provider.AlbumRepository.GetAlbumListByUserId(userId);
+	    }
+
+	    public int GetAlbumsCount()
         {
             return _provider.AlbumRepository.GetAlbumsCount();
         }

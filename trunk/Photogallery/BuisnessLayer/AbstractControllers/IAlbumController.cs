@@ -10,6 +10,7 @@ namespace BuisnessLayer.AbstractControllers
 	{
 		IAlbum GetAlbumById(int id);
 	    IEnumerable<IAlbum> SelectAllAlbumsPage(int skip, int take);
+        IEnumerable<IAlbum> SelectAlbumsByUserId(Guid userId);
 	    int GetAlbumsCount();
 	    void AddNew(IAlbum album);
 	    void Update(IAlbum album);
