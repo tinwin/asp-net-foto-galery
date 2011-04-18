@@ -78,7 +78,7 @@ namespace DAL.EFDataProvider.Repositories
                 return new AlbumAdapter((from a in _context.AlbumSet
                                          where a.AlbumId == id
                                          select a).First());
-            }catch(NullReferenceException)
+            }catch(InvalidOperationException)
             {
                 return null;
             }
@@ -86,19 +86,27 @@ namespace DAL.EFDataProvider.Repositories
 
 		public Album Adapte(IAlbum album)
 		{
+		    Album parentAlbum;
+		    try
+		    {
+		        parentAlbum = _context.AlbumSet.Where(a => a.AlbumId == album.ParentAlbum.AlbumId).First();
+		    }catch(NullReferenceException)
+            {
+                parentAlbum = null;
+            }
+
 			return new Album
 	       	{
 	       		Author = (from User u in _context.UserSet 
 						  where u.UserId==album.User.UserId 
 						  select u).First(),
+
 				Title = album.Title,
 				CreationDate = album.CreationDate,
                 AlbumId = album.AlbumId,
                 Description = album.Description,
-                
-                ParentAlbum  = (from Album a in _context.AlbumSet
-                                where a.AlbumId == album.ParentAlbum.AlbumId
-                                select a).First(),
+
+                ParentAlbum = parentAlbum,
 	       	};
 		}
 	}
