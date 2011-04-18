@@ -1,4 +1,6 @@
-﻿using Photogallery;
+﻿using System;
+using System.Collections.Generic;
+using Photogallery;
 
 namespace DAL.AbstractEntities
 {
@@ -11,6 +13,8 @@ namespace DAL.AbstractEntities
         void UpdateAlbum(IAlbum album);
 
 		IAlbum GetAlbumById(int id);
+
+        IEnumerable<IAlbum> getAlbumListByUserID(Guid id);
 
     }
 }
