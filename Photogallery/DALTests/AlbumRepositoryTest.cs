@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.EntityClient;
 using System.Linq;
-using System.Text;
 using DAL.AbstractEntities;
 using DAL.EFDataProvider;
 using DAL.EFDataProvider.Adapters;
@@ -47,11 +45,23 @@ namespace DALTests
         {
             var newAlbum = _albumRepository.AddAlbum(CreateAlbum());
             var album = _context.AlbumSet.Where(a => a.AlbumId == newAlbum.AlbumId).First();
-            //var album = _context.AlbumSet.Where(a => a.AlbumId == 33).First(); //System.Data.UpdateException
             _albumRepository.DeleteAlbum(album.AlbumId);
             var deletedAlbum = _albumRepository.GetAlbumById(album.AlbumId);
             Assert.Null(deletedAlbum);
         }
+
+    [Test]
+    public void UpdateAlbumTest()
+    {
+        var album = _albumRepository.AddAlbum(CreateAlbum());
+        album.Title = "TESTALBUM";
+        album.Description = "TESTDescription";
+        _albumRepository.UpdateAlbum(album);
+        Init();
+        var updatedAlbum = _albumRepository.GetAlbumById(album.AlbumId);
+        Assert.AreEqual("TESTALBUM", updatedAlbum.Title);
+        Assert.AreEqual("TESTDescription", updatedAlbum.Description);
+    }
 
     [Test]
     public void SelectPageTest()
@@ -59,7 +69,6 @@ namespace DALTests
 
         var albums = _albumRepository.GetAlbumListByUserId(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
         foreach (var album in albums)
-            //Assert.AreEqual("1", photo.PhotoTitle);
             Console.WriteLine(album.Title);
 
     }
