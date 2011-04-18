@@ -14,7 +14,9 @@ namespace DAL.AbstractEntities
 
 		IAlbum GetAlbumById(int id);
 
-        IEnumerable<IAlbum> getAlbumListByUserID(Guid id);
+        IEnumerable<IAlbum> GetAlbumListByUserId(Guid id);
+        int GetAlbumsCount();
+        IEnumerable<IAlbum> SelectAlbums(int skip, int take);
 
     }
 }
