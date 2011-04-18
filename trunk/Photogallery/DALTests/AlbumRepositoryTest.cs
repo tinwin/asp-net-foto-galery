@@ -31,19 +31,7 @@ namespace DALTests
 		[Test]
 		public void AddAlbumTest()
 		{
-			//Predefined existing user
-			var user = (from u in _context.UserSet
-						where u.UserId == new Guid("29d25edd-7279-4a94-87b7-874c4b34827c")
-						select u).First();
-
-			var date = DateTime.Now;
-
-			var album = new Photogallery.Album
-        	{
-        		User = new UserAdapter(user),
-                Title = "New",
-				CreationDate = date
-        	};
+		    var album = CreateAlbum();
 
 			var savedAlbum = _albumRepository.AddAlbum(album);
 			int savedId = savedAlbum.AlbumId;
@@ -51,7 +39,37 @@ namespace DALTests
 			Init();
 
 			savedAlbum = _albumRepository.GetAlbumById(savedId);
-			Assert.AreEqual("New", savedAlbum.Title);
+            Assert.AreEqual("albumTitle%%", savedAlbum.Title);
 		}
+
+        [Test]
+        public void DeleteAlbumTest()
+        {
+            var newAlbum = _albumRepository.AddAlbum(CreateAlbum());
+            var album = _context.AlbumSet.Where(a => a.AlbumId == newAlbum.AlbumId).First();
+            //var album = _context.AlbumSet.Where(a => a.AlbumId == 1).First(); //System.Data.UpdateException
+            _albumRepository.DeleteAlbum(album.AlbumId);
+            var deletedAlbum = _albumRepository.GetAlbumById(album.AlbumId);
+            Assert.Null(deletedAlbum);
+        }
+
+        private Photogallery.Album CreateAlbum()
+        {
+            var user = _context.UserSet.Where(u => u.UserId == new Guid("29d25edd-7279-4a94-87b7-874c4b34827c")).
+                                        First();
+            var album = new Photogallery.Album();
+
+            #region Album initialization
+
+            album.Description = "albumDescription%%";
+            album.Title = "albumTitle%%";
+            album.User = new UserAdapter(user);
+            album.CreationDate = DateTime.Now;
+            album.ParentAlbum = _albumRepository.GetAlbumById(1);
+
+            #endregion
+
+            return album;
+        }
 	}
 }
