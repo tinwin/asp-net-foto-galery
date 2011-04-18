@@ -42,16 +42,27 @@ namespace DALTests
             Assert.AreEqual("albumTitle%%", savedAlbum.Title);
 		}
 
-        [Test]
+    [Test]
         public void DeleteAlbumTest()
         {
             var newAlbum = _albumRepository.AddAlbum(CreateAlbum());
             var album = _context.AlbumSet.Where(a => a.AlbumId == newAlbum.AlbumId).First();
-            //var album = _context.AlbumSet.Where(a => a.AlbumId == 1).First(); //System.Data.UpdateException
+            //var album = _context.AlbumSet.Where(a => a.AlbumId == 33).First(); //System.Data.UpdateException
             _albumRepository.DeleteAlbum(album.AlbumId);
             var deletedAlbum = _albumRepository.GetAlbumById(album.AlbumId);
             Assert.Null(deletedAlbum);
         }
+
+    [Test]
+    public void SelectPageTest()
+    {
+
+        var albums = _albumRepository.getAlbumListByUserID(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
+        foreach (var album in albums)
+            //Assert.AreEqual("1", photo.PhotoTitle);
+            Console.WriteLine(album.Title);
+
+    }
 
         private Photogallery.Album CreateAlbum()
         {
@@ -65,7 +76,7 @@ namespace DALTests
             album.Title = "albumTitle%%";
             album.User = new UserAdapter(user);
             album.CreationDate = DateTime.Now;
-            album.ParentAlbum = _albumRepository.GetAlbumById(1);
+            //album.ParentAlbum = _albumRepository.GetAlbumById(1);
 
             #endregion
 
