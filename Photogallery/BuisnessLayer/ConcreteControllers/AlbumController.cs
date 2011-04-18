@@ -17,5 +17,15 @@ namespace BuisnessLayer.ConcreteControllers
 		{
 			return _provider.AlbumRepository.GetAlbumById(id);
 		}
+
+        public IEnumerable<IAlbum> SelectAllAlbumsPage(int skip, int take)
+        {
+            return _provider.AlbumRepository.SelectAlbums(skip, take);
+        }
+
+        public int GetAlbumsCount()
+        {
+            return _provider.AlbumRepository.GetAlbumsCount();
+        }
 	}
 }
