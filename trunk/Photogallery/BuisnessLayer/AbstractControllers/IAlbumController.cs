@@ -9,5 +9,7 @@ namespace BuisnessLayer.AbstractControllers
 	public interface IAlbumController
 	{
 		IAlbum GetAlbumById(int id);
+	    IEnumerable<IAlbum> SelectAllAlbumsPage(int skip, int take);
+	    int GetAlbumsCount();
 	}
 }
