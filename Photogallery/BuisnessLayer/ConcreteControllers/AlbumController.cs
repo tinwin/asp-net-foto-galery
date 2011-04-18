@@ -27,5 +27,15 @@ namespace BuisnessLayer.ConcreteControllers
         {
             return _provider.AlbumRepository.GetAlbumsCount();
         }
+
+        public void AddNew(IAlbum album)
+        {
+            _provider.AlbumRepository.AddAlbum(album);
+        }
+
+	    public void Update(IAlbum album)
+	    {
+            _provider.AlbumRepository.UpdateAlbum(album);
+	    }
 	}
 }
