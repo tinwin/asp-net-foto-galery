@@ -674,7 +674,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Photo_to_Tag_Photos">
-          <End Role="Photos" Type="photogalleryModel.Store.Photos" Multiplicity="1" />
+          <End Role="Photos" Type="photogalleryModel.Store.Photos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Photo_to_Tag" Type="photogalleryModel.Store.Photo_to_Tag" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Photos">

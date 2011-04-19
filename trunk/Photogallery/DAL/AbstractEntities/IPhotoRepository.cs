@@ -18,8 +18,12 @@ namespace DAL.AbstractEntities
 
 		IEnumerable<IPhoto> SelectPhotos(int startIndex, int count);
 
+		IEnumerable<IPhoto> SelectPhotos(int albumId, int startIndex, int count);
+
 		void Commit();
 
 		int GetPhotosCount();
+
+		int GetPhotosCount(int albumId);
     }
 }
