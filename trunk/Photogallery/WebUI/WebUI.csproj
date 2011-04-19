@@ -36,15 +36,11 @@
     </Reference>
     <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.MicroKernel, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Книги\MVC\RU\Chapter 04 to 06 - SportsStore\SportsStore\ReferenceAssemblies\Castle.MicroKernel.dll</HintPath>
+      <HintPath>CastleWindsor\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Castle.Windsor.dll</HintPath>
+      <HintPath>CastleWindsor\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -52,9 +48,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.Entity">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web.Extensions">
@@ -75,19 +68,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-
-    <Compile Include="AboutUser.aspx.cs">
-      <DependentUpon>AboutUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AboutUser.aspx.designer.cs">
-      <DependentUpon>AboutUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AddPhoto.aspx.cs">
-      <DependentUpon>AddPhoto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-
     <Compile Include="Albums.aspx.cs">
       <DependentUpon>Albums.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -102,22 +82,12 @@
     <Compile Include="EditAlbum.aspx.designer.cs">
       <DependentUpon>EditAlbum.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="EditPhoto.aspx.cs">
       <DependentUpon>EditPhoto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditPhoto.aspx.designer.cs">
       <DependentUpon>EditPhoto.aspx</DependentUpon>
-    </Compile>
-    <Content Include="Admin\Web.config" />
-    <None Include="CustomPager.cs" />
-    <Compile Include="AdminRoom.aspx.cs">
-      <DependentUpon>AdminRoom.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminRoom.aspx.designer.cs">
-      <DependentUpon>AdminRoom.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
@@ -154,6 +124,7 @@
     <Compile Include="SiteLayout.Master.designer.cs">
       <DependentUpon>SiteLayout.Master</DependentUpon>
     </Compile>
+    <Compile Include="Utilites.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
@@ -177,15 +148,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-
-    <Content Include="AboutUser.aspx" />
-    <Content Include="AddPhoto.aspx" />
-
     <Content Include="Albums.aspx" />
     <Content Include="EditAlbum.aspx" />
-
     <Content Include="EditPhoto.aspx" />
-    <Content Include="AdminRoom.aspx" />
     <Content Include="GetImage.ashx" />
     <Content Include="Global.asax" />
     <Content Include="Pager\ASPnetPagerV2_8.dll" />
@@ -214,7 +179,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59809</DevelopmentServerPort>
+          <DevelopmentServerPort>2176</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

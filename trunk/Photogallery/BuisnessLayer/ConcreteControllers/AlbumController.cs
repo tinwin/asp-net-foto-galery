@@ -26,7 +26,12 @@ namespace BuisnessLayer.ConcreteControllers
             return _provider.AlbumRepository.SelectAlbums(skip, take);
         }
 
-	    public IEnumerable<IAlbum> SelectAlbumsByUserId(Guid userId)
+		public IEnumerable<IAlbum> SelectAlbumsPage(Guid userId, int skip, int take)
+		{
+			return _provider.AlbumRepository.SelectAlbums(userId, skip, take);
+		}
+
+		public IEnumerable<IAlbum> SelectAlbumsByUserId(Guid userId)
 	    {
             return _provider.AlbumRepository.GetAlbumListByUserId(userId);
 	    }
@@ -36,7 +41,12 @@ namespace BuisnessLayer.ConcreteControllers
             return _provider.AlbumRepository.GetAlbumsCount();
         }
 
-        public void AddNew(IAlbum album)
+		public int GetAlbumsCount(Guid userId)
+		{
+			return _provider.AlbumRepository.GetAlbumsCount(userId);
+		}
+
+		public void AddNew(IAlbum album)
         {
             _provider.AlbumRepository.AddAlbum(album);
         }

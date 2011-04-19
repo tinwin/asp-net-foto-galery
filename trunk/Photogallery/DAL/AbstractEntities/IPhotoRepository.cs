@@ -20,10 +20,14 @@ namespace DAL.AbstractEntities
 
 		IEnumerable<IPhoto> SelectPhotos(int albumId, int startIndex, int count);
 
+		IEnumerable<IPhoto> SelectPhotos(Guid userId, int startIndex, int count);
+
 		void Commit();
 
 		int GetPhotosCount();
 
 		int GetPhotosCount(int albumId);
+
+		int GetPhotosCount(Guid userId);
     }
 }
