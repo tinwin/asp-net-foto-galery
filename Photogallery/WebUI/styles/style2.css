@@ -157,6 +157,16 @@ a:hover {
     display: block;
     padding: 5px;
     text-decoration: none;
-
 }
+.userId
+ {
+     display:none ;
+     
+     }
+     
+ .validator
+ {
+     font:bold 10px;
+     color:Red ;
+ }
 

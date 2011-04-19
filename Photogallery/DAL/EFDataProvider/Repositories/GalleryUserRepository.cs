@@ -55,7 +55,7 @@ namespace DAL.EFDataProvider.Repositories
         public void DeleteUser(Guid UserId)
         {
 
-            var objToDelete = _context.UserSet.Where(p => p.UserId == UserId).SingleOrDefault();
+            var objToDelete = _context.UserSet.Where(p => p.UserId == UserId).FirstOrDefault();
             if (objToDelete != null)
             {
                 _context.DeleteObject(objToDelete);

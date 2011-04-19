@@ -188,6 +188,10 @@ namespace DAL.EFDataProvider.Adapters
             LocalComments.Remove(LocalComments.Where(c => c.CommentId == commentId).SingleOrDefault());
         }
 
+
+        
+        
+        
         public void UpdateComment(IComment comment)
         {
 

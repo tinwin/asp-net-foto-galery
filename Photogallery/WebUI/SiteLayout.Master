@@ -73,6 +73,8 @@
                         <LoggedInTemplate>                 
                             <asp:LoginName ID="LoginName1" runat="server" FormatString="Welcome,{0}" />                       
                             <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Exit" LogoutAction="Refresh"   />
+
+
                             <asp:HyperLink ID="RoomLink" runat="server" NavigateUrl="Room.aspx" CssClass ="Link" >Private Room </asp:HyperLink>                    
                             
                             <hr />
@@ -88,11 +90,14 @@
                             <div>
 								<a href="/EditAlbum.aspx">Add album</a>
 							</div>      
+
                         </LoggedInTemplate>
                          <RoleGroups>
                             <asp:RoleGroup Roles="admin"> 
                                 <ContentTemplate >
                                     <asp:HyperLink ID="AdminRoomLink" runat="server" NavigateUrl="AdminRoom.aspx" CssClass ="Link"> Admin Room</asp:HyperLink> 
+                                    <asp:HyperLink ID="RoomLink2" runat="server" NavigateUrl="Room.aspx" CssClass ="Link" >Private Room </asp:HyperLink>                          
+                                    <asp:LoginStatus ID="LoginStatus2" runat="server" LogoutText="Exit" LogoutAction="Refresh"   />
                                 </ContentTemplate>
                             </asp:RoleGroup>
                         </RoleGroups>     

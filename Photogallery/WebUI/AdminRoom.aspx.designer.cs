@@ -8,45 +8,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebUI {
+namespace WebUI.Admin {
     
     
-    public partial class SiteLayout {
+    public partial class AdminRoom {
         
         /// <summary>
-        /// Head control.
+        /// userExistsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Head;
+        protected global::System.Web.UI.WebControls.Label userExistsLabel;
         
         /// <summary>
-        /// Form1 control.
+        /// emailExistsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.WebControls.Label emailExistsLabel;
         
         /// <summary>
-        /// MainContent control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// LoginView1 control.
+        /// ObjectDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
     }
 }

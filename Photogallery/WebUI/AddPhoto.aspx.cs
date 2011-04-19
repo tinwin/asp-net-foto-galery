@@ -25,7 +25,7 @@ namespace WebUI
 		{
 			var albumController = Windsor.Instance.Resolve<IAlbumController>();
 			var userController = Windsor.Instance.Resolve<IUserController>();
-
+            /*
 			IPhoto photo = new Photogallery.Photo
            	{
            		OriginalPhoto = new Bitmap(PhotoFile.FileContent),
@@ -38,7 +38,7 @@ namespace WebUI
 				PhotoThumbnail = new Bitmap(PhotoFile.FileContent)
            	};
 			var controller = new PhotoController();
-			controller.AddNew(photo);
+			controller.AddNew(photo);*/
 		}
 	}
 }

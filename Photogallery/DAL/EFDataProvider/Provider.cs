@@ -30,7 +30,11 @@ namespace DAL.EFDataProvider
 
 		public IGalleryUserRepository GalleryUserRepository
 		{
-			get { return _userRepository ?? (_userRepository = new GalleryUserRepository(_context)); }
+			get
+			{
+			    return _userRepository ?? (_userRepository = new GalleryUserRepository(_context));
+			   
+			}
 		}
 
 		public IPhotoRepository PhotoRepository
