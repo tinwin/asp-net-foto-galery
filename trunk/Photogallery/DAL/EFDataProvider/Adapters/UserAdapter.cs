@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Security;
+using DAL.EFDataProvider.Repositories;
 using Photogallery;
 
 namespace DAL.EFDataProvider.Adapters
@@ -11,29 +12,7 @@ namespace DAL.EFDataProvider.Adapters
     {
         private User _user;
 
-		public UserAdapter()
-		{
-			
-		}
-
-        public string UserPassword
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
-        public string UserMail
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
-    	public IEnumerable<IAlbum> Albums
-    	{
-    		get { throw new NotImplementedException(); }
-    		set { throw new NotImplementedException(); }
-    	}
-
+		
 
     	public UserAdapter(User user)
         {
@@ -67,29 +46,44 @@ namespace DAL.EFDataProvider.Adapters
                 if (!_user.aspnet_UsersReference.IsLoaded)
                     _user.aspnet_UsersReference.Load();
                 _user.aspnet_Users.UserName = value;
+                _user.aspnet_Users.LoweredUserName = value.ToLower();
             }
         }
 
         
 
 
-        private AlbumAdapter _rootAlbum;
 
-        public IAlbum RootAlbum
+
+        public string UserMail
+        {
+            get { return _user.Email; }
+            set
+            {
+                _user.LoweredEmail = value.ToLower();
+                _user.Email = value;
+            }
+        }
+
+
+        
+        public IEnumerable<IAlbum> Albums
         {
             get
             {
-                return _rootAlbum ?? (_rootAlbum = new AlbumAdapter(_user.aspnet_Users.RootAlbum));
+                _user.Albums.Load();
+                List<IAlbum> albums = new List<IAlbum>();
+                foreach (Album album in _user.Albums)
+                {
+                    albums.Add(new AlbumAdapter(album));
+                }
+                return albums;
             }
-            set { _rootAlbum = value as AlbumAdapter; }
+            
+
         }
 
-        IEnumerable<IComment> IGalleryUser.UserComments
-        {
-        	get { throw new NotImplementedException(); }
-        }
 
-    	List<IComment> _userComments;
 
         public IEnumerable<IComment> UserComments
         {
@@ -97,10 +91,12 @@ namespace DAL.EFDataProvider.Adapters
             {
 
 
-                _user.AboutUserComments.Load();
+                _user.Comments.Load();
                 List<IComment> comments = new List<IComment>();
-                foreach (Comment com in _user.AboutUserComments.ToArray())
-                    comments.Add(new CommentAdapter(com));
+                foreach (Comment  comment  in _user.Comments )
+                {
+                    comments.Add( new CommentAdapter( comment ));
+                }
                 return comments;
             }
 
@@ -120,6 +116,7 @@ namespace DAL.EFDataProvider.Adapters
                 if (!_user.aspnet_UsersReference.IsLoaded)
                     _user.aspnet_UsersReference.Load();
                 _user.aspnet_Users.Description = value;
+                
             }
         }
 
@@ -128,13 +125,17 @@ namespace DAL.EFDataProvider.Adapters
         {
             get
             {
-                if (_role == string.Empty)
+                if (string.IsNullOrEmpty(  _role))
                 {
                     _user.aspnet_UsersReference.Load();
                     _user.aspnet_Users.aspnet_Roles.Load();
+                    _role = _user.aspnet_Users.aspnet_Roles.FirstOrDefault()!=null?
+                        _user.aspnet_Users.aspnet_Roles.FirstOrDefault().RoleName :string.Empty;
 
                 }
-                return _role = _user.aspnet_Users.aspnet_Roles.Single().RoleName;
+
+
+                return _role;
             }
             set
             {
@@ -145,6 +146,7 @@ namespace DAL.EFDataProvider.Adapters
 
 
 
+          
 
         public void AddComment(IComment comment)
         {
