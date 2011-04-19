@@ -38,12 +38,20 @@ namespace WebUI
             int skip = (pager1.CurrentIndex - 1) * pager1.PageSize;
             int take = pager1.PageSize;
 
-            AlbumList.DataSource = controller.SelectAllAlbumsPage(skip, take);
-            AlbumList.DataBind();
-
-            pager1.ItemCount = controller.GetAlbumsCount();
-            pager2.ItemCount = pager1.ItemCount;
-
+			Guid userId;
+			//Show photos by user
+			if (Utilites.TryParse(Request.QueryString["user"], out userId))
+			{
+				AlbumList.DataSource = controller.SelectAlbumsPage(userId, skip, take);
+				pager1.ItemCount = controller.GetAlbumsCount(userId);
+			}
+			else
+			{
+				AlbumList.DataSource = controller.SelectAllAlbumsPage(skip, take);
+				pager1.ItemCount = controller.GetAlbumsCount();
+			}
+			AlbumList.DataBind();
+			pager2.ItemCount = pager1.ItemCount;
         }
 
         protected void btnTest_click(object s, EventArgs e)

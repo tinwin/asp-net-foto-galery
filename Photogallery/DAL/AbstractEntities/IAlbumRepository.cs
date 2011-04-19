@@ -18,5 +18,8 @@ namespace DAL.AbstractEntities
         int GetAlbumsCount();
         IEnumerable<IAlbum> SelectAlbums(int skip, int take);
 
+		int GetAlbumsCount(Guid userId);
+		IEnumerable<IAlbum> SelectAlbums(Guid userId, int skip, int take);
+
     }
 }

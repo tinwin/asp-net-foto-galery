@@ -131,5 +131,27 @@ namespace DAL.EFDataProvider.Repositories
                 albums.Add(new AlbumAdapter(entity));
             return albums;
         }
+
+		public int GetAlbumsCount(Guid userId)
+		{
+			return (from a in _context.AlbumSet
+					where a.Author.UserId == userId 
+					select a).
+					Count();
+		}
+
+		public IEnumerable<IAlbum> SelectAlbums(Guid userId, int skip, int take)
+		{
+			var entities = (from album in _context.AlbumSet
+							where album.Author.UserId == userId
+							orderby album.CreationDate descending
+							select album).
+							Skip(skip).
+							Take(take);
+			var albums = new List<IAlbum>();
+			foreach (var entity in entities)
+				albums.Add(new AlbumAdapter(entity));
+			return albums;
+		}
 	}
 }

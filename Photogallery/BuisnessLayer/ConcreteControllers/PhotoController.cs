@@ -25,6 +25,11 @@ namespace BuisnessLayer.ConcreteControllers
 			return _dataProvider.PhotoRepository.SelectPhotos(albumId, skip, take);
 		}
 
+		public IEnumerable<IPhoto> SelectPhotosPage(Guid userId, int skip, int take)
+		{
+			return _dataProvider.PhotoRepository.SelectPhotos(userId, skip, take);
+		}
+
 		public int GetPhotosCount()
 		{
 			return _dataProvider.PhotoRepository.GetPhotosCount();
@@ -33,6 +38,11 @@ namespace BuisnessLayer.ConcreteControllers
 		public int GetPhotosCount(int albumId)
 		{
 			return _dataProvider.PhotoRepository.GetPhotosCount(albumId);
+		}
+
+		public int GetPhotosCount(Guid userId)
+		{
+			return _dataProvider.PhotoRepository.GetPhotosCount(userId);
 		}
 
 		public IPhoto GetPhotoById(int id)

@@ -50,11 +50,20 @@ namespace WebUI
 			int take = pager1.PageSize;
 
 			int albumId;
+			Guid userId=new Guid();
+			//Show photos from album
 			if (int.TryParse(Request.QueryString["album"], out albumId))
 			{
 				PhotoList.DataSource = _photoController.SelectPhotosPage(albumId, skip, take);
 				pager1.ItemCount = _photoController.GetPhotosCount(albumId);
 			}
+			//Show photos by user
+			if (Utilites.TryParse(Request.QueryString["user"], out userId))
+			{
+				PhotoList.DataSource = _photoController.SelectPhotosPage(userId, skip, take);
+				pager1.ItemCount = _photoController.GetPhotosCount(userId);
+			}
+			//Show all photos
 			else
 			{
 				PhotoList.DataSource = _photoController.SelectPhotosPage(skip, take);

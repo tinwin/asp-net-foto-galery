@@ -97,6 +97,20 @@ namespace DAL.EFDataProvider.Repositories
 			return photos;
 		}
 
+		public IEnumerable<IPhoto> SelectPhotos(Guid userId, int skip, int take)
+		{
+			var entities = (from photo in _context.PhotoSet
+							where photo.Author.UserId == userId
+							orderby photo.AdditionDate descending
+							select photo).
+							Skip(skip).
+							Take(take);
+			List<IPhoto> photos = new List<IPhoto>();
+			foreach (var entity in entities)
+				photos.Add(new PhotoAdapter(entity));
+			return photos;
+		}
+
 		public int GetPhotosCount()
 		{
 			return _context.PhotoSet.Count();
@@ -106,7 +120,14 @@ namespace DAL.EFDataProvider.Repositories
 		{
 			var entities = from photo in _context.PhotoSet
 						   where photo.Album.AlbumId == albumId
-						   orderby photo.AdditionDate descending
+						   select photo;
+			return entities.Count();
+		}
+
+		public int GetPhotosCount(Guid userId)
+		{
+			var entities = from photo in _context.PhotoSet
+						   where photo.Author.UserId == userId
 						   select photo;
 			return entities.Count();
 		}
