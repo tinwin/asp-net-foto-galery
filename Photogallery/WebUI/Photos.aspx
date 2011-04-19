@@ -1,22 +1,13 @@
 <%@ Page MasterPageFile="~/SiteLayout.master" Language="C#" AutoEventWireup="true" CodeBehind="Photos.aspx.cs" Inherits="WebUI.Photos" %>
 <%@ Register Namespace="ASPnetControls" Assembly="ASPnetPagerV2_8" TagPrefix="cc" %>
 
-<asp:Content runat="server" ContentPlaceHolderID="Head">
-	<script type="text/javascript" src="/scripts/photos.js"></script>
-</asp:Content>
-
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
-    <div>
-		<div class="float-left">
-			<cc:PagerV2_8 ID="pager1"
-                  runat="server"  
-                  EnableViewState="false"
-                  OnCommand="pager_Command" />
-		</div>
-		<div class="float-right">
-			<a id="authorModeLink">Author mode</a>
-		</div>
-    </div>
+	<div>
+		<cc:PagerV2_8 ID="pager1"
+              runat="server"  
+              EnableViewState="false"
+              OnCommand="pager_Command" />
+	</div>
     <div>
 		<asp:Repeater ID="PhotoList" runat="server">
 			<ItemTemplate>

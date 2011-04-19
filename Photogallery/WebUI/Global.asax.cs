@@ -39,6 +39,8 @@ namespace WebUI
 					"\nError Message:" + objErr.Message +
 					"\nStack Trace:" + objErr.StackTrace;
 			EventLog.WriteEntry("Sample_WebApp", err, EventLogEntryType.Error);
+			//TODO: Remove output to stdout on deployment
+			Response.Write(err);
 			Server.ClearError();
 		}
 

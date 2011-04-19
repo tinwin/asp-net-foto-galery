@@ -35,10 +35,20 @@ namespace WebUI
 			int skip = (pager1.CurrentIndex - 1) * pager1.PageSize;
 			int take = pager1.PageSize;
 
-			PhotoList.DataSource = controller.SelectPhotosPage(skip, take);
+			int albumId;
+			if (int.TryParse(Request.QueryString["album"], out albumId))
+			{
+				PhotoList.DataSource = controller.SelectPhotosPage(albumId, skip, take);
+				pager1.ItemCount = controller.GetPhotosCount(albumId);
+			}
+			else
+			{
+				PhotoList.DataSource = controller.SelectPhotosPage(skip, take);
+				pager1.ItemCount = controller.GetPhotosCount();
+			}
 			PhotoList.DataBind();
 
-			pager1.ItemCount = controller.GetPhotosCount();
+			
 
 		}
 

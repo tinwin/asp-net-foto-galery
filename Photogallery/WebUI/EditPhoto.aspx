@@ -45,6 +45,7 @@
 	</div>
 	<div class="bottom">
 		<div class="submit">
+			<asp:Button ID="Button2" runat="server" Text="Delete photo" OnClick="Button2_Click" />
 			<asp:Button ID="Button1" runat="server" Text="Save" OnClick="Button1_Click" />
 		</div>
 	</div>

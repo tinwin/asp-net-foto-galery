@@ -83,9 +83,32 @@ namespace DAL.EFDataProvider.Repositories
 			return photos;
 		}
 
+		public IEnumerable<IPhoto> SelectPhotos(int albumId, int skip, int take)
+		{
+			var entities = (from photo in _context.PhotoSet
+							where photo.Album.AlbumId == albumId
+							orderby photo.AdditionDate descending
+							select photo).
+							Skip(skip).
+							Take(take);
+			List<IPhoto> photos = new List<IPhoto>();
+			foreach (var entity in entities)
+				photos.Add(new PhotoAdapter(entity));
+			return photos;
+		}
+
 		public int GetPhotosCount()
 		{
 			return _context.PhotoSet.Count();
+		}
+
+		public int GetPhotosCount(int albumId)
+		{
+			var entities = from photo in _context.PhotoSet
+						   where photo.Album.AlbumId == albumId
+						   orderby photo.AdditionDate descending
+						   select photo;
+			return entities.Count();
 		}
 
 		public void Commit()

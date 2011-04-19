@@ -48,6 +48,36 @@ div.float-right
 	float:right;
 }
 
+div.photoDescription-photo
+{
+	width: 45%;
+	float:left;
+}
+
+div.photoDescription-items
+{
+	width: 45%;
+	float:left;
+}
+
+div.photoDescription-items :nth-child(odd)
+{
+	width: 40%;
+	float:left;
+	padding-bottom:5px;
+}
+	
+div.photoDescription-items :nth-child(even)
+{
+	width: 40%;
+	float:left;
+	padding-bottom:5px;
+}
+
+div.photoDescription
+{
+	overflow: auto;
+}
 div.AlbumListItem
 {
 	font-family:Calibri; 
@@ -76,4 +106,4 @@ div.AlbumListItemContainer
 {
 	padding-bottom:10px;
 	
-	
+}

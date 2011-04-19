@@ -99,11 +99,7 @@ namespace WebUI
 
 				//Images, if photo has been uploaded
 				if (PhotoFile.FileContent.Length > 0)
-				{
 					photo.OriginalPhoto = new Bitmap(PhotoFile.FileContent);
-					photo.OptimizedPhoto = new Bitmap(PhotoFile.FileContent);
-					photo.PhotoThumbnail = new Bitmap(PhotoFile.FileContent);
-				}
 				//Now, update photo and commit changes for tags initialization
 				photo = _photoController.AddOrUpdate(photo);
 				
@@ -126,6 +122,18 @@ namespace WebUI
 				_photoController.AddOrUpdate(photo);
 			}
 
+		}
+
+		/// <summary>
+		/// Remove photo
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		protected void Button2_Click(object sender, EventArgs e)
+		{
+			int photoId = int.Parse(PhotoId.Value);
+			_photoController.DeletePhotoById(photoId);
+			Response.Redirect("/Photos.aspx");
 		}
 	}
 }

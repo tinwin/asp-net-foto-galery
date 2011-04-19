@@ -99,13 +99,19 @@ namespace DAL.EFDataProvider.Adapters
         }
 
         private IGalleryUser _owningUser;
+		private bool _isOwningUserLoaded;
 
         public IGalleryUser OwningUser
         {
             get
             {
-                if (_owningUser == null)
-                    _owningUser = new UserAdapter(_photo.Author);
+				if (!_photo.AuthorReference.IsLoaded)
+					_photo.AuthorReference.Load();
+				if (!_isOwningUserLoaded)
+				{
+					_owningUser = new UserAdapter(_photo.Author);
+					_isOwningUserLoaded = true;
+				}
                 return _owningUser;
             }
             set { _owningUser = value; }
