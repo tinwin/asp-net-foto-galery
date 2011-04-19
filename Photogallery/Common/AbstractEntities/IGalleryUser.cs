@@ -21,7 +21,7 @@ namespace Photogallery
 
         string UserMail { get; set; } 
         
-        IEnumerable<IAlbum> Albums { get; set; }
+        IEnumerable<IAlbum> Albums { get; }
 
         IEnumerable<IComment> UserComments { get; }
 
