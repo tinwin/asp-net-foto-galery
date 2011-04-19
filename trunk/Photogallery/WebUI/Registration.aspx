@@ -1,11 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="WebUI.Registration" MasterPageFile="~/SiteLayout.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<asp:Label ID="Label1" runat="server" Text="Label" Visible="false" >User hasn`t been created</asp:Label>
-<div>for password and login only thre-nine symbols "a-zA-Z_0-9.-" are acceptable </div>   
-   
+  <asp:Label ID="Label1" runat="server" Text="Label" Visible="false">user hasn`t been created</asp:Label>
     
-<table>
+    <table>
     
     <tr>
         <td>Login:</td>
