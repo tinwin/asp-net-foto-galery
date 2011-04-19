@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace Photogallery 
 {
+    
+    
     public class Album:IAlbum 
     {
         public int AlbumId { get; set; }

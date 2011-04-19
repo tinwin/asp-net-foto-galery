@@ -11,6 +11,6 @@
 namespace WebUI {
     
     
-    public partial class Photo {
+    public partial class AboutUser {
     }
 }

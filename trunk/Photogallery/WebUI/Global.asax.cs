@@ -30,7 +30,7 @@ namespace WebUI
 		{
 
 		}
-
+        /*
 		protected void Application_Error(object sender, EventArgs e)
 		{
 			Exception objErr = Server.GetLastError().GetBaseException();
@@ -42,7 +42,7 @@ namespace WebUI
 			//TODO: Remove output to stdout on deployment
 			Response.Write(err);
 			Server.ClearError();
-		}
+		}*/
 
 		protected void Session_End(object sender, EventArgs e)
 		{
