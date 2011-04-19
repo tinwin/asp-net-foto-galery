@@ -68,6 +68,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Albums.aspx.cs">
+      <DependentUpon>Albums.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Albums.aspx.designer.cs">
+      <DependentUpon>Albums.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAlbum.aspx.cs">
+      <DependentUpon>EditAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAlbum.aspx.designer.cs">
+      <DependentUpon>EditAlbum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditPhoto.aspx.cs">
       <DependentUpon>EditPhoto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,6 +110,13 @@
       <DependentUpon>Photos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SiteLayout.Master.cs">
       <DependentUpon>SiteLayout.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,10 +147,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Albums.aspx" />
+    <Content Include="EditAlbum.aspx" />
     <Content Include="EditPhoto.aspx" />
     <Content Include="GetImage.ashx" />
     <Content Include="Global.asax" />
+    <Content Include="Pager\ASPnetPagerV2_8.dll" />
+    <Content Include="Pager\ASPnetPagerV2_8.pdb" />
     <Content Include="Photo.aspx" />
+    <Content Include="Registration.aspx" />
     <Content Include="styles\style.css" />
     <Content Include="styles\style2.css" />
   </ItemGroup>

@@ -12,11 +12,13 @@
 			<asp:TextBox ID="PhotoTitle" runat="server" />
 		</div>
 		<div>
+		<h5>
 			<asp:Label ID="label1"
 					   runat="server"
-					   AssociatedControlId="PhotoTitle" 
+					   AssociatedControlId="PhotoDescription" 
 					   Text="Description" />
-			<asp:TextBox ID="PhotoDescription" runat="server" TextMode="MultiLine" />
+	</h5>
+			<asp:TextBox Width="317px" Height="150px" ID="PhotoDescription" runat="server" TextMode="MultiLine" />
 		</div>
 		<div>
 			<fieldset>

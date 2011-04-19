@@ -17,13 +17,13 @@
 #editPhotoContainer .left
 {
 	float:left;
-	width:60%;
+	width:70%;
 }
 
 #editPhotoContainer .right
 {
 	float:left;
-	width: 30%;
+	width: 25%;
 }
 
 #editPhotoContainer .bottom
@@ -106,4 +106,32 @@ div.AlbumListItemContainer
 {
 	padding-bottom:10px;
 	
+}
+
+#photos div.item
+{
+	float: left;
+	width: 30%;
+	text-align: center;
+	margin-left: 5px;
+}
+
+#photos :nth-child(3n+1)
+{
+	clear:both;
+}
+
+#photos div.item div.toolbar
+{
+	position: relative; 
+	top: 70px;
+	left: 108px;
+	text-align:left;
+}
+
+#photos div.item div.toolbar img
+{
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
 }

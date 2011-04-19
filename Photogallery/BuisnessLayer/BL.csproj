@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractControllers\IAlbumController.cs" />
+    <Compile Include="AbstractControllers\IEnvironment.cs" />
     <Compile Include="AbstractControllers\IPhotoController.cs" />
     <Compile Include="AbstractControllers\ITagController.cs" />
     <Compile Include="AbstractControllers\IUserController.cs" />
@@ -65,9 +66,11 @@
     <Compile Include="BuisnessEntities\Photo.cs" />
     <Compile Include="BuisnessEntities\Tag.cs" />
     <Compile Include="ConcreteControllers\AlbumController.cs" />
+    <Compile Include="ConcreteControllers\AspNetEnvironment.cs" />
     <Compile Include="ConcreteControllers\PhotoController.cs" />
     <Compile Include="ConcreteControllers\TagController.cs" />
     <Compile Include="ConcreteControllers\UserController.cs" />
+    <Compile Include="FakeComponents\FakeEnvironment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

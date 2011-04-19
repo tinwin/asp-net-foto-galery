@@ -9,5 +9,6 @@ namespace BuisnessLayer.AbstractControllers
 	public interface IUserController
 	{
 		IGalleryUser GetUserByGuid(Guid guid);
+		IGalleryUser GetUserByName(string name);
 	}
 }

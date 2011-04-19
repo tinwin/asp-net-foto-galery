@@ -6,15 +6,29 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BuisnessLayer.AbstractControllers;
 using BuisnessLayer.ConcreteControllers;
+using Common;
+using Photogallery;
 
 namespace WebUI
 {
 	public partial class Photos : System.Web.UI.Page
 	{
-		IPhotoController controller = new PhotoController();
+		readonly IPhotoController _photoController = Windsor.Instance.Resolve<IPhotoController>();
+		readonly IEnvironment _environment = Windsor.Instance.Resolve<IEnvironment>();
+
+		Guid _currentUserId;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			_currentUserId = (_environment.CurrentClient == null) ? Guid.Empty : _environment.CurrentClient.UserId;
+			PhotoList.ItemDataBound += (s, ee) =>
+           	{
+				var toolbar = ee.Item.FindControl("PhotoToolbar");
+				var dataItem = ee.Item.DataItem as IPhoto;
+				if (dataItem.OwningUser.UserId != _currentUserId)
+					toolbar.Visible = false;
+           	};
+
 			if (!IsPostBack)
 			{
 				BindRepeater();
@@ -38,13 +52,13 @@ namespace WebUI
 			int albumId;
 			if (int.TryParse(Request.QueryString["album"], out albumId))
 			{
-				PhotoList.DataSource = controller.SelectPhotosPage(albumId, skip, take);
-				pager1.ItemCount = controller.GetPhotosCount(albumId);
+				PhotoList.DataSource = _photoController.SelectPhotosPage(albumId, skip, take);
+				pager1.ItemCount = _photoController.GetPhotosCount(albumId);
 			}
 			else
 			{
-				PhotoList.DataSource = controller.SelectPhotosPage(skip, take);
-				pager1.ItemCount = controller.GetPhotosCount();
+				PhotoList.DataSource = _photoController.SelectPhotosPage(skip, take);
+				pager1.ItemCount = _photoController.GetPhotosCount();
 			}
 			PhotoList.DataBind();
 
