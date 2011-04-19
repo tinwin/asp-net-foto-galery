@@ -11,7 +11,7 @@ namespace DAL.AbstractEntities
     public interface IGalleryUserRepository
     {
         
-        MembershipProvider MembershipUserProvider { get; set; } 
+    
         
         string[] GalleryRoles { get; }
 
@@ -22,10 +22,10 @@ namespace DAL.AbstractEntities
         IGalleryUser GetUserByName(string name); 
 
         void UpdateUser(IGalleryUser user);
-        void UpdateUser(Guid userId, string name, string mail, string role, string desription);
+        void UpdateUser(Guid userId, string name, string mail, string role);
 
         bool UserExists(string name);
-
+        bool UserMailExists(string name);
         void DeleteUserByName(string name);
         
         IEnumerable<IGalleryUser> GetAllUsers();
