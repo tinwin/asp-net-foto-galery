@@ -9,6 +9,7 @@ namespace WebUI
     {
         private IUserController _userController = Windsor.Instance.Resolve<IUserController>();
 		private readonly IAlbumController _albumController = Windsor.Instance.Resolve<IAlbumController>();
+		private readonly IEnvironment _environment = Windsor.Instance.Resolve<IEnvironment>();
 
         protected void Page_Load(object sender, EventArgs e)
 		{
@@ -45,7 +46,7 @@ namespace WebUI
 
                 //Common properties
                 //TODO: implement owner and album initialization
-                album.User = _userController.GetUserByGuid(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
+				album.User = _environment.CurrentClient; 
                 album.Title = AlbumTitle.Text;
                 album.Description = AlbumDescription.Text;
 
