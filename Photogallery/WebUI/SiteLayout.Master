@@ -23,43 +23,84 @@
 
 <div id="container">
 	<!-- Begin Masthead -->
-	<div id="masthead">
-		<h1>ASP.NET photogallery</h1>
-		<h3>Softserve project</h3>
-	</div>
-	<!-- End Masthead -->
-	<!-- Begin Navigation -->
-
-	<div id="navigation">
-		<ul>
-			<li><a href="/default.aspx">Home</a></li>
-			<li><a href="/photos.aspx">Photos</a></li>
-			<li><a href="/authors.aspx">Authors</a></li>
-		</ul>
-		<p>&nbsp;</p>
-		<p>&nbsp;</p>
-		<p>&nbsp;</p>
-
-		<p>&nbsp;</p>
-	</div>
-	<!-- End Navigation -->
-	<!-- Begin Content -->
-	<div id="content">
-	    <form id="Form1" method="post" runat="server" enctype="multipart/form-data">
-			<asp:ContentPlaceHolder ID="MainContent" runat="server" />
-	    </form>
+    <div id="masthead">
+        <h1>ASP.NET photogallery</h1>
+        <h3>Softserve project</h3>
     </div>
-	<!-- End Content -->
-	<!-- Begin Footer -->
-	<div id="footer">
-		<p><a href="default.htm">Home</a> | <a href="about/about.htm">About</a> |
-		<a href="news/news.htm">News</a> | <a href="calendar/calendar.htm">Calendar</a> 
-		| <a href="photo_gallery/photo_gallery.htm">Photo Gallery</a> |
-		<a href="information_links/information_links.htm">Links</a> |
-		<a href="faq/faq.htm">FAQ</a> | <a href="contact/contact.htm">Contact</a></p>
+    <!-- End Masthead -->
+	<form id="Form1" method="post" runat="server" enctype="multipart/form-data">
+	    <table id="innerContainer">
+	        <tr>
+    	        
+	            <!-- Begin Navigation -->
 
+	            <td id="navigation">
+		            <ul>
+			            <li><a href="/default.aspx">Home</a></li>
+			            <li><a href="/photos.aspx">Photos</a></li>
+			            <li><a href="/authors.aspx">Authors</a></li>
+		            </ul>
+		            <p>&nbsp;</p>
+		            <p>&nbsp;</p>
+		            <p>&nbsp;</p>
+
+
+		            <p>&nbsp;</p>
+	            </td>
+	            <!-- End Navigation -->
+	            <!-- Begin Content -->
+	            <td id="content">
+	                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </td>
+	            <!-- End Content -->
+	            <td id="registration">
+                     
+                  
+                  <asp:LoginView ID="LoginView1" runat="server" >                             
+                        <AnonymousTemplate>
+                            <asp:Login ID="Login1" runat="server" 
+                                                    LoginButtonText="Enter" 
+                                                    FailureText="Wrong login or password" 
+                                                    RememberMeText ="RememberMe"
+                                                    UserNameLabelText = "login"
+                                                    PasswordLabelText="password"
+                                                    TitleString=""
+                            >
+                            </asp:Login>
+                            <asp:HyperLink ID="Register" NavigateUrl="Registration.aspx" Text="Registration" CssClass="Link"    runat="server">Registration</asp:HyperLink>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>                 
+                            <asp:LoginName ID="LoginName1" runat="server" FormatString="Welcome,{0}" />                       
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Exit" LogoutAction="Refresh"   />
+                            <asp:HyperLink ID="RoomLink" runat="server" NavigateUrl="Room.aspx" CssClass ="Link" >Private Room </asp:HyperLink>                          
+                        </LoggedInTemplate>
+                         <RoleGroups>
+                            <asp:RoleGroup Roles="admin"> 
+                                <ContentTemplate >
+                                    <asp:HyperLink ID="AdminRoomLink" runat="server" NavigateUrl="AdminRoom.aspx" CssClass ="Link"> Admin Room</asp:HyperLink> 
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>     
+                   </asp:LoginView> 
+                     
+                  
+	            </td>
+    	       
+            </tr>
+           
+            
+        </table>
+      </form>
+      <!-- Begin Footer -->
+        <div id="footer">
+            <p><a href="default.htm">Home</a> | <a href="about/about.htm">About</a> |
+            <a href="news/news.htm">News</a> | <a href="calendar/calendar.htm">Calendar</a> 
+            | <a href="photo_gallery/photo_gallery.htm">Photo Gallery</a> |
+            <a href="information_links/information_links.htm">Links</a> |
+            <a href="faq/faq.htm">FAQ</a> | <a href="contact/contact.htm">Contact</a></p>
+
+        <!-- End Footer -->
 	</div>
-	<!-- End Footer --></div>
 <!-- End Container -->
 
 </body>
