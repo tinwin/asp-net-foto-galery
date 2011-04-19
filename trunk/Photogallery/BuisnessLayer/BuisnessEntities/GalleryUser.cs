@@ -25,11 +25,7 @@ namespace Photogallery
 
         public string UserMail { get; set; }
 
-    	public IEnumerable<IAlbum> Albums
-    	{
-    		get { throw new NotImplementedException(); }
-    		set { throw new NotImplementedException(); }
-    	}
+    	
 
     	public string Username { get; set; }
         
@@ -54,7 +50,10 @@ namespace Photogallery
         }
 
         
-        
+        public IEnumerable<IAlbum > Albums
+        {
+            get { return null; }
+        }
         
         public string Description { get; set; }
 
