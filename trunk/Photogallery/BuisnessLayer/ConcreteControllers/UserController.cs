@@ -16,5 +16,11 @@ namespace BuisnessLayer.ConcreteControllers
 			var provider = Windsor.Instance.Resolve<IAbstractGalleryProvider>();
 			return provider.GalleryUserRepository.GetUserById(guid);
 		}
+
+		public IGalleryUser GetUserByName(string name)
+		{
+			var provider = Windsor.Instance.Resolve<IAbstractGalleryProvider>();
+			return provider.GalleryUserRepository.GetUserByName(name);
+		}
 	}
 }

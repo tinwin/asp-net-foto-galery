@@ -8,10 +8,14 @@
               EnableViewState="false"
               OnCommand="pager_Command" />
 	</div>
-    <div>
+    <div id="photos">
 		<asp:Repeater ID="PhotoList" runat="server">
 			<ItemTemplate>
-				<div style="float: left; width:30%">
+				<div class="item">
+					<div id="PhotoToolbar" runat="server" class="toolbar">
+						<a href="/EditPhoto.aspx?id=<%# DataBinder.Eval(Container.DataItem, "PhotoId")%>">
+						<img width="10px" height="10px" alt="Edit" title="Edit" src="/images/Edit.gif"/></a>
+					</div>
 					<a href="/Photo.aspx?id=<%# DataBinder.Eval(Container.DataItem, "PhotoId")%>">
 						<img title="<%# DataBinder.Eval(Container.DataItem, "PhotoTitle")%>"
 							 alt="<%# DataBinder.Eval(Container.DataItem, "PhotoTitle")%>"

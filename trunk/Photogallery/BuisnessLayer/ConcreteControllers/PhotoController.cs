@@ -12,13 +12,9 @@ namespace BuisnessLayer.ConcreteControllers
 {
 	public class PhotoController:IPhotoController
 	{
-		private IAbstractGalleryProvider _dataProvider;
-
-		public PhotoController()
-		{
-			_dataProvider = Windsor.Instance.Resolve<IAbstractGalleryProvider>();
-		}
-
+		private readonly IAbstractGalleryProvider _dataProvider = Windsor.Instance.Resolve<IAbstractGalleryProvider>();
+		private readonly IEnvironment _environment = Windsor.Instance.Resolve<IEnvironment>();
+		
 		public IEnumerable<IPhoto> SelectPhotosPage(int skip, int take)
 		{
 			return _dataProvider.PhotoRepository.SelectPhotos(skip, take);
@@ -64,9 +60,13 @@ namespace BuisnessLayer.ConcreteControllers
 		/// <returns></returns>
 		public IPhoto AddOrUpdate(IPhoto photo)
 		{
+			//Update action. Check user rights
+			if (photo.PhotoId > 0)
+				if (_environment.CurrentClient.UserId != photo.OwningUser.UserId)
+					throw new InvalidOperationException("User can edit only his own photos. Updating has been failed.");
+
 			//TODO: Implement all images generation
-			photo.OptimizedPhoto = photo.PhotoThumbnail = photo.OriginalPhoto;           
-                      
+			photo.OptimizedPhoto = photo.PhotoThumbnail = photo.OriginalPhoto;
 
 			var saved = _dataProvider.PhotoRepository.UpdatePhoto(photo);
 			_dataProvider.PhotoRepository.Commit();

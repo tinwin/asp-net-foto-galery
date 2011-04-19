@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using BuisnessLayer.AbstractControllers;
-using BuisnessLayer.ConcreteControllers;
 using Common;
-using DAL.AbstractEntities;
 using Photogallery;
 
 namespace WebUI
 {
 	public partial class EditPhoto : System.Web.UI.Page
 	{
-		private IPhotoController _photoController = Windsor.Instance.Resolve<IPhotoController>();
-		private ITagController _tagController = Windsor.Instance.Resolve<ITagController>();
-		private IUserController _userController = Windsor.Instance.Resolve<IUserController>();
-		private IAlbumController _albumController = Windsor.Instance.Resolve<IAlbumController>();
+		private readonly IPhotoController _photoController = Windsor.Instance.Resolve<IPhotoController>();
+		private readonly ITagController _tagController = Windsor.Instance.Resolve<ITagController>();
+		private readonly IUserController _userController = Windsor.Instance.Resolve<IUserController>();
+		private readonly IAlbumController _albumController = Windsor.Instance.Resolve<IAlbumController>();
+		private readonly IEnvironment _environment = Windsor.Instance.Resolve<IEnvironment>();
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -27,7 +24,9 @@ namespace WebUI
 			{
 				int photoId;
 				var allTags = _tagController.GetAllTags();
-				var user = _userController.GetUserByGuid(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
+				var user = _environment.CurrentClient;
+				if (user==null)
+					throw new InvalidOperationException("Photo can't be edited if user is unidentified");
 				var allAlbums = _albumController.SelectAlbumsByUserId(user.UserId);
 
 				AlbumsList.DataSource = allAlbums;
@@ -39,10 +38,14 @@ namespace WebUI
 				{
 					IPhoto photo = _photoController.GetPhotoById(photoId);
 
+					if (photo == null)
+						throw new HttpException(404, "Photo with specified ID hasn't been found");
+
 					PhotoId.Value = photo.PhotoId.ToString();
 					PhotoTitle.Text = photo.PhotoTitle;
 					PhotoDescription.Text = photo.PhotoDescription;
-					PhotoImage.Src += photo.PhotoId;
+					//Add pseudo-random number to url for prevent cache using
+					PhotoImage.Src += photo.PhotoId + "&amp;rand=" + DateTime.Now.ToFileTime();
 
 					int i = 0;
 					foreach (var item in AlbumsList.DataSource as IEnumerable<IAlbum>)
@@ -64,6 +67,7 @@ namespace WebUI
 				}
 				else
 				{
+					Button2.Visible = false;
 					foreach (var tag in allTags)
 						TagsList.Items.Add(new ListItem
 						{
@@ -92,7 +96,7 @@ namespace WebUI
 
 				//Common properties
 				//TODO: implement owner and album initialization
-				photo.OwningUser = _userController.GetUserByGuid(new Guid("29d25edd-7279-4a94-87b7-874c4b34827c"));
+				photo.OwningUser = _userController.GetUserByGuid(_environment.CurrentClient.UserId);
 				photo.HostAlbum = _albumController.GetAlbumById(int.Parse(AlbumsList.SelectedValue));
 				photo.PhotoTitle = PhotoTitle.Text;
 				photo.PhotoDescription = PhotoDescription.Text;

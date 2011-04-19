@@ -124,7 +124,10 @@ namespace DAL.EFDataProvider.Repositories
 
     	public IGalleryUser GetUserByName(string name)
         {
-            return new UserAdapter(_context.UserSet.Where(p => p.aspnet_Users.LoweredUserName  == name.ToLower( )).FirstOrDefault());
+			var user = _context.UserSet.Where(p =>
+				p.aspnet_Users.LoweredUserName == name.ToLower()).
+				FirstOrDefault();
+			return (user == null) ? null : new UserAdapter(user);
         }
 
      
