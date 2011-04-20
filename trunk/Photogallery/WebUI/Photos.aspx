@@ -1,6 +1,8 @@
 <%@ Page MasterPageFile="~/SiteLayout.master" Language="C#" AutoEventWireup="true" CodeBehind="Photos.aspx.cs" Inherits="WebUI.Photos" %>
 <%@ Register Namespace="ASPnetControls" Assembly="ASPnetPagerV2_8" TagPrefix="cc" %>
 
+<asp:Content ContentPlaceHolderID="Title"  runat="server">Photos</asp:Content>
+
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
 	<div>
 		<cc:PagerV2_8 ID="pager1"

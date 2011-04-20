@@ -1,6 +1,8 @@
 ﻿<%@ Page MasterPageFile="~/SiteLayout.master" Language="C#" AutoEventWireup="true" CodeBehind="Albums.aspx.cs" Inherits="WebUI.Albums" %>
 <%@ Register Namespace="ASPnetControls" Assembly="ASPnetPagerV2_8" TagPrefix="cc" %>
 
+<asp:Content ContentPlaceHolderID="Title"  runat="server">Albums</asp:Content>
+
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MainContent">
     
     <cc:PagerV2_8 ID="pager1"

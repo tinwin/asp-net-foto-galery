@@ -1,5 +1,5 @@
 ﻿<%@ Page MasterPageFile="~/SiteLayout.master" Language="C#" AutoEventWireup="true" CodeBehind="EditAlbum.aspx.cs" Inherits="WebUI.EditAlbum" %>
-
+<asp:Content ContentPlaceHolderID="Title"  runat="server">Edit Album</asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MainContent">
 	<div id="editPhotoContainer">
 	<div class="left">

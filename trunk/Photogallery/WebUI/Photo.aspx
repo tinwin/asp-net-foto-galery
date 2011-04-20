@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Photo.aspx.cs" Inherits="WebUI.Photo" MasterPageFile="~/SiteLayout.master" %>
 <%@ Register Namespace="ASPnetControls" Assembly="ASPnetPagerV2_8" TagPrefix="cc" %>
-
+<asp:Content ContentPlaceHolderID="Title"  runat="server">Photo</asp:Content>
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
 <div class="photoDescription">
 	<div class="photoDescription-photo">

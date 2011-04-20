@@ -57,6 +57,7 @@ namespace WebUI
 				PhotoList.DataSource = _photoController.SelectPhotosPage(albumId, skip, take);
 				pager1.ItemCount = _photoController.GetPhotosCount(albumId);
 			}
+			else
 			//Show photos by user
 			if (Utilites.TryParse(Request.QueryString["user"], out userId))
 			{
