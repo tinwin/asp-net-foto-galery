@@ -28,13 +28,18 @@ namespace DAL.EFDataProvider.Adapters
         }
 
         private IGalleryUser _author;
+		private bool _isAuthorLoaded;
 
         public IGalleryUser Author
         {
             get
             {
-                if (_author == null)
-                    _author = new UserAdapter(_comment.Author);
+				if (!_isAuthorLoaded)
+				{
+					_comment.AuthorReference.Load();
+					_author = new UserAdapter(_comment.Author);
+					_isAuthorLoaded = true;
+				}
                 return _author;
             }
             set { _author = value; }

@@ -17,6 +17,10 @@ namespace Photogallery
 
         IEnumerable<IComment> PhotoComments { get; set; }
 
+		int CommentsCount { get; }
+
+		IEnumerable<IComment> GetPhotoCommentsPage(int skip, int take);
+
         IEnumerable<ITag> PhotoTags { get; set; }
 
         IGalleryUser OwningUser { get; set; }

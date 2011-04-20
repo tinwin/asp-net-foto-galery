@@ -82,7 +82,27 @@ namespace DAL.EFDataProvider.Adapters
         internal List<ITag> _tags = new List<ITag>();
 		private bool _isTagsLoaded;
 
-        public IEnumerable<ITag> PhotoTags
+		public int CommentsCount
+		{
+			get { return _photo.Comments.Count(); }
+		}
+
+		public IEnumerable<IComment> GetPhotoCommentsPage(int skip, int take)
+		{
+			_photo.Comments.Load();
+			var page = (from comment in  _photo.Comments
+						orderby comment.AdditionDate descending 
+						select comment).
+						Skip(skip).
+						Take(take);
+			List<IComment> adaptedPage = new List<IComment>();
+
+			foreach(var comment in page)
+				adaptedPage.Add(new CommentAdapter(comment));
+			return adaptedPage;
+		}
+
+		public IEnumerable<ITag> PhotoTags
         {
             get
 			{
@@ -220,6 +240,7 @@ namespace DAL.EFDataProvider.Adapters
 
 			foreach (var tag in _tagsToRemove)
 				_photo.Tags.Remove((tag as TagAdapter)._tag);
+			_photo.AlbumReference.Load();
 			if (_photo.Album.AlbumId != HostAlbum.AlbumId)
 				_photo.Album = context.AlbumSet.Where(a => a.AlbumId == _hostAlbum.AlbumId).First();
 		}

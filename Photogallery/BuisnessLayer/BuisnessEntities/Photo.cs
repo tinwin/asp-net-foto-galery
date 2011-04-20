@@ -33,7 +33,17 @@ namespace Photogallery
         }
 
 
-        public IEnumerable<ITag> PhotoTags { get; set; }
+    	public int CommentsCount
+    	{
+    		get { throw new NotImplementedException(); }
+    	}
+
+    	public IEnumerable<IComment> GetPhotoCommentsPage(int skip, int take)
+    	{
+    		throw new NotImplementedException();
+    	}
+
+    	public IEnumerable<ITag> PhotoTags { get; set; }
        
 
       
