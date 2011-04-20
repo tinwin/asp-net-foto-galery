@@ -13,7 +13,11 @@ namespace WebUI
 
 		protected void Application_Start(object sender, EventArgs e)
 		{
-
+		    string[] roles = Roles.GetAllRoles();
+            if(!roles.Contains("user"))
+                Roles.CreateRole("user");
+            if (!roles.Contains("admin"))
+                Roles.CreateRole("admin");
 		}
 
 		protected void Session_Start(object sender, EventArgs e)
