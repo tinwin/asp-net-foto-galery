@@ -68,6 +68,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUser.aspx.cs">
+      <DependentUpon>AboutUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUser.aspx.designer.cs">
+      <DependentUpon>AboutUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddPhoto.aspx.cs">
+      <DependentUpon>AddPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPhoto.aspx.designer.cs">
+      <DependentUpon>AddPhoto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminRoom.aspx.cs">
+      <DependentUpon>AdminRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminRoom.aspx.designer.cs">
+      <DependentUpon>AdminRoom.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Albums.aspx.cs">
       <DependentUpon>Albums.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,6 +169,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUser.aspx" />
+    <Content Include="AddPhoto.aspx" />
+    <Content Include="AdminRoom.aspx" />
     <Content Include="Albums.aspx" />
     <Content Include="EditAlbum.aspx" />
     <Content Include="EditPhoto.aspx" />

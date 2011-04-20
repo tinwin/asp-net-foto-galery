@@ -135,3 +135,40 @@ div.AlbumListItemContainer
 	margin: 0px;
 	padding: 0px;
 }
+
+div.comments-item
+{
+	padding-bottom: 15px
+}
+
+div.comments-item span.author
+{
+	display:inline-block;
+	padding-right: 15px;
+	font-weight:bold;
+}
+
+div.comments-item span.date
+{
+	display:inline-block;
+	font-style:italic;
+}
+
+div.comments-item div.text
+{
+	padding-top:5px;
+}
+
+div.photo-description
+{
+	text-align:center;
+}
+
+hr
+{
+	color: #5F8EA9; /*для IE */
+    background-color:#5F8EA9; /*для Firefox, Opera, Safari*/
+    border:0px none;
+    height:1px; /* высота 1px IE, Firefox, Opera, Safari */
+    clear:both; /* для очистки, если тег идет после float елемента */
+}
