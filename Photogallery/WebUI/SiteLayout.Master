@@ -8,7 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- #BeginEditable "doctitle" -->
-<title>Home</title>
+<title>
+<asp:ContentPlaceHolder ID="Title" runat="server" />
+</title>
 <link href="styles/style.css" rel="stylesheet" type="text/css" />
 <!-- #EndEditable -->
 <link href="styles/style2.css" rel="stylesheet" type="text/css" />

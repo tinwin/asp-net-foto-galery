@@ -57,6 +57,7 @@ namespace WebUI
                 }
                 else
                     _albumController.AddNew(album);
+				Response.Redirect("/Albums.aspx?user=" + _environment.CurrentClient.UserId);
                     
             }
         }
