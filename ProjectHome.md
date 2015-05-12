@@ -1,0 +1,1 @@
+Simple foto gallery based on ASP.NET technology
